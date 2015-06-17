@@ -25,3 +25,11 @@ proguard/
 
 # Log Files
 *.log
+
+# Intellij IDEA
+.idea
+*.iml
+/local.properties
+.DS_Store
+*.iws
+
