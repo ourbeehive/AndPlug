@@ -1,1 +1,1 @@
-include ':App', ':BaiduLoc', ':BaiduMap'
+include ':App', ':BaiduLoc', ':BaiduMap', ':UmengFeedback'
