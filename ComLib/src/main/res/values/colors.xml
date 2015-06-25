@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- text color -->
+    <color name="normal_text_color">#ff353535</color>
+    <color name="normal_text_color_disabled">#7f353535</color>
+    <color name="white_color">@android:color/white</color>
+    <color name="white_color_disabled">#7fffffff</color>
+    <color name="text_color_clickable">#ff0b61d8</color>
+
+    <color name="bg_light">#ffefefef</color>
+    <color name="bg_light_selected">#ffdddddd</color>
+
+    <!-- button color -->
+    <color name="btn_blue_normal">#ff4c88db</color>
+    <color name="btn_blue_pressed">#ff2567c1</color>
+    <color name="btn_blue_disabled">#ee75a1dd</color>
+
+    <color name="btn_green_normal">#ff28b075</color>
+    <color name="btn_green_pressed">#ff57ff7b</color>
+    <color name="btn_green_disabled">#ee83dd84</color>
+
+    <color name="btn_red_normal">#ffd74141</color>
+    <color name="btn_red_pressed">#ffff4f1f</color>
+    <color name="btn_red_disabled">#eeddafa9</color>
+
+    <color name="btn_grey_normal">#ffcdcbd0</color>
+    <color name="btn_grey_pressed">#ffd2d5d9</color>
+    <color name="btn_grey_disabled">#eed2d5d9</color>
+
+    <color name="white_pressed">#ffd5d5d5</color>
+
+</resources>

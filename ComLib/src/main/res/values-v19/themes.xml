@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!--
+        Base application theme for API 19+. This theme completely replaces
+        AppBaseTheme from res/values-vxx/styles.xml on API 19+ devices.
+    -->
+	<style name="BaseTheme.TranslucentKitKatStatusBar" parent="BaseTheme">
+		<item name="android:windowTranslucentStatus">true</item>
+		<item name="android:windowTranslucentNavigation">false</item>
+	</style>
+
+</resources>

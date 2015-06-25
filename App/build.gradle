@@ -27,5 +27,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    compile project(':ComLib')
+    compile project(':UniversalImage')
+    compile project(':UmengFeedback')
+    compile project(':UmengUpdate')
+    compile project(':GetuiPush')
+    compile project(':BaiduLoc')
+    compile project(':BaiduMap')
+    compile project(':VoiceIflytek')
 }

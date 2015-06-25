@@ -25,4 +25,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:appcompat-v7:22.+'
+
+    // KitKat translucent modes
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    // Asynchronous HTTP
+    compile 'com.loopj.android:android-async-http:1.4.7'
+    // JSON Processor
+    compile 'com.alibaba:fastjson:1.1.45.android'
+    // Analytics Umeng
+    compile 'com.umeng.analytics:analytics:latest.integration'
 }

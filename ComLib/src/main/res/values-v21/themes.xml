@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!--
+        Base application theme for API 21+. This theme completely replaces
+        AppBaseTheme from res/values-vxx/styles.xml on API 21+ devices.
+    -->
+	<!--<style name="BaseTheme.TranslucentKitKatStatusBar" parent="BaseTheme">
+		<item name="android:statusBarColor">@android:color/transparent</item>
+	</style>-->
+
+</resources>

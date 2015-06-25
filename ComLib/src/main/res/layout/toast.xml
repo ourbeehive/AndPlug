@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/bg_toast">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_s"
+            android:paddingLeft="@dimen/padding_m"
+            android:paddingRight="@dimen/padding_m"
+            android:paddingTop="@dimen/padding_s">
+
+        <ImageView
+                android:id="@id/toast_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/padding_s"
+                android:layout_marginEnd="@dimen/padding_s"
+                android:scaleType="fitCenter"
+                android:visibility="gone"/>
+
+        <TextView
+                android:id="@id/toast_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_toRightOf="@id/toast_icon"
+                android:layout_toEndOf="@id/toast_icon"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="16.0dip"/>
+    </RelativeLayout>
+
+</FrameLayout>

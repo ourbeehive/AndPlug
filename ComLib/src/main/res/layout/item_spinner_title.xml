@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@android:color/white"
+          android:singleLine="true"
+          android:maxLength="10"
+          android:ellipsize="start"
+          android:textSize="@dimen/abc_text_size_title_material_toolbar"
+          android:paddingRight="@dimen/padding_xs"
+          android:paddingEnd="@dimen/padding_xs"/>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- based on xhdpi -->
+    <!-- text size -->
+    <dimen name="text_size_xs">12.0sp</dimen>
+    <dimen name="text_size_s">14.0sp</dimen>
+    <dimen name="text_size_m">16.0sp</dimen>
+    <dimen name="text_size_l">18.0sp</dimen>
+    <dimen name="text_size_xl">20.0sp</dimen>
+
+    <!-- margin -->
+    <dimen name="margin_xxs">2.0dip</dimen>
+    <dimen name="margin_xs">5.0dip</dimen>
+    <dimen name="margin_s">8.0dip</dimen>
+    <dimen name="margin_m">10.0dip</dimen>
+    <dimen name="margin_l">12.0dip</dimen>
+    <dimen name="margin_xl">16.0dip</dimen>
+    <dimen name="margin_xxl">20.0dip</dimen>
+
+    <!-- padding -->
+    <dimen name="padding_xs">5.0dip</dimen>
+    <dimen name="padding_s">8.0dip</dimen>
+    <dimen name="padding_m">10.0dip</dimen>
+    <dimen name="padding_l">12.0dip</dimen>
+    <dimen name="padding_xl">16.0dip</dimen>
+    <dimen name="padding_xxl">20.0dip</dimen>
+
+    <!-- button -->
+    <dimen name="button_height_s">32.0dip</dimen>
+    <dimen name="button_height_m">48.0dip</dimen>
+    <dimen name="button_width_s">48.0dip</dimen>
+    <dimen name="button_width_m">80.0dip</dimen>
+
+    <!-- corner -->
+    <dimen name="corner_small">2dp</dimen>
+    <dimen name="corner_btn">@dimen/corner_small</dimen>
+
+    <dimen name="row_height_m">48.0dip</dimen>
+
+</resources>

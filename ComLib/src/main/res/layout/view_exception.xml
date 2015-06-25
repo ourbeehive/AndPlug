@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/exception_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/normal_text_color"
+            android:text="加载失败，请检查网络"
+            android:textSize="15sp"/>
+
+    <View
+            android:id="@+id/exception_icon"
+            android:layout_width="143dp"
+            android:layout_height="143dp"
+            android:layout_above="@id/exception_message"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_exception_error"/>
+
+    <Button
+            android:id="@+id/exception_button"
+            style="@style/Button.Big.Grey"
+            android:layout_below="@+id/exception_message"
+            android:layout_width="163dp"
+            android:layout_marginTop="23dp"
+            android:text="点击重试"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

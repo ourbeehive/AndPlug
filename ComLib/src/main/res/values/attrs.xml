@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ListRow -->
+    <declare-styleable name="ListRow">
+        <attr name="row_title" format="string|reference"/>
+        <attr name="row_subtitle" format="string|reference"/>
+        <attr name="row_arrow" format="boolean"/>
+        <attr name="row_icon" format="reference"/>
+        <attr name="row_checkbox" format="boolean"/>
+    </declare-styleable>
+
+</resources>

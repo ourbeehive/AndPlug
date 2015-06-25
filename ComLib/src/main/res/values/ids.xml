@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- toolbar -->
+    <item type="id" name="toolbar">false</item>
+    <item type="id" name="toolbar_spinner">false</item>
+    <item type="id" name="toolbar_search_view">false</item>
+
+    <!-- spinner -->
+    <item type="id" name="spinner_icon">false</item>
+    <item type="id" name="spinner_title">false</item>
+
+    <!-- ListRow -->
+    <item type="id" name="row_icon">false</item>
+    <item type="id" name="row_title">false</item>
+    <item type="id" name="row_subtitle">false</item>
+    <item type="id" name="row_checkbox">false</item>
+    <item type="id" name="row_arrow">false</item>
+
+    <!-- Toast -->
+    <item type="id" name="toast_icon">false</item>
+    <item type="id" name="toast_message">false</item>
+
+</resources>

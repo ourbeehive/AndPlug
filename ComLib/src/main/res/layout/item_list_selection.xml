@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:paddingTop="16dp"
+              android:paddingBottom="16dp"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <View
+            android:id="@+id/selection_icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginRight="10dp"/>
+
+    <TextView
+            android:id="@+id/selection_title"
+            android:layout_margin="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="title"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <ImageView
+            android:id="@+id/selection_checked"
+            android:layout_margin="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@drawable/ic_selection_checked"/>
+
+</LinearLayout>
