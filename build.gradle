@@ -27,6 +27,9 @@ ext {
 
 allprojects {
     repositories {
+        // Private Maven Repository
+        // maven { url "http://private_nexus_domain" }
+        // Public Central Repository
         jcenter()
         mavenCentral()
     }

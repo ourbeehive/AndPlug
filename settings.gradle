@@ -1,1 +1,1 @@
-include ':App', ':BaiduLoc', ':BaiduMap', ':UmengFeedback'
+include ':App', ':BaiduLoc', ':BaiduMap', ':UmengFeedback', ':VoiceIflytek', ':UmengUpdate', ':UniversalImage', ':ComLib', ':GetuiPush'
