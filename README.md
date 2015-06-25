@@ -1,4 +1,4 @@
 # AndPlug
 A Practice of Android Modularization
 
-[???](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
+[中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
