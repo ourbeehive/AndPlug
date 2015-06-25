@@ -31,14 +31,14 @@ android {
         release {
             storeFile file("../lean56.jks")
             storePassword "lean56"
-            keyAlias "android.keystore"
+            keyAlias "andplug.keystone"
             keyPassword "lean56"
         }
         debug {
             // with release key
             storeFile file("../lean56.jks")
             storePassword "lean56"
-            keyAlias "android.keystore"
+            keyAlias "andplug.keystone"
             keyPassword "lean56"
         }
     }
