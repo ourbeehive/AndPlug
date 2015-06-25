@@ -1,0 +1,90 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        // android-apt
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+project.archivesBaseName = "AppAA"
+def AAVersion = "3.3.1"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.lean56.andplug.appaa"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    // sign the application
+    // see {http://stackoverflow.com/questions/18328730/how-to-create-a-release-signed-apk-file-using-gradle}
+    signingConfigs {
+        release {
+            storeFile file("../lean56.jks")
+            storePassword "lean56"
+            keyAlias "android.keystore"
+            keyPassword "lean56"
+        }
+        debug {
+            // with release key
+            storeFile file("../lean56.jks")
+            storePassword "lean56"
+            keyAlias "android.keystore"
+            keyPassword "lean56"
+        }
+    }
+
+    productFlavors {
+        official {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibility
+        targetCompatibility rootProject.ext.targetCompatibility
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':ComLib')
+    compile project(':UniversalImage')
+    compile project(':UmengFeedback')
+    compile project(':UmengUpdate')
+    compile project(':GetuiPush')
+    compile project(':BaiduLoc')
+    compile project(':BaiduMap')
+    compile project(':VoiceIflytek')
+
+    // add androidannotations
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName android.defaultConfig.applicationId
+        // logLevel 'TRACE'
+        // logAppenderConsole 'true'
+    }
+}
