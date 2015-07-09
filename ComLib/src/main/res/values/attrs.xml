@@ -10,4 +10,12 @@
         <attr name="row_checkbox" format="boolean"/>
     </declare-styleable>
 
+    <!-- ExceptionView -->
+    <declare-styleable name="ExceptionView">
+        <attr name="exp_msg" format="string|reference"/>
+        <attr name="exp_icon" format="reference"/>
+        <attr name="exp_action_btn_shown" format="boolean"/>
+        <attr name="exp_action_btn_title" format="string|reference"/>
+    </declare-styleable>
+
 </resources>
