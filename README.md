@@ -1,5 +1,5 @@
-# AndPlug
-A Practice of Android Modularization [中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
+# AndPlug-A Practice of Android Modularization [中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
+[![Build Status](https://travis-ci.org/ourbeehive/AndPlug.png?branch=master)](https://travis-ci.org/ourbeehive/AndPlug)
 
 ## App
 App is the demo Android Application for AndPlug, show how to use the module libs and how to setup an App with the modules. [more](https://github.com/ourbeehive/AndPlug/App/blob/master/README_CN.md)
