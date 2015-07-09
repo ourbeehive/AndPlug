@@ -8,7 +8,8 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 /**
  * Keyboard utilities
  *
- * @author Charles
+ * @author Kevin Sawicki <kevinsawicki@gmail.com>
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class KeyboardUtils {
 

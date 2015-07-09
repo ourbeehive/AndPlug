@@ -10,7 +10,7 @@ import android.widget.GridView;
 /**
  * GridView with auto height
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class AutoHeightGridView extends GridView {
 

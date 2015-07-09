@@ -19,6 +19,8 @@ import org.apache.http.HttpStatus;
  * methods anonymously overridden.
  *
  * Additionally, you can override the other event methods from the parent class.
+ *
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class FastJsonHttpResponseHandler extends TextHttpResponseHandler {
 

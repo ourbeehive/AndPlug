@@ -16,10 +16,9 @@ import android.widget.Toast;
 
 /**
  * Base Application
- * <p/>
  * Toast shower
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class BaseApplication extends Application {
 

@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 /**
  * Base Fragment
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class BaseFragment extends Fragment {
 

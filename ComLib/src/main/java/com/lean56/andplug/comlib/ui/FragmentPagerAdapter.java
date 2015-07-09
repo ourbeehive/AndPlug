@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 
 /**
  * Pager adapter that provides the current fragment
+ *
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public abstract class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter implements FragmentProvider {
 

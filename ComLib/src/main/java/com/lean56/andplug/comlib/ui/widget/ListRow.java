@@ -15,7 +15,7 @@ import com.lean56.andplug.comlib.R;
 /**
  * ListRow is used for table row
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class ListRow extends RelativeLayout {
 

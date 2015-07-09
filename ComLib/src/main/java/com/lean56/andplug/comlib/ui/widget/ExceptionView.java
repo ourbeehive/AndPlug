@@ -20,7 +20,7 @@ import com.lean56.andplug.comlib.R;
 /**
  * Exception View
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public class ExceptionView extends RelativeLayout {
 

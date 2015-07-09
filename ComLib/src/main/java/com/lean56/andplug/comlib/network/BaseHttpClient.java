@@ -16,7 +16,7 @@ import org.apache.http.entity.ByteArrayEntity;
  * 0. static method for common define
  * 1. post/get/put/delete method
  *
- * @author Charles
+ * @author Charles <zhangchaoxu@gmail.com>
  */
 public abstract class BaseHttpClient {
     protected final static String CONTENT_TYPE_JSON = "application/json";
