@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- primary color -->
+    <color name="color_primary">#ff0178d9</color>
+    <color name="color_primary_dark">#ff0178d9</color>
+    <color name="color_accent">#ff0178d9</color>
+
     <!-- text color -->
     <color name="normal_text_color">#ff353535</color>
     <color name="normal_text_color_disabled">#7f353535</color>
@@ -29,5 +34,9 @@
     <color name="btn_grey_disabled">#eed2d5d9</color>
 
     <color name="white_pressed">#ffd5d5d5</color>
+
+    <!-- list divider -->
+    <color name="list_divider_top">#E2E2E2</color>
+    <color name="list_divider_bottom">#FFFFFF</color>
 
 </resources>

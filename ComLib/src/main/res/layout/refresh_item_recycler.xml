@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/RootView">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.lean56.andplug.comlib.ui.widget.ExceptionView
+            android:id="@id/view_exception"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <ProgressBar
+            android:id="@+id/pb_loading"
+            style="@style/ProgressBar"
+            android:layout_centerInParent="true"/>
+
+</RelativeLayout>

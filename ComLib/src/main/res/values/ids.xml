@@ -21,4 +21,10 @@
     <item type="id" name="toast_icon">false</item>
     <item type="id" name="toast_message">false</item>
 
+    <!-- List -->
+    <item type="id" name="swipe_item">false</item>
+
+    <!-- ExceptionView -->
+    <item type="id" name="view_exception">false</item>
+
 </resources>
