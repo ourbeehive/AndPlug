@@ -1,8 +1,9 @@
-package com.lean56.andplug.comlib.ui;
+package com.lean56.andplug.comlib.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
+import com.lean56.andplug.comlib.ui.fragment.FragmentProvider;
 
 /**
  * Pager adapter that provides the current fragment

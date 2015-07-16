@@ -1,11 +1,9 @@
-package com.lean56.andplug.comlib.ui;
+package com.lean56.andplug.comlib.ui.fragment;
 
 import android.support.v4.app.Fragment;
 
 /**
  * Provides a fragment
- *
- * @author Charles <zhangchaoxu@gmail.com>
  */
 public interface FragmentProvider {
 
