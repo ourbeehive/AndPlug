@@ -4,6 +4,9 @@ import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import com.lean56.andplug.app.R;
+import com.lean56.andplug.app.fragment.FeatureFragment;
+import com.lean56.andplug.app.fragment.IndexFragment;
+import com.lean56.andplug.app.fragment.MsgFragment;
 import com.lean56.andplug.app.fragment.ProfileFragment;
 import com.lean56.andplug.comlib.adapter.FragmentPagerAdapter;
 
@@ -17,9 +20,9 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
 
     private final static int[] titleArray = new int[]{R.string.index, R.string.feature, R.string.msg, R.string.profile};
     private final static Fragment[] fragmentArray = new Fragment[] {
-            new ProfileFragment(),
-            new ProfileFragment(),
-            new ProfileFragment(),
+            new IndexFragment(),
+            new FeatureFragment(),
+            new MsgFragment(),
             new ProfileFragment()
     };
 

@@ -10,16 +10,12 @@ import com.lean56.andplug.comlib.fragment.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends BaseFragment {
+public class IndexFragment extends BaseFragment {
 
-    public ProfileFragment() {
+    public IndexFragment() {
         // Required empty public constructor
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +38,5 @@ public class ProfileFragment extends BaseFragment {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
 }

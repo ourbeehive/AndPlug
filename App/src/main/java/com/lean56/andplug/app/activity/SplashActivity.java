@@ -19,8 +19,6 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.splash);
-
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 
@@ -29,6 +27,11 @@ public class SplashActivity extends BaseActivity {
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.splash;
     }
 
     @Override

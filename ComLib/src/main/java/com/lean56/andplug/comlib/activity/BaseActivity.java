@@ -34,6 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getContentView());
         Log.d(TAG, getClass().getSimpleName() + ".onCreate...");
 
         Resources.Theme theme = this.getTheme();
@@ -50,6 +51,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initActionBar(isShowHomeAsUp);
     }
+
+    /**
+     * Get content view to be used when {@link #onCreate(Bundle)} is called
+     *
+     * @return layout resource id
+     */
+    protected abstract int getContentView();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

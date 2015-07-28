@@ -114,6 +114,7 @@ public abstract class TabPagerActivity<V extends PagerAdapter & FragmentProvider
      *
      * @return layout resource id
      */
+    @Override
     protected int getContentView() {
         return R.layout.pager_with_tabs;
     }
@@ -181,9 +182,7 @@ public abstract class TabPagerActivity<V extends PagerAdapter & FragmentProvider
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(getContentView());
-
-        // setup JazzyViewPager
+        // setup ViewPager
         pager = (ViewPager) findViewById(R.id.vp_pages);
         pager.setOnPageChangeListener(this);
         // keep all fragment alive in the life cycle
