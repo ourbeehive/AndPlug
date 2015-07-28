@@ -1,5 +1,7 @@
 package com.lean56.andplug.comlib.activity;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import com.lean56.andplug.comlib.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -21,13 +24,31 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private final static String TAG = BaseActivity.class.getSimpleName();
 
-    protected boolean translucentStatusBar = true;
+    private boolean statusBarTranslucent = false;
+    protected boolean isShowHomeAsUp = true;
     protected Toolbar toolbar;
+
+    private int primaryColor;
+    private int primaryDarkColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, getClass().getSimpleName() + ".onCreate...");
+
+        Resources.Theme theme = this.getTheme();
+        TypedValue typedValue = new TypedValue();
+        // get primary color
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        primaryColor = typedValue.data;
+        theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+        primaryDarkColor = typedValue.data;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            TypedArray windowTranslucentAttribute = theme.obtainStyledAttributes(new int[]{android.R.attr.windowTranslucentStatus});
+            statusBarTranslucent = windowTranslucentAttribute.getBoolean(0, false);
+        }
+
+        initActionBar(isShowHomeAsUp);
     }
 
     @Override
@@ -47,7 +68,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * initActionBar will be invoked @AfterViews
+     * initActionBar
      */
     protected final void initActionBar(boolean showHomeAsUp) {
         // set Toolbar as actionbar
@@ -64,8 +85,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         // Apply background tinting to the Android system UI when using KitKat translucent modes.
         // see {https://github.com/jgilfelt/SystemBarTint}
         if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setStatusBarTint(getColorPrimaryDark());
+            setStatusBarTint(darkenColor(primaryColor));
         }
+    }
+
+    protected boolean isTranslucentStatusBar() {
+        return statusBarTranslucent;
     }
 
     @Override
@@ -79,18 +104,18 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     // [+]translucent system bar
 
-    protected boolean isTranslucentStatusBar() {
-        return translucentStatusBar;
-    }
-
     /**
      * darken color
      */
     protected int darkenColor(int color) {
-        float[] hsv = new float[3];
-        Color.colorToHSV(color, hsv);
-        hsv[2] *= 0.8f; // value component
-        return Color.HSVToColor(hsv);
+        if (color == primaryColor) {
+            return primaryDarkColor;
+        } else {
+            float[] hsv = new float[3];
+            Color.colorToHSV(color, hsv);
+            hsv[2] *= 0.8f; // value component
+            return Color.HSVToColor(hsv);
+        }
     }
 
     /**
@@ -108,15 +133,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected abstract int getColorPrimaryDark();
-
     /**
      * set the statusBar tint
      */
-    protected void setStatusBarTint(int resId) {
+    protected void setStatusBarTint(int primaryDarkColor) {
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(resId);
+        tintManager.setStatusBarTintColor(primaryDarkColor);
     }
 
     /**

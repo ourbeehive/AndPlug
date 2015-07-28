@@ -1,5 +1,10 @@
 <resources>
 
+    <!-- primary color -->
+    <color name="color_primary">#ffff5722</color>
+    <color name="color_primary_dark">#ffca451a</color>
+    <color name="color_accent">#ffff5722</color>
+
     <color name="black_overlay">#66000000</color>
 
 </resources>

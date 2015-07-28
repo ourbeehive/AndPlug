@@ -32,7 +32,8 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    protected int getColorPrimaryDark() {
-        return android.R.color.widget_edittext_dark;
+    protected boolean isTranslucentStatusBar() {
+        return false;
     }
+
 }

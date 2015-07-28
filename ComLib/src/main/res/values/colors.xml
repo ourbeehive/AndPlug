@@ -2,9 +2,9 @@
 <resources>
 
     <!-- primary color -->
-    <color name="color_primary">#ff0178d9</color>
-    <color name="color_primary_dark">#ff0178d9</color>
-    <color name="color_accent">#ff0178d9</color>
+    <color name="color_primary">#ffff5722</color>
+    <color name="color_primary_dark">#ffca451a</color>
+    <color name="color_accent">#ffff5722</color>
 
     <!-- text color -->
     <color name="normal_text_color">#ff353535</color>
@@ -41,7 +41,7 @@
 
     <!-- tab widget -->
     <color name="tab_bg">#fffcfcfc</color>
-    <color name="tab_text_selected">#ff45c01a</color>
+    <color name="tab_text_selected">@color/color_primary</color>
     <color name="tab_text">#ff9f9da7</color>
 
 </resources>
