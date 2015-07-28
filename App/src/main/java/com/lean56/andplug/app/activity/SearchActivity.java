@@ -3,9 +3,11 @@ package com.lean56.andplug.app.activity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.comlib.activity.BaseActivity;
+import com.lean56.andplug.comlib.widget.FlowLayout;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -19,14 +21,47 @@ public class SearchActivity extends BaseActivity {
 
     private ArrayList mData = new ArrayList();
     private ArrayList mSearchData = new ArrayList();
+    private ArrayList<String> hotKeywords = new ArrayList<>();
 
     SearchView searchView;
+    FlowLayout mHotKeywordsFlow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initSearchView();
+
+        // init hot-keywords
+        mHotKeywordsFlow = (FlowLayout) findViewById(R.id.flow_hot_keywords);
+        getHotKeywords();
+        FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(FlowLayout.LayoutParams.WRAP_CONTENT, FlowLayout.LayoutParams.WRAP_CONTENT);
+        params.rightMargin = 10;
+        for(String hotKeyword : hotKeywords) {
+            Button btn = new Button(this);
+            btn.setText(hotKeyword);
+            btn.setLayoutParams(params);
+            mHotKeywordsFlow.addView(btn);
+        }
+    }
+
+    private void getHotKeywords() {
+        hotKeywords.add("戒指");
+        hotKeywords.add("手机壳");
+        hotKeywords.add("钱包");
+        hotKeywords.add("包");
+        hotKeywords.add("相连");
+        hotKeywords.add("情侣");
+        hotKeywords.add("连衣裙");
+        hotKeywords.add("当即热款");
+        hotKeywords.add("你说好吗adsad");
+        hotKeywords.add("侧似乎");
+        hotKeywords.add("凉鞋");
+        hotKeywords.add("收敛");
+        hotKeywords.add("购购");
+        hotKeywords.add("你好");
+        hotKeywords.add("宁波始发发hi阿飞阿飞撒艾丝凡");
+        hotKeywords.add("0");
     }
 
     @Override
@@ -43,7 +78,7 @@ public class SearchActivity extends BaseActivity {
 
         searchView = (SearchView) toolbar.findViewById(R.id.toolbar_search_view);
         searchView.setVisibility(View.VISIBLE);
-        searchView.setQueryHint("搜索提示");
+        searchView.setQueryHint("请输入关键词");
         searchView.onActionViewExpanded();
         searchView.setIconified(false);
         SearchView.SearchAutoComplete mEdit = (SearchView.SearchAutoComplete) searchView.findViewById(R.id.search_src_text);
