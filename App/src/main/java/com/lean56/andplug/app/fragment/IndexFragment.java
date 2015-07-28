@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
+import android.widget.Toast;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.app.activity.SearchActivity;
 import com.lean56.andplug.comlib.fragment.BaseFragment;
@@ -20,8 +21,14 @@ public class IndexFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.profile, container, false);
+        View view = inflater.inflate(R.layout.index, container, false);
+        view.findViewById(R.id.slider).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "ni", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return view;
     }
 
     @Override
