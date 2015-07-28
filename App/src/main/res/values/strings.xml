@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">AndPlug Demo</string>
+	<string name="app_name">AndPlug</string>
 
 	<!-- tab -->
 	<string name="index">首页</string>

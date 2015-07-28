@@ -3,6 +3,7 @@ package com.lean56.andplug.app.activity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.lean56.andplug.app.R;
@@ -14,6 +15,10 @@ import java.util.ArrayList;
 
 /**
  * Search Activity
+ *
+ * flow layout see
+ * {http://www.apkbus.com/android-239725-1-1.html}
+ * {https://github.com/blazsolar/FlowLayout/}
  *
  * @author charles
  */
@@ -35,13 +40,13 @@ public class SearchActivity extends BaseActivity {
         // init hot-keywords
         mHotKeywordsFlow = (FlowLayout) findViewById(R.id.flow_hot_keywords);
         getHotKeywords();
-        FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(FlowLayout.LayoutParams.WRAP_CONTENT, FlowLayout.LayoutParams.WRAP_CONTENT);
-        params.rightMargin = 10;
+        FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.rightMargin = 10;
         for(String hotKeyword : hotKeywords) {
             Button btn = new Button(this);
             btn.setText(hotKeyword);
-            btn.setLayoutParams(params);
-            mHotKeywordsFlow.addView(btn);
+            // btn.setbackground
+            mHotKeywordsFlow.addView(btn, layoutParams);
         }
     }
 

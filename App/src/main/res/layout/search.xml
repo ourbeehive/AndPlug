@@ -27,11 +27,13 @@
 			<TextView
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_margin="15dp"
+					android:paddingTop="@dimen/padding_xxl"
+					android:paddingBottom="@dimen/padding_l"
 					android:gravity="start"
 					android:lineSpacingExtra="1dp"
 					android:lineSpacingMultiplier="1.1"
 					android:text="热门搜索"
+					android:textSize="@dimen/text_size_m"
 					android:textColor="@color/normal_text_color_disabled"/>
 
 			<com.lean56.andplug.comlib.widget.FlowLayout
