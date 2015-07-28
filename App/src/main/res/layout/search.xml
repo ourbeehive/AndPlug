@@ -18,24 +18,82 @@
 				android:id="@+id/emptyView"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
-				android:paddingTop="35dp"
+				android:paddingTop="@dimen/padding_xxl"
+				android:paddingLeft="@dimen/padding_m"
+				android:paddingRight="@dimen/padding_m"
 				android:gravity="center_horizontal"
-				android:visibility="visible"
 				android:orientation="vertical">
-
-			<View
-					android:layout_width="143dp"
-					android:layout_height="143dp"/>
 
 			<TextView
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_margin="15dp"
-					android:gravity="center"
+					android:gravity="start"
 					android:lineSpacingExtra="1dp"
 					android:lineSpacingMultiplier="1.1"
-					android:text="搜索货主或者门店名称\n都可以进行搜索哦！"
+					android:text="热门搜索"
 					android:textColor="@color/normal_text_color_disabled"/>
+
+			<com.lean56.andplug.comlib.widget.FlowLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="start|top">
+
+				<Button
+						android:id="@+id/button"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="土豆" />
+
+				<Button
+						android:id="@+id/button1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="西红柿" />
+
+				<Button
+						android:id="@+id/button2"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="铁皮山药" />
+
+				<Button
+						android:id="@+id/button3"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+				<Button
+						android:id="@+id/button4"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+				<Button
+						android:id="@+id/button5"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+				<Button
+						android:id="@+id/button6"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+				<Button
+						android:id="@+id/button7"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+				<Button
+						android:id="@+id/button8"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="十全大补丸" />
+
+			</com.lean56.andplug.comlib.widget.FlowLayout>
 
 		</LinearLayout>
 
