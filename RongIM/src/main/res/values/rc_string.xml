@@ -38,7 +38,7 @@
     <string name="rc_dialog_item_message_delete">删除消息</string>
     <string name="rc_dialog_item_message_copy">复制消息</string>
 
-    <string name="rc_message_unread_count">"..."</string>
+    <string name="rc_message_unread_count">"···"</string>
     <string name="rc_input_voice">按住 说话</string>
 
     <string name="rc_setting_name">设置</string>
@@ -63,6 +63,7 @@
     <string name="rc_voice_rec">手指上滑，取消发送</string>
     <string name="rc_voice_cancel">松开手指，取消发送</string>
     <string name="rc_voice_short">录音时间太短</string>
+    <string name="rc_voice_failure">录音失败！</string>
 
 
     <string name="rc_pub_service_info_description">功能介绍</string>
@@ -71,7 +72,7 @@
     <string name="rc_pub_service_info_unfollow">取消关注</string>
     <string name="rc_pub_service_info_account">公众号：%1$s</string>
 
-    <string name="rc_notice_network_unavailable">无法连接到服务器</string>
+    <string name="rc_notice_network_unavailable">当前网络不可用</string>
     <string name="rc_notice_disconnect">无法连接到服务器</string>
     <string name="rc_notice_tick">该账号已经在其他设备登录</string>
     <string name="rc_notice_connecting">正在连接服务器</string>

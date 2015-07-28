@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<io.rong.imkit.model.LinkTextView xmlns:android="http://schemas.android.com/apk/res/android"
           style="@style/RCTheme.Message.TextView"
           android:id="@android:id/text1"
           android:layout_width="fill_parent"
