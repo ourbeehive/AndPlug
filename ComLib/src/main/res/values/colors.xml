@@ -39,4 +39,9 @@
     <color name="list_divider_top">#E2E2E2</color>
     <color name="list_divider_bottom">#FFFFFF</color>
 
+    <!-- tab widget -->
+    <color name="tab_bg">#fffcfcfc</color>
+    <color name="tab_text_selected">#ff45c01a</color>
+    <color name="tab_text">#ff9f9da7</color>
+
 </resources>

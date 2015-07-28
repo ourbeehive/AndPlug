@@ -82,22 +82,22 @@ public class ShareSDKAuthorizeAdapter extends AuthorizeAdapter implements Platfo
 
     private void interceptPlatformActionListener(String platName) {
         Platform plat = ShareSDK.getPlatform(platName);
-        // ±¸·İ´ËÇ°ÉèÖÃµÄÊÂ¼ş¼àÌıÆ÷
+        // å¤‡ä»½æ­¤å‰è®¾ç½®çš„äº‹ä»¶ç›‘å¬å™¨
         backListener = plat.getPlatformActionListener();
-        // ÉèÖÃĞÂµÄ¼àÌıÆ÷£¬ÊµÏÖÊÂ¼şÀ¹½Ø
+        // è®¾ç½®æ–°çš„ç›‘å¬å™¨ï¼Œå®ç°äº‹ä»¶æ‹¦æˆª
         plat.setPlatformActionListener(this);
     }
 
     @Override
     public void onError(Platform plat, int action, Throwable t) {
         if (action == Platform.ACTION_AUTHORIZING) {
-            // ÊÚÈ¨Ê±¼´·¢Éú´íÎó
+            // æˆæƒæ—¶å³å‘ç”Ÿé”™è¯¯
             plat.setPlatformActionListener(backListener);
             if (backListener != null) {
                 backListener.onError(plat, action, t);
             }
         } else {
-            // ¹Ø×¢Ê±·¢Éú´íÎó
+            // å…³æ³¨æ—¶å‘ç”Ÿé”™è¯¯
             plat.setPlatformActionListener(backListener);
             if (backListener != null) {
                 backListener.onComplete(plat, Platform.ACTION_AUTHORIZING, null);
@@ -108,19 +108,19 @@ public class ShareSDKAuthorizeAdapter extends AuthorizeAdapter implements Platfo
     @Override
     public void onComplete(Platform platform, int action, HashMap<String, Object> res) {
         if (action == Platform.ACTION_FOLLOWING_USER) {
-            // µ±×÷ÊÚÈ¨ÒÔºó²»×öÈÎºÎÊÂÇé
+            // å½“ä½œæˆæƒä»¥åä¸åšä»»ä½•äº‹æƒ…
             platform.setPlatformActionListener(backListener);
             if (backListener != null) {
                 backListener.onComplete(platform, Platform.ACTION_AUTHORIZING, null);
             }
         } else if (followCheckedText.isChecked()) {
-            // ÊÚÈ¨³É¹¦£¬Ö´ĞĞ¹Ø×¢
+            // æˆæƒæˆåŠŸï¼Œæ‰§è¡Œå…³æ³¨
             platform.followFriend(ShareSDKUtils.SINAWEIBO_UID);
         } else {
-            // Èç¹ûÃ»ÓĞ±ê¼ÇÎª¡°ÊÚÈ¨²¢¹Ø×¢¡±ÔòÖ±½Ó·µ»Ø
+            // å¦‚æœæ²¡æœ‰æ ‡è®°ä¸ºâ€œæˆæƒå¹¶å…³æ³¨â€åˆ™ç›´æ¥è¿”å›
             platform.setPlatformActionListener(backListener);
             if (backListener != null) {
-                // ¹Ø×¢³É¹¦Ò²Ö»ÊÇµ±×÷ÊÚÈ¨³É¹¦·µ»Ø
+                // å…³æ³¨æˆåŠŸä¹Ÿåªæ˜¯å½“ä½œæˆæƒæˆåŠŸè¿”å›
                 backListener.onComplete(platform, Platform.ACTION_AUTHORIZING, null);
             }
         }
@@ -130,12 +130,12 @@ public class ShareSDKAuthorizeAdapter extends AuthorizeAdapter implements Platfo
     public void onCancel(Platform plat, int action) {
         plat.setPlatformActionListener(backListener);
         if (action == Platform.ACTION_AUTHORIZING) {
-            // ÊÚÈ¨Ç°È¡Ïû
+            // æˆæƒå‰å–æ¶ˆ
             if (backListener != null) {
                 backListener.onCancel(plat, action);
             }
         } else {
-            // µ±×÷ÊÚÈ¨ÒÔºó²»×öÈÎºÎÊÂÇé
+            // å½“ä½œæˆæƒä»¥åä¸åšä»»ä½•äº‹æƒ…
             if (backListener != null) {
                 backListener.onComplete(plat, Platform.ACTION_AUTHORIZING, null);
             }
