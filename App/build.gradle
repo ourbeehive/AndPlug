@@ -53,4 +53,5 @@ dependencies {
     compile project(':BaiduLoc')
     compile project(':BaiduMap')
     compile project(':VoiceIflytek')
+    compile project(':ShareSDK')
 }

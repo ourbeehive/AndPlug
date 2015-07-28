@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		  package="com.lean56.andplug.share">
+
+	<uses-permission android:name="android.permission.GET_TASKS"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+	<application>
+
+		<!-- sharesdk UI Shell-->
+		<activity android:name="com.mob.tools.MobUIShell"
+				  android:screenOrientation="portrait"
+				  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+				  android:configChanges="keyboardHidden|orientation|screenSize"
+				  android:windowSoftInputMode="stateHidden|adjustResize">
+			<!-- listen the UI lifecycle and get/edit/customized ui widget/action -->
+			<meta-data android:name="AuthorizeAdapter"
+					   android:value="com.lean56.andplug.share.ShareSDKAuthorizeAdapter"/>
+
+			<!-- QQ callback, scheme = tencent + appid-->
+			<intent-filter>
+				<data android:scheme="tencent"/>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+			</intent-filter>
+		</activity>
+
+		<!--wechat callback -->
+		<activity android:name=".wxapi.WXEntryActivity"
+				  android:screenOrientation="portrait"
+				  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+				  android:configChanges="keyboardHidden|orientation|screenSize"
+				  android:exported="true">
+		</activity>
+
+		<!-- weibo -->
+		<!-- 调用新浪原生SDK，需要注册的activity
+		<activity
+				android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+				android:configChanges="keyboardHidden|orientation"
+				android:windowSoftInputMode="adjustResize"
+				android:exported="false" >
+		</activity>-->
+
+	</application>
+
+</manifest>
