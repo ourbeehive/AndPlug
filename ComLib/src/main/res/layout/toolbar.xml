@@ -10,4 +10,13 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+    <android.support.v7.widget.SearchView
+            android:id="@id/toolbar_search_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_l"
+            android:layout_marginEnd="@dimen/margin_l"
+            android:visibility="gone"
+            android:singleLine="true"/>
+
 </android.support.v7.widget.Toolbar>

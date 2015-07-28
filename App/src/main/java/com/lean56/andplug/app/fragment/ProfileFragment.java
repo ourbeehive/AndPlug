@@ -29,14 +29,14 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu optionsMenu, MenuInflater inflater) {
-        inflater.inflate(R.menu.index, optionsMenu);
+        inflater.inflate(R.menu.profile, optionsMenu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(getActivity(), "serrubf", Toast.LENGTH_SHORT).show();
+            case R.id.menu_settings:
+                Toast.makeText(getActivity(), "打开设置页面", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

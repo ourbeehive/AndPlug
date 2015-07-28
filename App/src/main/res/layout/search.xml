@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:tools="http://schemas.android.com/tools"
+			  style="@style/RootView">
+
+	<include layout="@layout/toolbar"/>
+
+	<FrameLayout android:layout_width="match_parent"
+				 android:layout_height="match_parent">
+
+		<FrameLayout
+				android:id="@+id/container"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:visibility="invisible"/>
+
+		<LinearLayout
+				android:id="@+id/emptyView"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:paddingTop="35dp"
+				android:gravity="center_horizontal"
+				android:visibility="visible"
+				android:orientation="vertical">
+
+			<View
+					android:layout_width="143dp"
+					android:layout_height="143dp"/>
+
+			<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="15dp"
+					android:gravity="center"
+					android:lineSpacingExtra="1dp"
+					android:lineSpacingMultiplier="1.1"
+					android:text="搜索货主或者门店名称\n都可以进行搜索哦！"
+					android:textColor="@color/normal_text_color_disabled"/>
+
+		</LinearLayout>
+
+	</FrameLayout>
+
+</LinearLayout>
+
