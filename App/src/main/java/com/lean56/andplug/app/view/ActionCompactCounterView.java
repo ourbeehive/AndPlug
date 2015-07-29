@@ -25,7 +25,7 @@ public class ActionCompactCounterView extends LinearLayout implements CounterVie
 
     private int mCountFormatResId;
     private TextView mCountView;
-    private ImageView mImageView;
+    private ImageView mIconView;
     private int mCount = 0;
 
     public ActionCompactCounterView(Context context, AttributeSet attrs) {
@@ -35,36 +35,39 @@ public class ActionCompactCounterView extends LinearLayout implements CounterVie
     public ActionCompactCounterView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         createInternalView();
-        mCountView = (TextView) findViewById(R.id.action_icon);
-        mImageView = (ImageView) findViewById(R.id.action_counter);
+        mCountView = (TextView) findViewById(R.id.action_count);
+        mIconView = (ImageView) findViewById(R.id.action_icon);
         TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ActionCompactCounterView, defStyleAttr, 0);
-        mCountFormatResId = ta.getResourceId(0, 0x7f06006a);
-        mCountView.setText(ta.getString(1));
-        mImageView.setImageResource(ta.getResourceId(2, 0x106000d));
+        mCountFormatResId = ta.getResourceId(R.styleable.ActionCompactCounterView_action_counter_format, R.string.default_number_format);
+        mCountView.setText(ta.getString(R.styleable.ActionCompactCounterView_action_counter_label));
+        mIconView.setImageResource(ta.getResourceId(R.styleable.ActionCompactCounterView_action_counter_icon, R.drawable.ic_action_comment));
         ta.recycle();
     }
 
-
+    @Override
     public void createInternalView() {
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER);
         LayoutInflater.from(getContext()).inflate(R.layout.action_compact_counter, this);
     }
 
+    @Override
     public void setCount(int count) {
         mCount = count;
-        mCountView.setText(getResources().getString(mCountFormatResId, new Object[] {Integer.valueOf(count)}));
+        mCountView.setText(getResources().getString(mCountFormatResId, count));
     }
 
+    @Override
     public int getCount() {
         return mCount;
     }
 
+    @Override
     public void nyan() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.boom);
         anim.setInterpolator(new OvershootInterpolator());
-        anim.setDuration((long) getResources().getInteger(0x10e0001));
-        mImageView.startAnimation(anim);
+        anim.setDuration((long) getResources().getInteger(android.R.integer.config_shortAnimTime));
+        mIconView.startAnimation(anim);
     }
 
 }

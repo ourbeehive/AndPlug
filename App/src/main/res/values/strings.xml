@@ -7,6 +7,7 @@
 	<string name="msg">消息</string>
 	<string name="profile">我</string>
 
+	<string name="default_number_format">%1$d</string>
 	<!-- action counter -->
 	<string name="action_comment">评论</string>
 	<string name="action_comment_count">%1$d 个评论</string>

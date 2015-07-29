@@ -4,6 +4,6 @@
     <!-- action counter -->
     <item type="id" name="action_icon">false</item>
     <item type="id" name="action_label">false</item>
-    <item type="id" name="action_counter">false</item>
+    <item type="id" name="action_count">false</item>
 
 </resources>

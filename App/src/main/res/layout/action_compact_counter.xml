@@ -9,7 +9,7 @@
 			android:layout_marginRight="@dimen/margin_xs"/>
 
 	<TextView
-			android:id="@id/action_counter"
+			android:id="@id/action_count"
 			android:textSize="@dimen/text_size_s"
 			android:textColor="@color/action_counter_no"
 			android:layout_width="wrap_content"

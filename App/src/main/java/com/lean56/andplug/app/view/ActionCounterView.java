@@ -18,17 +18,15 @@ import com.lean56.andplug.app.R;
  */
 public class ActionCounterView extends ActionCompactCounterView {
 
-    private TextView mLabelView;
-
     public ActionCounterView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
     public ActionCounterView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mLabelView = (TextView)findViewById(0x7f0b00f2);
+        TextView label = (TextView) findViewById(R.id.action_label);
         TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ActionCompactCounterView, defStyleAttr, 0);
-        mLabelView.setText(ta.getString(0x1));
+        label.setText(ta.getString(R.styleable.ActionCompactCounterView_action_counter_label));
         ta.recycle();
     }
 

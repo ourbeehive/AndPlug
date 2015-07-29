@@ -13,7 +13,7 @@
     <!-- ActionCompactCounterView -->
     <declare-styleable name="ActionCompactCounterView">
         <attr name="action_counter_format" format="string|reference" />
-        <attr name="action_counter_text" format="string|reference" />
+        <attr name="action_counter_label" format="string|reference" />
         <attr name="action_counter_icon" format="reference" />
     </declare-styleable>
 
