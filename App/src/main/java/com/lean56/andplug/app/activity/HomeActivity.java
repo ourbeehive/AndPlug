@@ -46,16 +46,19 @@ public class HomeActivity extends TabPagerActivity<HomeFragmentAdapter> {
         super.setCurrentItem(position);
         switch (position) {
             case 0:
-                setTitle("1");
+                hideToolbar(false);
+                setTitle(R.string.app_name);
                 break;
             case 1:
-                setTitle("2");
+                hideToolbar(true);
                 break;
             case 2:
+                hideToolbar(false);
                 setTitle("消息中心");
                 break;
             case 3:
-                setTitle("4");
+                hideToolbar(false);
+                setTitle("个人信息");
                 break;
         }
     }

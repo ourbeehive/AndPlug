@@ -15,7 +15,7 @@ import com.lean56.andplug.fragment.SaveFragmentPagerAdapter;
  */
 public class FeatureSubAdapter extends SaveFragmentPagerAdapter {
 
-    private final static String[] titleArray = new String[]{"1", "2", "2"};
+    private final static String[] titleArray = new String[]{"sub1", "sub2", "sub3"};
     private final static Fragment[] fragmentArray = new Fragment[] {
             new IndexFragment(),
             new IndexFragment(),

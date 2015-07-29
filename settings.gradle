@@ -1,5 +1,6 @@
-include ':App', ':BaiduLoc', ':RongIM', ':ShareSDK',
+include ':App', ':BaiduLoc', ':RongIM', ':ShareSDK', ':DaoGen',
         ':BaiduMap', ':UmengFeedback',
         ':VoiceIflytek', ':UmengUpdate',
         ':UniversalImage', ':ComLib',
         ':GetuiPush'
+        ':DaoGenrator'

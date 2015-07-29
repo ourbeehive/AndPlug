@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
 			  style="@style/RootView">
 
 	<com.lean56.andplug.app.view.WechatTab
 			android:id="@+id/tab_feature"
 			android:layout_width="match_parent"
-			android:layout_height="48dp"
-			android:background="@android:color/transparent" />
+			android:layout_height="?attr/actionBarSize"
+			android:background="?attr/colorPrimary"/>
 
 	<com.lean56.andplug.view.ViewPager
 			android:id="@+id/vp_feature"

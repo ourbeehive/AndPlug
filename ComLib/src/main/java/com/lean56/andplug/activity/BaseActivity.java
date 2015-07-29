@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
 import com.lean56.andplug.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.umeng.analytics.MobclickAgent;
@@ -74,6 +75,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     // [+] actionbar
     public Toolbar getToolbar() {
         return toolbar;
+    }
+
+    protected void hideToolbar(boolean hidden) {
+        if (null != toolbar) {
+            if (hidden && toolbar.getVisibility() == View.VISIBLE) {
+                toolbar.setVisibility(View.GONE);
+            } else if (!hidden && toolbar.getVisibility() == View.GONE) {
+                toolbar.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     /**

@@ -79,9 +79,9 @@ public class WechatTab extends HorizontalScrollView {
     private Paint rectPaint;
     private Paint dividerPaint;
 
-    private int indicatorColor = 0xFF666666;
-    private int underlineColor = 0x1A000000;
-    private int dividerColor = 0x1A000000;
+    private int indicatorColor = 0xFFFFFFFF;//0xFF666666;
+    private int underlineColor = 0x00FFFFFF;//0x1A000000;
+    private int dividerColor = 0x00FFFFFF;//0x1A000000;
 
     private boolean shouldExpand = false;
     private boolean textAllCaps = true;
@@ -96,8 +96,8 @@ public class WechatTab extends HorizontalScrollView {
     private int mMyUnderlinePadding = 12;
 
     private int tabTextSize = 12;
-    private int tabTextColor = 0xFF666666;
-    private int selectedTabTextColor = 0xFF666666;
+    private int tabTextColor = 0xFFFFFFFF;// 0xFF666666;
+    private int selectedTabTextColor = 0xFFFFFFFF; //0xFF666666;
     private Typeface tabTypeface = null;
     private int tabTypefaceStyle = Typeface.NORMAL;
 
@@ -184,8 +184,8 @@ public class WechatTab extends HorizontalScrollView {
         setUnderlineHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, dm));
         setIndicatorHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, dm));
         setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, dm));
-        setIndicatorColor(Color.parseColor("#3bbd79"));
-        setSelectedTextColor(Color.parseColor("#3bbd79"));
+        setIndicatorColor(Color.WHITE);
+        setSelectedTextColor(Color.WHITE);
         setTabBackground(0);
     }
 
