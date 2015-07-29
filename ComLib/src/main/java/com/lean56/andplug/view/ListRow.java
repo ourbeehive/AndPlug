@@ -1,4 +1,4 @@
-package com.lean56.andplug.comlib.widget;
+package com.lean56.andplug.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.lean56.andplug.comlib.R;
+import com.lean56.andplug.R;
 
 /**
  * ListRow is used for table row

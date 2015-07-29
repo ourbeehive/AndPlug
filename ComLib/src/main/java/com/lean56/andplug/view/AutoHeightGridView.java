@@ -1,4 +1,4 @@
-package com.lean56.andplug.comlib.widget;
+package com.lean56.andplug.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.lean56.andplug.comlib.widget;
+package com.lean56.andplug.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.lean56.andplug.comlib.R;
+import com.lean56.andplug.R;
 
 /**
  * Exception View
