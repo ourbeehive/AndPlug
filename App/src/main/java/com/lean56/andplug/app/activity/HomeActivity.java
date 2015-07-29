@@ -14,6 +14,10 @@ public class HomeActivity extends TabPagerActivity<HomeFragmentAdapter> {
         configureTabPager();
     }
 
+    @Override
+    protected boolean isShowHomeAsUp() {
+        return false;
+    }
     // [+] TabPagerActivity
     @Override
     protected HomeFragmentAdapter createAdapter() {

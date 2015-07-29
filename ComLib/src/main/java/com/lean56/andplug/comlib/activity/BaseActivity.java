@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private final static String TAG = BaseActivity.class.getSimpleName();
 
     private boolean statusBarTranslucent = false;
-    protected boolean isShowHomeAsUp = true;
+    private boolean showHomeAsUp = true;
     protected Toolbar toolbar;
 
     private int primaryColor;
@@ -49,7 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             statusBarTranslucent = windowTranslucentAttribute.getBoolean(0, false);
         }
 
-        initActionBar(isShowHomeAsUp);
+        initActionBar(isShowHomeAsUp());
     }
 
     /**
@@ -99,6 +99,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected boolean isTranslucentStatusBar() {
         return statusBarTranslucent;
+    }
+
+    protected boolean isShowHomeAsUp() {
+        return showHomeAsUp;
     }
 
     @Override
