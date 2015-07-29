@@ -84,7 +84,7 @@
 				android:layout_alignParentBottom="true">
 
 			<com.lean56.andplug.app.view.ActionCompactCounterView
-					android:id="@+id/article_action_fav"
+					android:id="@id/action_fav"
 					android:padding="15.0dip"
 					android:layout_width="0.0dip"
 					android:layout_height="match_parent"
@@ -92,7 +92,7 @@
 					app:action_counter_icon="@drawable/ic_action_compact_favourite"/>
 
 			<com.lean56.andplug.app.view.ActionCompactCounterView
-					android:id="@+id/article_action_share"
+					android:id="@id/action_share"
 					android:padding="15.0dip"
 					android:layout_width="0.0dip"
 					android:layout_height="match_parent"
@@ -100,7 +100,7 @@
 					app:action_counter_icon="@drawable/ic_action_compact_share"/>
 
 			<com.lean56.andplug.app.view.ActionCompactCounterView
-					android:id="@+id/article_action_comment"
+					android:id="@id/action_comment"
 					android:padding="15.0dip"
 					android:layout_width="0.0dip"
 					android:layout_height="match_parent"

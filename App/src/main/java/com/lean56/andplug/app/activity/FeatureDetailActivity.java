@@ -168,8 +168,28 @@ public class FeatureDetailActivity extends BaseActivity implements ObservableScr
         }
     }
 
+    /*private void setArticle(Article article) {
+        if(article != null) {
+            mArticle = article;
+            try {
+                update(mActionPanel, R.id.article_action_fav, article.getLiked().booleanValue(), article.getFavCount().intValue());
+                update(mActionPanelCompact, R.id.article_action_fav, article.getLiked().booleanValue(), article.getFavCount().intValue());
+            } catch(Exception e) {}
+            try {
+                update(mActionPanel, R.id.action_comment, false, article.getCommentCount().intValue());
+                update(mActionPanelCompact, R.id.action_comment, false, article.getCommentCount().intValue());
+            } catch(Exception e) {}
+            try {
+                update(mActionPanel, R.id.action_share, false, article.getShareCount().intValue());
+                update(mActionPanelCompact, R.id.action_share, false, article.getShareCount().intValue());
+            } catch(Exception e) {}
+            //Picasso.with(this).load(article.getImageUri()).into(mCoverView);
+            mTitleView.setText(article.getTitle());
+        }
+    }*/
+
     private void update(ViewGroup panel, int control, boolean selected, int count) {
-        CounterView cv = (CounterView)panel.findViewById(control);
+        CounterView cv = (CounterView) panel.findViewById(control);
         cv.setSelected(selected);
         cv.setCount(count);
     }

@@ -11,37 +11,35 @@ public interface CounterView {
     /**
      * create internal view
      */
-    public abstract void createInternalView();
+    void createInternalView();
 
     /**
      * nyan
      */
-    public abstract void nyan();
+    void nyan();
 
     /**
      * set the count number of the counter view
      * @param count
      */
-    public abstract void setCount(int count);
+    void setCount(int count);
 
     /**
      * get the count number
      * @return
      */
-    public abstract int getCount();
+    int getCount();
 
     /**
      * is the view selected
      * @return
      */
-    public abstract boolean isSelected();
+    boolean isSelected();
 
     /**
      * set selection of the view
      * @param selected
      */
-    public abstract void setSelected(boolean selected);
-
-
+    void setSelected(boolean selected);
 
 }
