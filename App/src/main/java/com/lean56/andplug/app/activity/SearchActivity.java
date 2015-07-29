@@ -1,13 +1,14 @@
 package com.lean56.andplug.app.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import com.lean56.andplug.app.R;
 import com.lean56.andplug.activity.BaseActivity;
+import com.lean56.andplug.app.R;
 import com.lean56.andplug.view.FlowLayout;
 
 import java.lang.reflect.Field;
@@ -28,7 +29,6 @@ public class SearchActivity extends BaseActivity {
     private ArrayList mSearchData = new ArrayList();
     private ArrayList<String> hotKeywords = new ArrayList<>();
 
-    SearchView searchView;
     FlowLayout mHotKeywordsFlow;
 
     @Override
@@ -78,10 +78,13 @@ public class SearchActivity extends BaseActivity {
      * init search view in the toolbar
      */
     private void initSearchView() {
-        if (null == toolbar)
+        ActionBar actionBar = getSupportActionBar();
+        if (null == actionBar)
             return;
 
-        searchView = (SearchView) toolbar.findViewById(R.id.toolbar_search_view);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.ab_search);
+        SearchView searchView = (SearchView) findViewById(R.id.toolbar_search_view);
         searchView.setVisibility(View.VISIBLE);
         searchView.setQueryHint("请输入关键词");
         searchView.onActionViewExpanded();

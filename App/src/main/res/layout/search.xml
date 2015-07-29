@@ -35,7 +35,7 @@
 					android:textSize="@dimen/text_size_m"
 					android:textColor="@color/normal_text_color_disabled"/>
 
-			<com.lean56.andplug.comlib.view.FlowLayout
+			<com.lean56.andplug.view.FlowLayout
 					android:id="@+id/flow_hot_keywords"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"

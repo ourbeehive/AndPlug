@@ -2,25 +2,10 @@
 <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/"
-        xmlns:app1="http://schemas.android.com/apk/res-auto"
         android:id="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-    <android.support.v7.widget.SearchView
-            android:id="@id/toolbar_search_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionSearch"
-            app1:queryBackground="@drawable/abc_textfield_search_material"
-            android:focusable="true"
-            android:layout_marginRight="@dimen/margin_l"
-            android:layout_marginEnd="@dimen/margin_l"
-            android:visibility="gone"
-            android:singleLine="true"/>
-
-</android.support.v7.widget.Toolbar>
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

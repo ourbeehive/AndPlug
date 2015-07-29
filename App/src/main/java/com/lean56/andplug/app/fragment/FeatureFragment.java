@@ -12,7 +12,7 @@ import com.lean56.andplug.app.view.WechatTab;
 import com.lean56.andplug.fragment.BaseFragment;
 
 /**
- * FeatureFragment
+ * Feature Fragment
  *
  * @author Charles
  */
@@ -31,10 +31,10 @@ public class FeatureFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        // find view
         mFeatureTab = (WechatTab) view.findViewById(R.id.tab_feature);
         mFeatureViewPager = (ViewPager) view.findViewById(R.id.vp_feature);
-
+        // fill view
         mSubAdapter = new FeatureSubAdapter(getChildFragmentManager());
         mFeatureViewPager.setAdapter(mSubAdapter);
         int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());

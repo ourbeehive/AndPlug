@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app1="http://schemas.android.com/apk/res-auto"
+			  style="@style/RootView">
+
+	<android.support.v7.widget.SearchView
+			android:id="@id/toolbar_search_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionSearch"
+			app1:queryBackground="@drawable/abc_textfield_search_material"
+			android:focusable="true"
+			android:layout_marginRight="@dimen/margin_l"
+			android:layout_marginEnd="@dimen/margin_l"
+			android:singleLine="true"/>
+
+</LinearLayout>
