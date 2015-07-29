@@ -187,6 +187,7 @@ public abstract class TabPagerActivity<V extends PagerAdapter & FragmentProvider
         pager.setOnPageChangeListener(this);
         // keep all fragment alive in the life cycle
         pager.setOffscreenPageLimit(OFFSCREEN_PAGES);
+        pager.setScrollable(false);
 
         //set up TabHost
         host = (TabHost) findViewById(android.R.id.tabhost);
