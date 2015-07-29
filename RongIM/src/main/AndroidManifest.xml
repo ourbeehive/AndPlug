@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-		  package="com.lean56.andplug.rongim">
+		  package="io.rong.imkit">
 
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -28,7 +28,7 @@
 
 	<application android:allowBackup="true">
 		<!-- begin imlib request -->
-		<meta-data android:name="RONG_CLOUD_APP_KEY" android:value="c9kqb3rdkhnij"/>
+		<meta-data android:name="RONG_CLOUD_APP_KEY" android:value="z3v5yqkbv8v30"/>
 
 		<service
 				android:name="io.rong.imlib.ipc.RongService"

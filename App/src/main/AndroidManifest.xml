@@ -45,6 +45,20 @@
 				android:name=".activity.FeatureDetailActivity"
 				android:label="@string/title_activity_feature_detail">
 		</activity>
+
+		<activity
+				android:name=".activity.ConversationActivity"
+				android:label="会话">
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:host="com.lean56.andplug.app"
+					  android:pathPrefix="/conversation/"
+					  android:scheme="rong"/>
+			</intent-filter>
+
+		</activity>
 	</application>
 
 </manifest>

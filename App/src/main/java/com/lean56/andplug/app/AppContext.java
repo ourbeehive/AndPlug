@@ -18,6 +18,13 @@ public class AppContext extends BaseApplication {
         super.onCreate();
         Log.d(TAG, "... Baton Application onCreate... pid=" + android.os.Process.myPid());
 
+        initRongIM();
+    }
+
+    /**
+     * init Rong IM engine
+     */
+    private void initRongIM() {
         RongIM.init(this);
     }
 }

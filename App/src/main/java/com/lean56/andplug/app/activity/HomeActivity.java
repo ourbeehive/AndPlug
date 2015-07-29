@@ -1,22 +1,52 @@
 package com.lean56.andplug.app.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import com.lean56.andplug.activity.TabPagerActivity;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.app.adapter.HomeFragmentAdapter;
-import com.lean56.andplug.activity.TabPagerActivity;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 public class HomeActivity extends TabPagerActivity<HomeFragmentAdapter> {
+
+    private final static String TAG = HomeActivity.class.getSimpleName();
+
+    String rongIMToken = "d6bCQsXiupB/4OyGkh+TOrI6ZiT8q7s0UEaMPWY0lMxmHdi1v/AAJxOma4aYXyaivfPIJjNHdE+FMH9kV/Jrxg==";//test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         configureTabPager();
+        setupRongIMConnection();
     }
 
     @Override
     protected boolean isShowHomeAsUp() {
         return false;
+    }
+
+    /**
+     * setup the connection of Rong server
+     */
+    private void setupRongIMConnection() {
+        RongIM.connect(rongIMToken, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+                //Connect Token 失效的状态处理，需要重新获取 Token
+            }
+
+            @Override
+            public void onSuccess(String userId) {
+                Log.e(TAG, "--onSuccess--" + userId);
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                Log.e(TAG, "--onError with code--" + errorCode);
+            }
+        });
     }
 
     // [+] TabPagerActivity

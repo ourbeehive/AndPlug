@@ -10,6 +10,7 @@ import com.lean56.andplug.app.adapter.MsgAdapter;
 import com.lean56.andplug.app.dao.Msg;
 import com.lean56.andplug.app.utils.ThrowableLoader;
 import com.lean56.andplug.fragment.RefreshRecyclerFragment;
+import io.rong.imkit.RongIM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,9 @@ public class MsgFragment extends RefreshRecyclerFragment<Msg> {
     public void onListItemClick(RecyclerView parent, View child, int position, long id) {
         Msg item = items.get(position);
         Log.d(TAG, item.getTitle());
+        if (null != RongIM.getInstance()) {
+            RongIM.getInstance().startPrivateChat(getActivity(), "2462", "hello");
+        }
     }
 
     @Override
