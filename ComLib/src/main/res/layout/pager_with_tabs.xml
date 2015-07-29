@@ -21,7 +21,7 @@
 					android:visibility="gone"/>
 
 			<com.lean56.andplug.comlib.widget.ViewPager
-					android:id="@+id/vp_pages"
+					android:id="@id/vp_pages"
 					android:layout_width="match_parent"
 					android:layout_height="0dp"
 					android:layout_weight="1"/>
@@ -29,7 +29,7 @@
 			<View
 					android:layout_width="match_parent"
 					android:layout_height="1dp"
-					android:background="#ffc0c0c0"/>
+					android:background="@color/tab_bg_top"/>
 
 			<TabWidget
 					android:id="@android:id/tabs"
@@ -37,6 +37,7 @@
 					android:layout_height="wrap_content"
 					android:dividerPadding="0dp"
 					android:showDividers="none"/>
+
 		</LinearLayout>
 
 	</TabHost>

@@ -47,7 +47,7 @@ public class HomeActivity extends TabPagerActivity<HomeFragmentAdapter> {
                 setTitle("2");
                 break;
             case 2:
-                setTitle("3");
+                setTitle("消息中心");
                 break;
             case 3:
                 setTitle("4");

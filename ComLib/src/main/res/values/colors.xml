@@ -43,5 +43,6 @@
     <color name="tab_bg">#fffcfcfc</color>
     <color name="tab_text_selected">@color/color_primary</color>
     <color name="tab_text">#ff9f9da7</color>
+    <color name="tab_bg_top">#ffc0c0c0</color>
 
 </resources>

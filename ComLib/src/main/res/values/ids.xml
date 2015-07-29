@@ -27,4 +27,7 @@
     <!-- ExceptionView -->
     <item type="id" name="view_exception">false</item>
 
+    <!-- tab -->
+    <item type="id" name="vp_pages">false</item>
+
 </resources>
