@@ -1,0 +1,20 @@
+<resources>
+
+	<style name="AppBaseTheme" parent="@style/BaseTheme.TranslucentKitKatStatusBar">
+		<item name="actionBarWidgetTheme">@null</item>
+	</style>
+
+	<!--
+	Base application theme. see {http://www.2cto.com/kf/201506/407276.html}
+	-->
+	<style name="AppTheme" parent="@style/AppBaseTheme">
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorAccent">@color/accent</item>
+		<item name="android:windowBackground">@color/win_bg</item>
+
+		<item name="navigationIcon">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+		<item name="colorControlNormal">@android:color/white</item>
+	</style>
+
+</resources>

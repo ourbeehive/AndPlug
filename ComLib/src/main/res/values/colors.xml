@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- primary color -->
-    <color name="color_primary">#ffff5722</color>
-    <color name="color_primary_dark">#ffca451a</color>
-    <color name="color_accent">#ffff5722</color>
+    <!-- theme color -->
+    <color name="primary">#ffff5722</color>
+    <color name="primary_dark">#ffca451a</color>
+    <color name="accent">@android:color/white</color>
+    <color name="win_bg">@color/bg_light</color>
+
+    <!-- tab widget -->
+    <color name="tab_bg">#fffcfcfc</color>
+    <color name="tab_text_selected">@color/primary</color>
+    <color name="tab_text">#ff9f9da7</color>
+    <color name="tab_bg_top">#ffc0c0c0</color>
 
     <!-- text color -->
     <color name="normal_text_color">#ff353535</color>
@@ -38,11 +45,5 @@
     <!-- list divider -->
     <color name="list_divider_top">#E2E2E2</color>
     <color name="list_divider_bottom">#FFFFFF</color>
-
-    <!-- tab widget -->
-    <color name="tab_bg">#fffcfcfc</color>
-    <color name="tab_text_selected">@color/color_primary</color>
-    <color name="tab_text">#ff9f9da7</color>
-    <color name="tab_bg_top">#ffc0c0c0</color>
 
 </resources>
