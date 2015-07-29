@@ -13,7 +13,13 @@
     <color name="tab_text">#ff9f9da7</color>
     <color name="tab_bg_top">#ffc0c0c0</color>
 
-    <!-- text color -->
+	<!-- swipe refresh color -->
+	<color name="swipe_refresh_start">@color/primary</color>
+	<color name="swipe_refresh_process1">@color/primary_dark</color>
+	<color name="swipe_refresh_process2">@color/primary</color>
+	<color name="swipe_refresh_end">@color/primary_dark</color>
+
+	<!-- text color -->
     <color name="normal_text_color">#ff353535</color>
     <color name="normal_text_color_disabled">#7f353535</color>
     <color name="white_color">@android:color/white</color>

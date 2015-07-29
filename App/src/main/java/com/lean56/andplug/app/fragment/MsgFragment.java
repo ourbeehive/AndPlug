@@ -24,5 +24,4 @@ public class MsgFragment extends BaseFragment {
         return inflater.inflate(R.layout.profile, container, false);
     }
 
-
 }

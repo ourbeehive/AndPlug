@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
+			  style="@style/RootView">
+
+	<include layout="@layout/toolbar"/>
+
+	<RelativeLayout
+			android:id="@+id/container_content"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+
+		<WebView
+				android:id="@+id/web"
+				android:scrollbars="none"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:overScrollMode="always"/>
+
+		<ImageView
+				android:id="@+id/cover"
+				android:background="#ffcdcdd7"
+				android:layout_width="fill_parent"
+				android:layout_height="200.0dp"
+				android:scaleType="centerCrop"/>
+
+		<TextView
+				android:id="@id/title"
+				android:textSize="22.0sp"
+				android:padding="20.0dip"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/cover"/>
+
+		<LinearLayout
+				android:id="@+id/article_action_panel"
+				android:gravity="center"
+				android:orientation="horizontal"
+				android:paddingTop="70.0dip"
+				android:paddingBottom="18.0dip"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true">
+
+			<com.liwushuo.gifttalk.view.ArticleActionCounterView
+					android:id="@id/article_action_fav"
+					android:paddingBottom="10.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:format="@string/article_action_favourite_count"
+					app:text="@string/article_action_favourite"
+					app:icon="@drawable/ic_action_favourite"/>
+
+			<com.liwushuo.gifttalk.view.ArticleActionCounterView
+					android:id="@id/article_action_share"
+					android:paddingBottom="10.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:format="@string/article_action_share_count"
+					app:text="@string/article_action_share"
+					app:icon="@drawable/ic_action_share"/>
+
+			<com.liwushuo.gifttalk.view.ArticleActionCounterView
+					android:id="@id/article_action_comment"
+					android:paddingBottom="10.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:format="@string/article_action_comment_count"
+					app:text="@string/article_action_comment"
+					app:icon="@drawable/ic_action_comment"/>
+		</LinearLayout>
+
+		<LinearLayout
+				android:id="@+id/article_action_panel_compact"
+				android:gravity="center"
+				android:orientation="horizontal"
+				android:background="?block_fixed_color"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true">
+
+			<com.liwushuo.gifttalk.view.ArticleActionCompactCounterView
+					android:id="@id/article_action_fav"
+					android:padding="15.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:icon="@drawable/ic_action_compact_favourite"/>
+
+			<com.liwushuo.gifttalk.view.ArticleActionCompactCounterView
+					android:id="@id/article_action_share"
+					android:padding="15.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:icon="@drawable/ic_action_compact_share"/>
+
+			<com.liwushuo.gifttalk.view.ArticleActionCompactCounterView
+					android:id="@id/article_action_comment"
+					android:padding="15.0dip"
+					android:layout_width="0.0dip"
+					android:layout_height="fill_parent"
+					android:layout_weight="1.0"
+					app:icon="@drawable/ic_action_compact_comment"/>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+
+</LinearLayout>

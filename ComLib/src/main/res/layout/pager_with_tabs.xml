@@ -20,7 +20,7 @@
 					android:layout_weight="1"
 					android:visibility="gone"/>
 
-			<com.lean56.andplug.comlib.widget.ViewPager
+			<com.lean56.andplug.comlib.view.ViewPager
 					android:id="@id/vp_pages"
 					android:layout_width="match_parent"
 					android:layout_height="0dp"

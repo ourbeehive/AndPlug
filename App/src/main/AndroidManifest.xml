@@ -24,9 +24,9 @@
 
 		<activity
 				android:name=".activity.LoginActivity"
+				android:label="@string/login"
 				android:screenOrientation="portrait"
-				android:windowSoftInputMode="adjustResize|stateVisible"
-				android:label="@string/login">
+				android:windowSoftInputMode="adjustResize|stateVisible">
 		</activity>
 
 		<activity
@@ -36,10 +36,14 @@
 
 		<activity
 				android:name=".activity.SearchActivity"
-				android:screenOrientation="portrait"
-				android:label="@string/empty">
+				android:label="@string/empty"
+				android:screenOrientation="portrait">
 		</activity>
 
+		<activity
+				android:name=".activity.FeatureDetailActivity"
+				android:label="@string/title_activity_feature_detail">
+		</activity>
 	</application>
 
 </manifest>

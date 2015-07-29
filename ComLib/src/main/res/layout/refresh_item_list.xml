@@ -16,7 +16,7 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <com.lean56.andplug.comlib.widget.ExceptionView
+    <com.lean56.andplug.comlib.view.ExceptionView
             android:id="@id/view_exception"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
