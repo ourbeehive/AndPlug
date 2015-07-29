@@ -10,8 +10,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
 
-		<WebView
-				android:id="@+id/web"
+		<com.lean56.andplug.app.view.ObservableWebView
+				android:id="@+id/webview"
 				android:scrollbars="none"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
@@ -21,11 +21,11 @@
 				android:id="@+id/cover"
 				android:background="#ffcdcdd7"
 				android:layout_width="match_parent"
-				android:layout_height="200.0dp"
+				android:layout_height="@dimen/article_cover_height"
 				android:scaleType="centerCrop"/>
 
 		<TextView
-				android:id="@id/title"
+				android:id="@+id/title"
 				android:textSize="22.0sp"
 				android:padding="20.0dip"
 				android:layout_width="wrap_content"
@@ -33,14 +33,15 @@
 				android:layout_below="@id/cover"/>
 
 		<LinearLayout
-				android:id="@+id/article_action_panel"
+				android:id="@+id/action_panel"
 				android:gravity="center"
 				android:orientation="horizontal"
 				android:paddingTop="70.0dip"
 				android:paddingBottom="18.0dip"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_alignParentBottom="true">
+				android:layout_alignParentBottom="true"
+				android:background="@android:color/white">
 
 			<com.lean56.andplug.app.view.ActionCounterView
 					android:id="@+id/action_fav"
@@ -74,7 +75,7 @@
 		</LinearLayout>
 
 		<LinearLayout
-				android:id="@+id/article_action_panel_compact"
+				android:id="@+id/action_panel_compact"
 				android:gravity="center"
 				android:orientation="horizontal"
 				android:background="@android:color/white"
