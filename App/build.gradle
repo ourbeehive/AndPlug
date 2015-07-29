@@ -54,5 +54,9 @@ dependencies {
     compile project(':BaiduMap')
     compile project(':VoiceIflytek')
     compile project(':ShareSDK')
-    compile 'com.android.support:support-v4:22.2.0'
+
+    compile 'de.greenrobot:greendao:1.3.7'
+
+    // add junit test
+    testCompile 'junit:junit:4.12'
 }

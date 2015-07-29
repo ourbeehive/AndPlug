@@ -68,9 +68,9 @@
 			android:ellipsize="end"
 			android:maxLines="1"
 			android:lines="1"
-			android:scrollHorizontally="true"
-			android:layout_toLeftOf="@+id/badge"
-			android:layout_toStartOf="@+id/badge" />
+			android:scrollHorizontally="true"/>
+			<!--android:layout_toLeftOf="@+id/badge"
+			android:layout_toStartOf="@+id/badge" />-->
 
 
 </RelativeLayout>
