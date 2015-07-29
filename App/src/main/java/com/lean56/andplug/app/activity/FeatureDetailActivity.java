@@ -2,7 +2,7 @@ package com.lean56.andplug.app.activity;
 
 import android.os.Bundle;
 import com.lean56.andplug.app.R;
-import com.lean56.andplug.comlib.activity.BaseActivity;
+import com.lean56.andplug.activity.BaseActivity;
 
 public class FeatureDetailActivity extends BaseActivity {
 

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.lean56.andplug.app.R;
-import com.lean56.andplug.comlib.activity.BaseActivity;
-import com.lean56.andplug.comlib.view.FlowLayout;
+import com.lean56.andplug.activity.BaseActivity;
+import com.lean56.andplug.view.FlowLayout;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

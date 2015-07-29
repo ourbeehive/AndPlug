@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.*;
 import android.widget.Toast;
 import com.lean56.andplug.app.R;
-import com.lean56.andplug.comlib.fragment.BaseFragment;
+import com.lean56.andplug.fragment.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.

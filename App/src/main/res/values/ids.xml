@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- action counter -->
+    <item type="id" name="action_icon">false</item>
+    <item type="id" name="action_label">false</item>
+    <item type="id" name="action_counter">false</item>
+
+</resources>

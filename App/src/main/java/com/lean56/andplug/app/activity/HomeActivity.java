@@ -3,7 +3,7 @@ package com.lean56.andplug.app.activity;
 import android.os.Bundle;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.app.adapter.HomeFragmentAdapter;
-import com.lean56.andplug.comlib.activity.TabPagerActivity;
+import com.lean56.andplug.activity.TabPagerActivity;
 
 public class HomeActivity extends TabPagerActivity<HomeFragmentAdapter> {
 

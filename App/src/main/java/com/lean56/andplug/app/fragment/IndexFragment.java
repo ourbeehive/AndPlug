@@ -7,7 +7,7 @@ import android.view.*;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.app.activity.FeatureDetailActivity;
 import com.lean56.andplug.app.activity.SearchActivity;
-import com.lean56.andplug.comlib.fragment.BaseFragment;
+import com.lean56.andplug.fragment.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.

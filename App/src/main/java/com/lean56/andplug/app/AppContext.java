@@ -1,6 +1,6 @@
 package com.lean56.andplug.app;
 
-import com.lean56.andplug.comlib.BaseApplication;
+import com.lean56.andplug.BaseApplication;
 
 /**
  * App Application

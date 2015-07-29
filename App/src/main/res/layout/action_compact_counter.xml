@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ImageView
+			android:id="@id/action_icon"
+			android:duplicateParentState="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="@dimen/margin_xs"/>
+
+	<TextView
+			android:id="@id/action_counter"
+			android:textSize="@dimen/text_size_s"
+			android:textColor="@color/action_counter_no"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+</merge>

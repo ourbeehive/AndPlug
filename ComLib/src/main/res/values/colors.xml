@@ -52,4 +52,8 @@
     <color name="list_divider_top">#E2E2E2</color>
     <color name="list_divider_bottom">#FFFFFF</color>
 
+	<!-- actioon counter -->
+	<color name="action_counter_no">@color/tab_text</color>
+	<color name="action_counter_label">@color/primary</color>
+
 </resources>

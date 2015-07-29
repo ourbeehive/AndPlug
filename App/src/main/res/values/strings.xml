@@ -7,6 +7,14 @@
 	<string name="msg">消息</string>
 	<string name="profile">我</string>
 
+	<!-- action counter -->
+	<string name="action_comment">评论</string>
+	<string name="action_comment_count">%1$d 个评论</string>
+	<string name="action_favourite">喜欢</string>
+	<string name="action_favourite_count">%1$d 人喜欢</string>
+	<string name="action_share">分享</string>
+	<string name="action_share_count">%1$d 次分享</string>
+
 	<string name="title_activity_splash">SplashActivity</string>
 	<string name="dummy_button">Dummy Button</string>
 	<string name="dummy_content">DUMMY\nCONTENT</string>
@@ -15,7 +23,7 @@
 	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+	<!-- TODO: Remove or change this placeholder text -->
 	<string name="hello_blank_fragment">Hello blank fragment</string>
 	<string name="title_activity_feature_detail">FeatureDetailActivity</string>
 </resources>

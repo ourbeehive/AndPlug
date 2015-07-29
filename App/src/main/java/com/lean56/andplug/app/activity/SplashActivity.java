@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.lean56.andplug.app.R;
-import com.lean56.andplug.comlib.activity.BaseActivity;
+import com.lean56.andplug.activity.BaseActivity;
 
 /**
  * Splash Activity is the loading UI
