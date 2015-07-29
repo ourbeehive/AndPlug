@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import com.lean56.andplug.R;
 import com.lean56.andplug.adapter.BaseRecyclerAdapter;
 import com.lean56.andplug.adapter.DividerItemDecoration;
+import com.lean56.andplug.utils.ItemClickSupport;
 import com.lean56.andplug.view.ExceptionView;
 
 import java.util.Collections;
@@ -72,6 +73,21 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         setRecyclerViewLayoutManager();
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        // bind click listener
+        final ItemClickSupport itemClick = ItemClickSupport.addTo(mRecyclerView);
+        itemClick.setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerView parent, View child, int position, long id) {
+                onListItemClick(parent, child, position, id);
+            }
+        });
+
+        itemClick.setOnItemLongClickListener(new ItemClickSupport.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(RecyclerView parent, View child, int position, long id) {
+                return onListItemLongClick(parent, child, position, id);
+            }
+        });
 
         progressBar = (ProgressBar) view.findViewById(R.id.pb_loading);
 
@@ -314,6 +330,29 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
 
     public List<E> getItems() {
         return this.items;
+    }
+
+    /**
+     * Callback when a list view item is clicked
+     *
+     * @param parent
+     * @param child
+     * @param position
+     * @param id
+     */
+    public void onListItemClick(RecyclerView parent, View child, int position, long id) {}
+
+    /**
+     * Callback when a list view item is clicked and held
+     *
+     * @param parent
+     * @param child
+     * @param position
+     * @param id
+     * @return true if the callback consumed the long click, false otherwise
+     */
+    public boolean onListItemLongClick(RecyclerView parent, View child, int position, long id) {
+        return false;
     }
 }
 

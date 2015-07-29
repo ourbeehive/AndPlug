@@ -2,6 +2,9 @@ package com.lean56.andplug.app.fragment;
 
 import android.os.Bundle;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import com.lean56.andplug.adapter.BaseRecyclerAdapter;
 import com.lean56.andplug.app.adapter.MsgAdapter;
 import com.lean56.andplug.app.dao.Msg;
@@ -17,6 +20,8 @@ import java.util.List;
  * @author Charles
  */
 public class MsgFragment extends RefreshRecyclerFragment<Msg> {
+
+    private final static String TAG = MsgFragment.class.getSimpleName();
 
     @Override
     public Loader<List<Msg>> onCreateLoader(int id, Bundle args) {
@@ -35,6 +40,12 @@ public class MsgFragment extends RefreshRecyclerFragment<Msg> {
                 return msgs;
             }
         };
+    }
+
+    @Override
+    public void onListItemClick(RecyclerView parent, View child, int position, long id) {
+        Msg item = items.get(position);
+        Log.d(TAG, item.getTitle());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.lean56.andplug.fragment;
+package com.lean56.andplug.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

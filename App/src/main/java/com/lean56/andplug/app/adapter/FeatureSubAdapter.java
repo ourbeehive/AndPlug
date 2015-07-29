@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import com.lean56.andplug.app.fragment.IndexFragment;
-import com.lean56.andplug.fragment.SaveFragmentPagerAdapter;
+import com.lean56.andplug.adapter.SaveFragmentPagerAdapter;
 
 
 /**

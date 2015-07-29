@@ -30,4 +30,6 @@
     <!-- tab -->
     <item type="id" name="vp_pages">false</item>
 
+    <item type="id" name="item_click_support">false</item>
+
 </resources>
