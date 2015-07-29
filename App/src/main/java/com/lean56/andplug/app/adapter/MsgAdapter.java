@@ -22,7 +22,6 @@ public class MsgAdapter extends BaseRecyclerAdapter<Msg> {
         super(activity, R.layout.item_msg);
         mActivity = activity;
         mResources = activity.getResources();
-
     }
 
     @Override
