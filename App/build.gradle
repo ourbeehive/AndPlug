@@ -54,6 +54,7 @@ dependencies {
     compile project(':BaiduMap')
     compile project(':VoiceIflytek')
     compile project(':ShareSDK')
+    compile project(':RongIM')
 
     compile 'de.greenrobot:greendao:1.3.7'
 
