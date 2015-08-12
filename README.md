@@ -1,5 +1,7 @@
 # AndPlug
 [![Build Status](https://travis-ci.org/ourbeehive/AndPlug.png?branch=master)](https://travis-ci.org/ourbeehive/AndPlug)
+[![Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=)
+
 A Practice of Android Modularization [中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
 
 ## App

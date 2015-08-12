@@ -5,7 +5,8 @@
 	</style>
 
 	<!--
-	Base application theme. see {http://www.2cto.com/kf/201506/407276.html}
+	Base application theme.
+	see {http://www.2cto.com/kf/201506/407276.html}
 	-->
 	<style name="AppTheme" parent="@style/AppBaseTheme">
 		<item name="colorPrimary">@color/primary</item>

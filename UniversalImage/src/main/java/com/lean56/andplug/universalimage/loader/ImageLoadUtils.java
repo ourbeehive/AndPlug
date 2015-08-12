@@ -11,6 +11,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  * @author Charles(zhangchaoxu@gmail.com)
  */
 public class ImageLoadUtils {
+
     public ImageLoader imageLoader = ImageLoader.getInstance();
 
     public static DisplayImageOptions options = new DisplayImageOptions.Builder()
