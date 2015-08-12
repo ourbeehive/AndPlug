@@ -10,6 +10,12 @@
     <string name="settings">设置</string>
     <string name="empty"></string>
 
+    <!-- account -->
+    <string name="forget_pwd">忘记密码?</string>
+    <string name="register">注册</string>
+    <string name="pwd">密码</string>
+    <string name="account_username">用户名/邮箱/手机号</string>
+
     <string name="unknown_error">未知错误</string>
     <string name="msg_exit_back_tips">再按一次退出应用</string>
     <string name="title_exit_dlg">退出提示:</string>

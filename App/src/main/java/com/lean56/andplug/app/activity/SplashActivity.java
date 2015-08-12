@@ -2,9 +2,9 @@ package com.lean56.andplug.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import com.lean56.andplug.app.R;
 import com.lean56.andplug.activity.BaseActivity;
+import com.lean56.andplug.app.AppContext;
+import com.lean56.andplug.app.R;
 
 /**
  * Splash Activity is the loading UI
@@ -19,14 +19,17 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final View controlsView = findViewById(R.id.fullscreen_content_controls);
-        final View contentView = findViewById(R.id.fullscreen_content);
+        checkAccount();
+    }
 
-        Intent intent = new Intent();
-        intent.setClass(this, HomeActivity.class);
-        startActivity(intent);
+    /**
+     * check if account login and start next activity
+     */
+    private void checkAccount() {
+        Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginActivity.class;
+        Intent intent = new Intent(this, targetCls);
+        startActivity(intent);        finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        finish();
     }
 
     @Override
