@@ -3,19 +3,23 @@ package com.lean56.andplug.app.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AutoCompleteTextView;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.app.R;
+import com.lean56.andplug.view.ResetEditText;
 
 /**
- * A login_bg screen that offers login_bg via email/password.
+ * A login_bg screen that offers login_bg via username/password.
+ *
+ * @author Charles
  */
 public class LoginActivity extends BaseActivity {
 
@@ -25,11 +29,14 @@ public class LoginActivity extends BaseActivity {
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
     private ImageView mLoginBgImage;
+
+    private ResetEditText mUsernameEdit;
+    private ResetEditText mPwdEdit;
+    private Button mLoginBtn;
+    private TextView mForgetPwdText;
+    private TextView mRegisterText;
+
 
     @Override
     protected int getContentView() {
@@ -40,75 +47,74 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // set up the bg anim
         mLoginBgImage = (ImageView) findViewById(R.id.iv_login_bg);
         Animation loginBgAnim = AnimationUtils.loadAnimation(this, R.anim.login_bg);
         mLoginBgImage.startAnimation(loginBgAnim);
 
-        // Set up the login_bg form.
-        /*mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
-
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        // set up the login form.
+        mUsernameEdit = (ResetEditText) findViewById(R.id.et_username);
+        mUsernameEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login_bg || id == EditorInfo.IME_NULL) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                    mPwdEdit.requestFocus();
+                }
+                return true;
+            }
+        });
+
+        mPwdEdit = (ResetEditText) findViewById(R.id.et_pwd);
+        mPwdEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     attemptLogin();
                     return true;
                 }
                 return false;
             }
-        });*/
+        });
 
-        Button mLoginButton = (Button) findViewById(R.id.btn_login);
-        mLoginButton.setOnClickListener(new OnClickListener() {
+        mLoginBtn = (Button) findViewById(R.id.btn_login);
+        mLoginBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
-
-        /*mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);*/
     }
 
     /**
-     * Attempts to sign in or register the account specified by the login_bg form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login_bg attempt is made.
+     * Authenticate login & password
      */
     public void attemptLogin() {
         if (mAuthTask != null) {
             return;
         }
 
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
-
         // Store values at the time of the login_bg attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        String username = mUsernameEdit.getText().toString();
+        String password = mPwdEdit.getText().toString();
 
         boolean cancel = false;
-        View focusView = null;
-
+        ResetEditText focusView = null;
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
+            mPwdEdit.setError(getString(R.string.error_invalid_password));
+            focusView = mPwdEdit;
             cancel = true;
         }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+        // Check for a valid username.
+        if (TextUtils.isEmpty(username)) {
+            mUsernameEdit.setError(getString(R.string.error_field_required));
+            focusView = mUsernameEdit;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+        } else if (!isUsernameValid(username)) {
+            mUsernameEdit.setError(getString(R.string.error_invalid_username));
+            focusView = mUsernameEdit;
             cancel = true;
         }
 
@@ -116,21 +122,22 @@ public class LoginActivity extends BaseActivity {
             // There was an error; don't attempt login_bg and focus the first
             // form field with an error.
             focusView.requestFocus();
+            focusView.shakeAnimation();
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login_bg attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(username, password);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isEmailValid(String email) {
-        return email.contains("@");
+    private boolean isUsernameValid(String username) {
+        return username.length() > 0;
     }
 
     private boolean isPasswordValid(String password) {
-        return true;
+        return password.length() > 0;
     }
 
     /**
@@ -203,8 +210,8 @@ public class LoginActivity extends BaseActivity {
             if (success) {
                 finish();
             } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+                mPwdEdit.setError(getString(R.string.error_invalid_password));
+                mPwdEdit.requestFocus();
             }
         }
 

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 		  package="com.lean56.andplug.app">
 
-	<!-- To auto-complete the email text field in the login_bg form with the user's emails -->
 	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 	<uses-permission android:name="android.permission.READ_PROFILE"/>
 	<uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -44,7 +43,7 @@
 
 		<activity
 				android:name=".activity.FeatureDetailActivity"
-				android:label="@string/title_activity_feature_detail">
+				android:label="">
 		</activity>
 
 		<activity

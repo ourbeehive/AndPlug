@@ -18,15 +18,7 @@
 
 	<string name="error_article_not_ready">文章还没有就绪，请客官稍等一下哦~</string>
 
-	<string name="title_activity_splash">SplashActivity</string>
-	<string name="dummy_button">Dummy Button</string>
-	<string name="dummy_content">DUMMY\nCONTENT</string>
-	<string name="title_activity_home">HomeActivity</string>
-
-	<string name="hello_world">Hello world!</string>
-	<string name="action_settings">Settings</string>
-
-	<!-- TODO: Remove or change this placeholder text -->
-	<string name="hello_blank_fragment">Hello blank fragment</string>
-	<string name="title_activity_feature_detail">FeatureDetailActivity</string>
+	<string name="error_invalid_password">无效的密码</string>
+	<string name="error_field_required">用户名不能为空</string>
+	<string name="error_invalid_username">无效的用户名</string>
 </resources>
