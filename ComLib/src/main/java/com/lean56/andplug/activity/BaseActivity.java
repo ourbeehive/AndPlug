@@ -163,7 +163,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void setStatusBarTint(int primaryDarkColor) {
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintColor(primaryDarkColor);
+        //tintManager.setStatusBarTintColor(primaryDarkColor);
     }
 
     /**

@@ -5,19 +5,22 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.app.R;
 
 /**
- * A login screen that offers login via email/password.
+ * A login_bg screen that offers login_bg via email/password.
  */
 public class LoginActivity extends BaseActivity {
 
     /**
-     * Keep track of the login task to ensure we can cancel it if requested.
+     * Keep track of the login_bg task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
 
@@ -26,6 +29,7 @@ public class LoginActivity extends BaseActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private ImageView mLoginBgImage;
 
     @Override
     protected int getContentView() {
@@ -36,7 +40,11 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set up the login form.
+        mLoginBgImage = (ImageView) findViewById(R.id.iv_login_bg);
+        Animation loginBgAnim = AnimationUtils.loadAnimation(this, R.anim.login_bg);
+        mLoginBgImage.startAnimation(loginBgAnim);
+
+        // Set up the login_bg form.
         /*mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
@@ -44,7 +52,7 @@ public class LoginActivity extends BaseActivity {
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                if (id == R.id.login_bg || id == EditorInfo.IME_NULL) {
                     attemptLogin();
                     return true;
                 }
@@ -65,9 +73,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     /**
-     * Attempts to sign in or register the account specified by the login form.
+     * Attempts to sign in or register the account specified by the login_bg form.
      * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
+     * errors are presented and no actual login_bg attempt is made.
      */
     public void attemptLogin() {
         if (mAuthTask != null) {
@@ -78,7 +86,7 @@ public class LoginActivity extends BaseActivity {
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
+        // Store values at the time of the login_bg attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
@@ -105,12 +113,12 @@ public class LoginActivity extends BaseActivity {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
+            // There was an error; don't attempt login_bg and focus the first
             // form field with an error.
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
+            // perform the user login_bg attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
@@ -126,7 +134,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     /**
-     * Shows the progress UI and hides the login form.
+     * Shows the progress UI and hides the login_bg form.
      */
     public void showProgress(final boolean show) {
         /*int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
@@ -151,7 +159,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     /**
-     * Represents an asynchronous login/registration task used to authenticate
+     * Represents an asynchronous login_bg/registration task used to authenticate
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {

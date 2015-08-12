@@ -1,6 +1,8 @@
 package com.lean56.andplug.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import com.lean56.andplug.universalimage.loader.ImageLoadUtils;
 /**
  * Splash Activity is the loading Screen
  *
+ *
  * @author Charles
  */
 public class SplashActivity extends BaseActivity {
@@ -19,8 +22,8 @@ public class SplashActivity extends BaseActivity {
     private final static String TAG = SplashActivity.class.getSimpleName();
 
     // UI references.
+    private View mRootView;
     private ImageView mSplashImage;
-
     private ImageLoadUtils imageLoadUtils = new ImageLoadUtils();
 
     @Override
@@ -32,11 +35,14 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mRootView = findViewById(R.id.root_view);
+        mRootView.setBackgroundResource(R.drawable.splash);
+
         mSplashImage = (ImageView) findViewById(R.id.iv_splash);
         imageLoadUtils.imageLoader.clearMemoryCache();
         // imageLoadUtils.imageLoader.loadImage(mSplashImage, );
 
-        Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash);
+        Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash_bg);
         splashAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {}
@@ -53,19 +59,14 @@ public class SplashActivity extends BaseActivity {
     }
 
     /**
-     * check if account login and start next activity
+     * check if account login_bg and start next activity
      */
     private void checkAccount() {
         Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginActivity.class;
-        /*Intent intent = new Intent(this, targetCls);
+        Intent intent = new Intent(this, targetCls);
         startActivity(intent);
         finish();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);*/
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
-
-    /*@Override
-    protected boolean isTranslucentStatusBar() {
-        return false;
-    }*/
 
 }
