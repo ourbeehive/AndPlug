@@ -146,5 +146,14 @@ public class ResetEditText extends EditText {
     public void shakeAnimation() {
         shakeAnimation(500, 3);
     }
+
+    /**
+     * set the error text color
+     * @param error
+     */
+    /*@Override
+    public void setError(CharSequence error) {
+        super.setError(Html.fromHtml("<font color=#ffffff>" + error + "</font>"));
+    }*/
 }
 
