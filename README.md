@@ -1,11 +1,11 @@
 # AndPlug
 [![Build Status](https://travis-ci.org/ourbeehive/AndPlug.png?branch=master)](https://travis-ci.org/ourbeehive/AndPlug)
-[![Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=)
 
 A Practice of Android Modularization [中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
 
 ## App
 App is the demo Android Application for AndPlug, show how to use the module libs and how to setup an App with the modules. [more](https://github.com/ourbeehive/AndPlug/App/blob/master/README_CN.md)
+[![Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=)
 
 ## AppAA
 App is the demo Android Application show how to setup an App with AndroidAnnotations(AA). [more](https://github.com/ourbeehive/AndPlug/AppAA/blob/master/README_CN.md)
