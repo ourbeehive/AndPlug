@@ -16,8 +16,8 @@ BaiduLoc is the lib support location provider powered by [Baidu locsdk](http://d
 ## BaiduMap
 BaiduMap is the lib support map provider powered by [Baidu map sdk](http://developer.baidu.com/map/index.php?title=androidsdk). [more](https://github.com/ourbeehive/AndPlug/BaiduMap/blob/master/README.md)
 
-## ComLib
-ComLib is the lib include some utils and widgets. [more](https://github.com/ourbeehive/AndPlug/ComLib/blob/master/README.md)
+## Lib
+Lib is the lib include some utils and widgets. [more](https://github.com/ourbeehive/AndPlug/Lib/blob/master/README.md)
 
 ## GetuiPush
 GetuiPush is the lib support message push provider powered by [Getui](http://www.getui.com/). [more](https://github.com/ourbeehive/AndPlug/Getui/blob/master/README.md)
