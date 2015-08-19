@@ -31,8 +31,8 @@ dependencies {
 
     // KitKat translucent modes
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    // Asynchronous HTTP
-    compile 'com.loopj.android:android-async-http:1.4.7'
+    // HTTP requester
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
     // JSON Processor
     compile 'com.alibaba:fastjson:1.1.45.android'
     // Analytics Umeng
