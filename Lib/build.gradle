@@ -35,6 +35,10 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     // JSON Processor
     compile 'com.alibaba:fastjson:1.1.45.android'
+    // Universal Image Loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    // observable scrollview
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
     // Analytics Umeng
     compile 'com.umeng.analytics:analytics:latest.integration'
 }
