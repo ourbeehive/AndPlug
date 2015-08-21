@@ -45,8 +45,7 @@ public class AppManager {
      * get the current Activity(the last push to stack)
      */
     synchronized public Activity currentActivity() {
-        Activity activity = activityStack.lastElement();
-        return activity;
+        return activityStack.lastElement();
     }
 
     /**
@@ -73,7 +72,7 @@ public class AppManager {
      * end the Activity with class name
      */
     synchronized public void finishActivity(Class<?> cls) {
-        Stack<Activity> tempActivityStack = new Stack<Activity>();
+        Stack<Activity> tempActivityStack = new Stack<>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -87,7 +86,7 @@ public class AppManager {
      * end the Activity with class name
      */
     synchronized public void finishActivity(Class<?> cls, int resultCode) {
-        Stack<Activity> tempActivityStack = new Stack<Activity>();
+        Stack<Activity> tempActivityStack = new Stack<>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -102,7 +101,7 @@ public class AppManager {
      * end all the activities except Activity with class name
      */
     synchronized public void finishAllActivityExcept(Class<?> cls) {
-        Stack<Activity> tempActivityStack = new Stack<Activity>();
+        Stack<Activity> tempActivityStack = new Stack<>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -116,9 +115,9 @@ public class AppManager {
      * end all the activity
      */
     synchronized public void finishAllActivity() {
-        for (int i = 0, size = activityStack.size(); i < size; i++) {
-            if (null != activityStack.get(i)) {
-                activityStack.get(i).finish();
+        for (Activity activity : activityStack) {
+            if (null !=activity) {
+                activity.finish();
             }
         }
         activityStack.clear();
