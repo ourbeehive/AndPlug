@@ -31,4 +31,17 @@
     <string name="json_exception">数据格式化发生错误</string>
     <string name="io_exception">数据读写错误</string>
 
+    <!-- photo pick -->
+    <string name="all_photos">所有图片</string>
+    <string name="take_photo">拍摄照片</string>
+    <string name="send">发送</string>
+    <string name="select">选择</string>
+    <string name="preview">预览</string>
+    <string name="photo_pick">图片选择</string>
+    <string name="camera_permission_exception">调用摄像头拒绝,请在设置中允许</string>
+    <string name="camera_exception">摄像头读取失败</string>
+    <string name="photo_crop_exception">图片剪裁失败</string>
+    <string name="on_activity_result_data_null">返回数据失败</string>
+    <string name="picked_image_null">获取已选择图片失败</string>
+
 </resources>

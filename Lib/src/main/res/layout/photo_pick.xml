@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				style="@style/RootView">
+
+	<include android:id="@id/toolbar" layout="@layout/toolbar"/>
+
+	<GridView
+			android:id="@+id/gv_photo"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/toolbar"
+			android:background="@android:color/black"
+			android:gravity="center"
+			android:horizontalSpacing="4dp"
+			android:numColumns="3"
+			android:padding="4dp"
+			android:stretchMode="columnWidth"
+			android:verticalSpacing="4dp"/>
+
+	<LinearLayout
+			android:id="@+id/layout_bottom"
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:layout_alignParentBottom="true"
+			android:background="#bb000000"
+			android:orientation="horizontal">
+
+		<LinearLayout
+				android:id="@+id/view_select_fold"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:paddingLeft="20dp"
+				android:paddingRight="20dp">
+
+			<TextView
+					android:id="@+id/tv_fold_name"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/select"
+					android:textColor="#ffdddddd"/>
+
+			<View
+					android:layout_width="13dp"
+					android:layout_height="13dp"
+					android:layout_marginLeft="5dp"
+					android:layout_marginTop="5dp"
+					android:background="@drawable/phone_pick_bottom"/>
+
+		</LinearLayout>
+
+		<View
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"/>
+
+		<TextView
+				android:id="@+id/tv_preview"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:gravity="center"
+				android:paddingLeft="20dp"
+				android:paddingRight="20dp"
+				android:text="@string/preview"
+				android:textColor="#ffbbbbbb"/>
+
+	</LinearLayout>
+
+	<FrameLayout
+			android:id="@+id/layout_fold_select"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_above="@id/layout_bottom"
+			android:background="#55666666"
+			android:paddingTop="40dp"
+			android:visibility="invisible">
+
+		<ListView
+				android:id="@+id/lv_fold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom"
+				android:background="@android:color/white"
+				android:divider="@null"
+				android:dividerHeight="0dp"
+				android:paddingTop="5dp"/>
+
+	</FrameLayout>
+
+</RelativeLayout>
