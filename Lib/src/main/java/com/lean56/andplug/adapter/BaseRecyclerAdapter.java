@@ -6,11 +6,10 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Adapter for RecyclerView
@@ -21,14 +20,10 @@ import java.util.List;
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerAdapter.ViewHolder> {
 
     protected Context mContext;
+    private int mLayoutResId;
 
-    protected final LayoutInflater mInflater;
-
-    private final int mLayoutResId;
-
-    private static final Object[] EMPTY = new Object[0];
-
-    private Object[] items;
+    protected List<T> mItems;
+    private List<T> EMPTY = new ArrayList<>();
 
     /**
      * Create adapter
@@ -37,11 +32,96 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
      * @param layoutResId
      */
     public BaseRecyclerAdapter(final Context context, final int layoutResId) {
-        this.mContext = context;
-        this.mInflater = LayoutInflater.from(mContext);
+        this(context);
         this.mLayoutResId = layoutResId;
+    }
 
-        items = EMPTY;
+    public BaseRecyclerAdapter(List<T> items) {
+        if (items == null)
+            items = EMPTY;
+        this.mItems = items;
+    }
+
+    public BaseRecyclerAdapter(final Context context) {
+        this.mContext = context;
+
+        mItems = EMPTY;
+    }
+
+    public int getLayoutId(int viewType) {
+        return this.mLayoutResId;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(getLayoutId(viewType), viewGroup, false);
+        return new ViewHolder(itemView);
+    }
+
+    @Override
+    public abstract void onBindViewHolder(ViewHolder viewHolder, int position);
+
+    @Override
+    public long getItemId(final int position) {
+        return mItems.get(position).hashCode();
+    }
+
+    @Override
+    public int getItemCount() {
+        if (mItems == null)
+            return 0;
+        return mItems.size();
+    }
+
+    public void addItem(T viewItem) {
+        if (mItems != null) {
+            mItems.add(viewItem);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void addAll(List<T> newData) {
+        if (mItems != null) {
+            int start = mItems.size();
+            mItems.addAll(newData);
+            notifyItemRangeInserted(start, mItems.size() - 1);
+        }
+    }
+
+    public void replaceAll(List<T> newData) {
+        clearAll();
+        if (newData == null) {
+            newData = new ArrayList<>();
+        }
+        mItems = newData;
+        notifyItemRangeInserted(0, mItems.size() - 1);
+    }
+
+    public void clearAll() {
+        if (mItems == null)
+            return;
+
+        int size = this.mItems.size();
+        if (size > 0) {
+            mItems = new ArrayList<>();
+            this.notifyItemRangeRemoved(0, size);
+        }
+    }
+
+    protected List<T> getItems() {
+        return mItems;
+    }
+
+    public void setItems(final List<T> items) {
+        if (items != null)
+            this.mItems = items;
+        else
+            this.mItems = EMPTY;
+        notifyDataSetChanged();
+    }
+
+    public T getItem(final int position) {
+        return mItems.get(position);
     }
 
     /**
@@ -55,14 +135,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
             super(v);
         }
 
-        /**
-         * get View by id
-         *
-         * @param viewId
-         * @return
-         */
         public <T extends View> T getView(int viewId) {
-
             View view = mViews.get(viewId);
             if (view == null) {
                 view = itemView.findViewById(viewId);
@@ -71,26 +144,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
             return (T) view;
         }
 
-        /**
-         * set text for TextView
-         *
-         * @param viewId
-         * @param text
-         * @return
-         */
-        public ViewHolder setText(int viewId, String text) {
+        public ViewHolder setTag(int viewId, Object tag) {
+            getView(viewId).setTag(tag);
+            return this;
+        }
+
+        public ViewHolder setText(int viewId, CharSequence text) {
             TextView view = getView(viewId);
             view.setText(text);
             return this;
         }
 
-        /**
-         * set text for TextView
-         *
-         * @param viewId
-         * @param gone
-         * @return
-         */
         public ViewHolder setGone(int viewId, boolean gone) {
             View view = getView(viewId);
             if (gone) {
@@ -101,64 +165,29 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
             return this;
         }
 
-    }
+        public ViewHolder setImageResource(int viewId, int drawableId) {
+            ImageView view = (ImageView) getView(viewId);
+            view.setImageResource(drawableId);
+            return this;
+        }
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(mLayoutResId, viewGroup, false);
-        return new ViewHolder(v);
-    }
+        public ViewHolder setOnClickListener(int viewId, View.OnClickListener clickListener) {
+            getView(viewId).setOnClickListener(clickListener);
+            return this;
+        }
 
-    @Override
-    public abstract void onBindViewHolder(ViewHolder viewHolder, int position);
+        public ViewHolder setOnClickListener(int viewId, View.OnClickListener clickListener, Object tag) {
+            View v = getView(viewId);
+            v.setTag(tag);
+            v.setOnClickListener(clickListener);
+            return this;
+        }
 
-    @Override
-    public long getItemId(final int position) {
-        return items[position].hashCode();
-    }
+        public ViewHolder setOnItemClickListener(View.OnClickListener clickListener) {
+            itemView.setOnClickListener(clickListener);
+            return this;
+        }
 
-    @Override
-    public int getItemCount() {
-        return items.length;
-    }
-
-    /**
-     * Get a list of all items
-     *
-     * @return list of all items
-     */
-    protected List<T> getItems() {
-        List<? extends Object> objList = Arrays.asList(items);
-        return (List<T>) objList;
-    }
-
-    /**
-     * Set items to display
-     *
-     * @param items
-     */
-    public void setItems(final Collection<?> items) {
-        if (items != null && !items.isEmpty())
-            setItems(items.toArray());
-        else
-            setItems(EMPTY);
-    }
-
-    /**
-     * Set items to display
-     *
-     * @param items
-     */
-    public void setItems(final Object[] items) {
-        if (items != null)
-            this.items = items;
-        else
-            this.items = EMPTY;
-        notifyDataSetChanged();
-    }
-
-    public T getItem(final int position) {
-        return (T) items[position];
     }
 
 }
