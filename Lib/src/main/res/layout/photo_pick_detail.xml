@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  style="@style/RootView"
+			  android:background="@android:color/black">
+
+	<com.lean56.andplug.image.PhotoViewPager
+			android:id="@+id/viewPager"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"/>
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:background="#bb000000"
+			android:gravity="center_vertical"
+			android:orientation="horizontal"
+			android:paddingRight="12dp">
+
+		<View
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"/>
+
+		<CheckBox
+				android:id="@+id/checkbox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:checked="false"
+				android:text="@string/select"
+				android:textColor="#ffdddddd"/>
+
+	</LinearLayout>
+
+</LinearLayout>
