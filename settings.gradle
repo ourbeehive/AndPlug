@@ -3,3 +3,10 @@ include ':Lib', ':App', ':UniversalImage', ':DaoGen',
         ':GetuiPush', ':ShareSDK',
         ':RongIM', ':VoiceIflytek',
         ':UmengUpdate', ':UmengFeedback'
+
+// sample of how to add External Lib in local
+// build with jitpack.io or as below
+/*
+include 'ExternalLib'
+project(':ExternalLib').projectDir= new File(settingsDir, '..\\ExternalLib')
+*/

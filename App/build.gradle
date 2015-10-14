@@ -40,6 +40,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // un-comment in release build
+    /*productFlavors {
+        xiaomi {}
+        qihu360 {}
+        baidu {}
+        wandoujia {}
+        github {}
+        web {}
+        yingyongbao {}
+        huawei {}
+        meizu {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }*/
 }
 
 dependencies {
