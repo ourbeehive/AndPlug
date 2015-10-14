@@ -1,14 +1,11 @@
 # AndPlug
 [![Build Status](https://travis-ci.org/ourbeehive/AndPlug.png?branch=master)](https://travis-ci.org/ourbeehive/AndPlug)
 
-A Practice of Android Modularization [中文版](https://github.com/ourbeehive/AndPlug/blob/master/README_CN.md)
+A Practice of Android Modularization
 
 ## App
 App is the demo Android Application for AndPlug, show how to use the module libs and how to setup an App with the modules. [more](https://github.com/ourbeehive/AndPlug/App/blob/master/README_CN.md)
 [![Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=)
-
-## AppAA
-App is the demo Android Application show how to setup an App with AndroidAnnotations(AA). [more](https://github.com/ourbeehive/AndPlug/AppAA/blob/master/README_CN.md)
  
 ## BaiduLoc
 BaiduLoc is the lib support location provider powered by [Baidu locsdk](http://developer.baidu.com/map/index.php?title=android-locsdk). [more](https://github.com/ourbeehive/AndPlug/BaiduLoc/blob/master/README.md)
