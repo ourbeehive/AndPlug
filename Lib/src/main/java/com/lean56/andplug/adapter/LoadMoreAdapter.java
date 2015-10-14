@@ -24,6 +24,9 @@ public abstract class LoadMoreAdapter<T extends BaseEntity> extends BaseRecycler
 
     public LoadMoreAdapter(final Context context, final int layoutResId) {
         super(context, layoutResId);
+        /*if (this.mItems.size() >= pageCount) {
+            this.mItems.add(getLoadMoreItem());
+        }*/
     }
 
     public LoadMoreAdapter(int pageCount, List<T> mDatas) {
@@ -75,6 +78,7 @@ public abstract class LoadMoreAdapter<T extends BaseEntity> extends BaseRecycler
         T viewItem = mItems.get(position);
         return viewItem.getViewType();
     }
+
 
     @Override
     public void addAll(List<T> newData) {

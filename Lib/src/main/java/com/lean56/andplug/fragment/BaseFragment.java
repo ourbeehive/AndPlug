@@ -1,14 +1,16 @@
 package com.lean56.andplug.fragment;
 
-import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+import com.umeng.analytics.MobclickAgent;
 
 /**
- * Base Fragment
+ * Base Fragment offers
+ * umeng analytics
+ * home optional selected
  *
  * @author Charles
  */
-public class BaseFragment extends Fragment {
+public class BaseFragment extends android.support.v4.app.Fragment {
 
     /**
      * Is this fragment usable from the UI-thread
@@ -32,5 +34,19 @@ public class BaseFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // [+] umeng analytics
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(getClass().getSimpleName());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(getClass().getSimpleName());
+    }
+    // [-] umeng analytics
 
 }

@@ -80,7 +80,7 @@ public class CameraPhotoUtils {
             intent.putExtra("aspectY", 1);
             intent.putExtra("outputX", outputX);
             intent.putExtra("outputY", outputY);
-            intent.putExtra("scale", true);
+            intent.putExtra("scale", false);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
             intent.putExtra("return-data", false);
             intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());

@@ -1,6 +1,7 @@
 package com.lean56.andplug.utils;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.SoundEffectConstants;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.lean56.andplug.R;
  * @author lucasr
  */
 public class ItemClickSupport {
+
+    private final static String TAG = ItemClickSupport.class.getSimpleName();
+
     /**
      * Interface definition for a callback to be invoked when an item in the
      * RecyclerView has been clicked.
@@ -91,7 +95,7 @@ public class ItemClickSupport {
             itemClickSupport = new ItemClickSupport(recyclerView);
             recyclerView.setTag(R.id.item_click_support, itemClickSupport);
         } else {
-            // TODO: Log warning
+            Log.w(TAG, "itemClickSupport should be null");
         }
 
         return itemClickSupport;
@@ -100,7 +104,7 @@ public class ItemClickSupport {
     public static void removeFrom(RecyclerView recyclerView) {
         final ItemClickSupport itemClickSupport = from(recyclerView);
         if (itemClickSupport == null) {
-            // TODO: Log warning
+            Log.w(TAG, "itemClickSupport should be null");
             return;
         }
 

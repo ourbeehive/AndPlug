@@ -7,19 +7,19 @@
                 android:id="@+id/tv_exception_msg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:textColor="@color/normal_text_color"
-                android:text="加载失败，请检查网络"
-                android:textSize="@dimen/text_size_l"/>
+                android:textColor="@color/normal_text_color_disabled"
+                android:layout_marginTop="@dimen/margin_xxxl"
+                android:text="空空如也~"
+                android:textSize="@dimen/text_size_s"/>
 
         <ImageView
                 android:id="@+id/iv_exception_icon"
                 android:layout_width="143dp"
                 android:layout_height="143dp"
                 android:layout_above="@id/tv_exception_msg"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/ic_exception_error"/>
+                android:layout_centerHorizontal="true" />
 
         <Button
                 android:id="@+id/btn_exception_action"
@@ -27,6 +27,7 @@
                 android:layout_below="@+id/tv_exception_msg"
                 android:layout_width="163dp"
                 android:layout_marginTop="23dp"
+                android:visibility="gone"
                 android:text="点击重试"
                 android:layout_centerHorizontal="true"/>
 

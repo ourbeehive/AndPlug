@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Response Json
+ * all the
  *
  * @author Charles
  */

@@ -3,6 +3,7 @@ package com.lean56.andplug.view;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -151,9 +152,16 @@ public class ResetEditText extends EditText {
      * set the error text color
      * @param error
      */
-    /*@Override
+    @Override
     public void setError(CharSequence error) {
         super.setError(Html.fromHtml("<font color=#ffffff>" + error + "</font>"));
-    }*/
+    }
+
+    /**
+     * clear content
+     */
+    public void clear() {
+        setText("");
+    }
 }
 

@@ -2,7 +2,6 @@
 <resources>
 
     <style name="RootView">
-        <item name="android:id">@id/root_view</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:fitsSystemWindows">true</item>
@@ -32,8 +31,8 @@
         <item name="android:textSize">@dimen/text_size_s</item>
         <item name="android:textColor">@color/white_color_selector</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">@dimen/padding_s</item>
-        <item name="android:paddingRight">@dimen/padding_s</item>
+        <item name="android:paddingLeft">@dimen/padding_xxs</item>
+        <item name="android:paddingRight">@dimen/padding_xxs</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minWidth">@dimen/button_width_s</item>
@@ -41,7 +40,7 @@
     </style>
 
     <style name="Button.Big" parent="@style/Button">
-        <item name="android:textSize">@dimen/text_size_xl</item>
+        <item name="android:textSize">@dimen/text_size_s</item>
         <item name="android:textColor">@color/white_color_selector</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
@@ -49,7 +48,7 @@
         <item name="android:paddingRight">@dimen/padding_xl</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">@dimen/button_height_m</item>
+        <item name="android:minHeight">@dimen/button_height_s</item>
     </style>
 
     <style name="Button.Small.Grey" parent="@style/Button.Small">
@@ -92,13 +91,22 @@
 
     <!-- ProgressBar Style. -->
     <style name="ProgressBar">
-        <item name="android:layout_width">100dp</item>
-        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
 
         <item name="android:indeterminate">true</item>
-        <item name="android:indeterminateDrawable">@drawable/progress_bar</item>
         <item name="android:indeterminateDuration">2000</item>
         <item name="android:indeterminateOnly">true</item>
+    </style>
+
+    <style name="ProgressBar.Big" parent="@style/ProgressBar">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
+    <style name="ProgressBar.Middle" parent="@style/ProgressBar">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
     </style>
 
     <style name="ListView">
@@ -106,6 +114,31 @@
         <item name="android:divider">@drawable/list_divider</item>
         <item name="android:cacheColorHint">@android:color/transparent</item>
         <item name="android:fadingEdge">none</item>
+    </style>
+
+    <style name="EditText" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_s</item>
+        <item name="android:textColor">@color/normal_text_color</item>
+        <item name="android:textColorHint">#ff7d7d7d</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Text" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_centerVertical">true</item>
+
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textColor">@color/normal_text_color</item>
     </style>
 
 </resources>

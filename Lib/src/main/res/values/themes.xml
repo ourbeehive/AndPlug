@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+	<style name="BaseTheme" parent="Theme.AppCompat.NoActionBar">
 		<item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
 		<item name="popupTheme">@style/Base.V21.Theme.AppCompat.Light.Dialog</item>
 	</style>

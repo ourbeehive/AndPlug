@@ -9,9 +9,10 @@ import java.util.Stack;
  * Activity manage and exit the application
  *
  * @author liux (http://my.oschina.net/liux)
- * @author Charles
+ * @author Charles (zhangchaoxu@gmail.com)
  * @version 1.1
  * @since 2012-3-21
+ * @update 2014-07-22
  */
 public class AppManager {
 
@@ -45,7 +46,8 @@ public class AppManager {
      * get the current Activity(the last push to stack)
      */
     synchronized public Activity currentActivity() {
-        return activityStack.lastElement();
+        Activity activity = activityStack.lastElement();
+        return activity;
     }
 
     /**
@@ -72,7 +74,7 @@ public class AppManager {
      * end the Activity with class name
      */
     synchronized public void finishActivity(Class<?> cls) {
-        Stack<Activity> tempActivityStack = new Stack<>();
+        Stack<Activity> tempActivityStack = new Stack<Activity>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -86,7 +88,7 @@ public class AppManager {
      * end the Activity with class name
      */
     synchronized public void finishActivity(Class<?> cls, int resultCode) {
-        Stack<Activity> tempActivityStack = new Stack<>();
+        Stack<Activity> tempActivityStack = new Stack<Activity>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -101,7 +103,7 @@ public class AppManager {
      * end all the activities except Activity with class name
      */
     synchronized public void finishAllActivityExcept(Class<?> cls) {
-        Stack<Activity> tempActivityStack = new Stack<>();
+        Stack<Activity> tempActivityStack = new Stack<Activity>();
         tempActivityStack.addAll(activityStack);
 
         for (Activity activity : tempActivityStack) {
@@ -115,9 +117,9 @@ public class AppManager {
      * end all the activity
      */
     synchronized public void finishAllActivity() {
-        for (Activity activity : activityStack) {
-            if (null !=activity) {
-                activity.finish();
+        for (int i = 0, size = activityStack.size(); i < size; i++) {
+            if (null != activityStack.get(i)) {
+                activityStack.get(i).finish();
             }
         }
         activityStack.clear();

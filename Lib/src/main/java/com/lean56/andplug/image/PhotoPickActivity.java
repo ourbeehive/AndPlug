@@ -17,6 +17,7 @@ import android.widget.*;
 import com.lean56.andplug.R;
 import com.lean56.andplug.common.ResultCodes;
 import com.lean56.andplug.image.pick.*;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

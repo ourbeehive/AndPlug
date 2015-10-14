@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
     <string name="login">登录</string>
-    <string name="logout">退出</string>
+    <string name="logout">退出登录</string>
     <string name="delete">删除</string>
+    <string name="clear">清除</string>
     <string name="search">搜索</string>
     <string name="settings">设置</string>
     <string name="empty"></string>
@@ -25,12 +25,6 @@
     <string name="network_unavailable">网络连接不可用</string>
     <string name="tips_network_unavailable">您的设备未启动移动网络或无线局域网\n前往设置检查网络连接?</string>
 
-    <string name="socket_timeout_exception">服务器连接超时,请检查网络后重试</string>
-    <string name="unknown_exception">发生未知错误</string>
-    <string name="network_exception">网络访问异常</string>
-    <string name="json_exception">数据格式化发生错误</string>
-    <string name="io_exception">数据读写错误</string>
-
     <!-- photo pick -->
     <string name="all_photos">所有图片</string>
     <string name="take_photo">拍摄照片</string>
@@ -38,10 +32,17 @@
     <string name="select">选择</string>
     <string name="preview">预览</string>
     <string name="photo_pick">图片选择</string>
+
+    <string name="socket_timeout_exception">服务器连接超时,请检查网络后重试</string>
+    <string name="unknown_exception">发生未知错误</string>
+    <string name="network_exception">网络访问异常</string>
+    <string name="json_exception">数据格式化发生错误</string>
+    <string name="io_exception">数据读写错误</string>
     <string name="camera_permission_exception">调用摄像头拒绝,请在设置中允许</string>
     <string name="camera_exception">摄像头读取失败</string>
     <string name="photo_crop_exception">图片剪裁失败</string>
     <string name="on_activity_result_data_null">返回数据失败</string>
     <string name="picked_image_null">获取已选择图片失败</string>
+    <string name="load_fail_retry">加载失败，点击重新加载</string>
 
 </resources>

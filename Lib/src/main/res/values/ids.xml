@@ -6,8 +6,11 @@
 
     <!-- toolbar -->
     <item type="id" name="toolbar">false</item>
-    <item type="id" name="toolbar_spinner">false</item>
+    <item type="id" name="toolbar_title">false</item>
+    <item type="id" name="toolbar_image">false</item>
     <item type="id" name="toolbar_search_view">false</item>
+
+    <item type="id" name="fragment">false</item>
 
     <!-- spinner -->
     <item type="id" name="spinner_icon">false</item>

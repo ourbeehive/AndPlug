@@ -21,27 +21,26 @@ public abstract class RefreshFragment<D> extends BaseFragment implements LoaderM
 
     private static final String FORCE_REFRESH = "forceRefresh";
 
-    SwipeRefreshLayout swipeLayout;
+    SwipeRefreshLayout mSwipeLayout;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // init SwipeRefreshLayout
-        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_item);
-        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mSwipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_item);
+        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 forceRefresh();
             }
         });
-        swipeLayout.setColorSchemeResources(R.color.swipe_refresh_start, R.color.swipe_refresh_process1, R.color.swipe_refresh_process2, R.color.swipe_refresh_end);
+        mSwipeLayout.setColorSchemeResources(R.color.swipe_refresh_start, R.color.swipe_refresh_end);
     }
 
     @Override
     public void onDestroyView() {
-        swipeLayout = null;
-
+        mSwipeLayout = null;
         super.onDestroyView();
     }
 
@@ -49,6 +48,7 @@ public abstract class RefreshFragment<D> extends BaseFragment implements LoaderM
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // init loader
         getLoaderManager().initLoader(0, null, this);
     }
 
@@ -64,7 +64,7 @@ public abstract class RefreshFragment<D> extends BaseFragment implements LoaderM
      * disable Refresh
      */
     protected final void disableRefresh() {
-        swipeLayout.setEnabled(false);
+        mSwipeLayout.setEnabled(false);
     }
 
     /**
@@ -72,14 +72,14 @@ public abstract class RefreshFragment<D> extends BaseFragment implements LoaderM
      * @param refreshing
      */
     protected final void setRefreshing(boolean refreshing) {
-        swipeLayout.setRefreshing(refreshing);
+        mSwipeLayout.setRefreshing(refreshing);
     }
 
     /**
      * @return true if the swipeLayout is refreshing
      */
     protected final boolean isRefreshing() {
-        return swipeLayout.isRefreshing();
+        return mSwipeLayout.isRefreshing();
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class RefreshFragment<D> extends BaseFragment implements LoaderM
         if (!isUsable())
             return;
 
-        swipeLayout.setRefreshing(false);
+        mSwipeLayout.setRefreshing(false);
     }
 
     @Override

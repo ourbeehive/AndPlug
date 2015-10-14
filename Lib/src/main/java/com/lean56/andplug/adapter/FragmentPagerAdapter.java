@@ -5,6 +5,10 @@ import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
 import com.lean56.andplug.fragment.FragmentProvider;
 
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Pager adapter that provides the current fragment
  *
@@ -40,8 +44,7 @@ public abstract class FragmentPagerAdapter extends android.support.v4.app.Fragme
     }
 
     @Override
-    public void setPrimaryItem(final ViewGroup container, final int position,
-                               final Object object) {
+    public void setPrimaryItem(final ViewGroup container, final int position, final Object object) {
         super.setPrimaryItem(container, position, object);
 
         boolean changed = false;
@@ -56,6 +59,31 @@ public abstract class FragmentPagerAdapter extends android.support.v4.app.Fragme
         if (changed)
             activity.invalidateOptionsMenu();
     }
+
+    // [+] save status
+    private List<WeakReference<Fragment>> mList = new ArrayList<>();
+
+    public List<WeakReference<Fragment>> getFragments() {
+        for (int i = mList.size() - 1; i >= 0; --i) {
+            if (null == mList.get(i).get()) {
+                mList.remove(i);
+            }
+        }
+        return mList;
+    }
+
+    protected void saveFragment(Fragment fragment) {
+        if (fragment == null)
+            return;
+
+        for (WeakReference<Fragment> item : mList) {
+            if (item.get() == fragment)
+                return;
+        }
+
+        mList.add(new WeakReference<>(fragment));
+    }
+    // [-] save status
 
 }
 

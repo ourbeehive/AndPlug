@@ -3,6 +3,9 @@
 
     <!-- based on xhdpi -->
     <!-- text size -->
+    <dimen name="text_size_xxxxs">6.0sp</dimen>
+    <dimen name="text_size_xxxs">8.0sp</dimen>
+    <dimen name="text_size_xxs">10.0sp</dimen>
     <dimen name="text_size_xs">12.0sp</dimen>
     <dimen name="text_size_s">14.0sp</dimen>
     <dimen name="text_size_m">16.0sp</dimen>
@@ -17,25 +20,38 @@
     <dimen name="margin_l">12.0dip</dimen>
     <dimen name="margin_xl">16.0dip</dimen>
     <dimen name="margin_xxl">20.0dip</dimen>
+    <dimen name="margin_xxxl">30.0dip</dimen>
+    <dimen name="margin_xxxxl">40.0dip</dimen>
+    <dimen name="margin_xxxxxl">50.0dip</dimen>
 
     <!-- padding -->
+    <dimen name="padding_xxs">3.0dip</dimen>
     <dimen name="padding_xs">5.0dip</dimen>
     <dimen name="padding_s">8.0dip</dimen>
     <dimen name="padding_m">10.0dip</dimen>
     <dimen name="padding_l">12.0dip</dimen>
     <dimen name="padding_xl">16.0dip</dimen>
     <dimen name="padding_xxl">20.0dip</dimen>
+    <dimen name="padding_xxxl">30.0dip</dimen>
+    <dimen name="padding_xxxxl">40.0dip</dimen>
+    <dimen name="padding_xxxxxl">50.0dip</dimen>
 
     <!-- button -->
-    <dimen name="button_height_s">32.0dip</dimen>
-    <dimen name="button_height_m">48.0dip</dimen>
-    <dimen name="button_width_s">48.0dip</dimen>
-    <dimen name="button_width_m">80.0dip</dimen>
+    <dimen name="button_height_s">32dp</dimen>
+    <dimen name="button_height_m">48dp</dimen>
+    <dimen name="button_width_s">48dp</dimen>
+    <dimen name="button_width_m">80dp</dimen>
 
     <!-- corner -->
-    <dimen name="corner_small">2dp</dimen>
-    <dimen name="corner_btn">@dimen/corner_small</dimen>
+    <dimen name="corner_s">2dp</dimen>
+    <dimen name="corner_m">4dp</dimen>
+    <dimen name="corner_btn">@dimen/corner_s</dimen>
+    <dimen name="corner_semi_circle_btn">@dimen/button_height_m</dimen>
 
     <dimen name="row_height_m">48.0dip</dimen>
+
+    <dimen name="space_photo_pick_grid">4dp</dimen>
+
+    <dimen name="photo_confirm_height">45dp</dimen>
 
 </resources>

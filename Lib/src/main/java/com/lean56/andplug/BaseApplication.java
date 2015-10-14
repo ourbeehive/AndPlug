@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.alibaba.fastjson.JSON;
+
+import java.io.Serializable;
 
 /**
  * Base Application
@@ -28,14 +31,18 @@ public class BaseApplication extends Application {
     static Context _context;
     static Resources _resource;
 
-    private static String lastToast = "";
-    private static long lastToastTime;
+    public static float sDensity;
+    public static int sWidthDp;
+    public static int sWidthPix;
+    public static int sHeightPix;
 
     @Override
     public void onCreate() {
         super.onCreate();
         _context = getApplicationContext();
         _resource = _context.getResources();
+
+        calcDisplayMetrics();
     }
 
     public static synchronized BaseApplication context() {
@@ -44,6 +51,13 @@ public class BaseApplication extends Application {
 
     public static Resources resources() {
         return _resource;
+    }
+
+    private void calcDisplayMetrics() {
+        sDensity = getResources().getDisplayMetrics().density;
+        sWidthPix = getResources().getDisplayMetrics().widthPixels;
+        sHeightPix = getResources().getDisplayMetrics().heightPixels;
+        sWidthDp = (int) (sWidthPix / sDensity);
     }
 
     // [+] Shared Preference
@@ -77,6 +91,18 @@ public class BaseApplication extends Application {
         editor.apply();
     }
 
+    public static void set(String key, long value) {
+        SharedPreferences.Editor editor = getPreferences().edit();
+        editor.putLong(key, value);
+        editor.apply();
+    }
+
+    public static void set(String key, Serializable entity) {
+        SharedPreferences.Editor editor = getPreferences().edit();
+        editor.putString(key, JSON.toJSONString(entity));
+        editor.apply();
+    }
+
     public static boolean get(String key, boolean defValue) {
         return getPreferences().getBoolean(key, defValue);
     }
@@ -95,6 +121,15 @@ public class BaseApplication extends Application {
 
     public static float get(String key, float defValue) {
         return getPreferences().getFloat(key, defValue);
+    }
+
+    public static <T> T get(String key, Class<T> clazz, T t) {
+        String strValue = getPreferences().getString(key, "");
+        if (TextUtils.isEmpty(strValue)) {
+            return t;
+        } else {
+            return JSON.parseObject(strValue, clazz);
+        }
     }
     // [-] Shared Preference
 
@@ -132,6 +167,9 @@ public class BaseApplication extends Application {
     // [-] Display Screen Param
 
     // [+] Show Toast
+    private static String lastToast = "";
+    private static long lastToastTime;
+
     public static void showToast(int message) {
         showToast(message, Toast.LENGTH_LONG, 0);
     }

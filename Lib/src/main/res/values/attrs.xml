@@ -27,4 +27,37 @@
 		<attr name="android:layout_gravity"/>
 	</declare-styleable>
 
+	<declare-styleable name="SuperRecyclerView">
+		<attr name="srv_grid_span_count" format="integer" />
+		<attr name="srv_layout" format="enum">
+			<enum name="LINEAR" value="0" />
+			<enum name="GRID" value="1" />
+			<enum name="STAGGERED_GRID" value="2" />
+		</attr>
+		<attr name="srv_layout_orientation" format="enum">
+			<enum name="HORIZONTAL" value="0" />
+			<enum name="VERTICAL" value="1" />
+		</attr>
+	</declare-styleable>
+
+	<declare-styleable name="extendedrecyclerview">
+		<attr name="layout_empty" format="reference" />
+		<attr name="layout_moreProgress" format="reference" />
+		<attr name="layout_progress" format="reference" />
+		<attr name="recyclerClipToPadding" format="boolean" />
+		<attr name="recyclerPadding" format="dimension" />
+		<attr name="recyclerPaddingTop" format="dimension" />
+		<attr name="recyclerPaddingBottom" format="dimension" />
+		<attr name="recyclerPaddingLeft" format="dimension" />
+		<attr name="recyclerPaddingRight" format="dimension" />
+		<attr name="scrollbarStyle">
+			<flag name="insideOverlay" value="0x0" />
+			<flag name="insideInset" value="0x01000000" />
+			<flag name="outsideOverlay" value="0x02000000" />
+			<flag name="outsideInset" value="0x03000000" />
+		</attr>
+
+		<attr name="mainLayoutId" format="reference" />
+	</declare-styleable>
+
 </resources>

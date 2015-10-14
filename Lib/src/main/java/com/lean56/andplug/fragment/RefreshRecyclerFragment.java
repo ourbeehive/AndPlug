@@ -17,7 +17,7 @@ import com.lean56.andplug.adapter.DividerItemDecoration;
 import com.lean56.andplug.utils.ItemClickSupport;
 import com.lean56.andplug.view.ExceptionView;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +31,7 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
     /**
      * List items provided to {@link #onLoadFinished(Loader, List)}
      */
-    protected List<E> items = Collections.emptyList();
+    protected List<E> items = new ArrayList<>();
 
     /**
      * Recycler View
@@ -72,7 +72,7 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         setRecyclerViewLayoutManager();
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.addItemDecoration(getItemDecoration());
         // bind click listener
         final ItemClickSupport itemClick = ItemClickSupport.addTo(mRecyclerView);
         itemClick.setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
@@ -97,6 +97,23 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
     }
 
     /**
+     * get LayoutManager of RecyclerView
+     * @return
+     */
+    protected LinearLayoutManager getLayoutManager() {
+        return new LinearLayoutManager(getActivity());
+    }
+
+    /**
+     * get ItemDecoration of RecyclerView
+     *
+     * @return
+     */
+    protected RecyclerView.ItemDecoration getItemDecoration() {
+        return new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST);
+    }
+
+    /**
      * Detach from list view.
      */
     @Override
@@ -105,14 +122,13 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         progressBar = null;
         mRecyclerView = null;
         exceptionView = null;
-
         super.onDestroyView();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        refreshWithProgress();
+        // refreshWithProgress();
     }
 
     /**
@@ -136,7 +152,7 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         }
 
         this.items = items;
-        getListAdapter().setItems(items.toArray()); //getWrappedAdapter().setItems(items.toArray());
+        getListAdapter().setItems(items); //getWrappedAdapter().setItems(items.toArray());
         showList();
     }
 
@@ -255,7 +271,7 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
             scrollPosition = ((LinearLayoutManager) mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition();
         }
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(getLayoutManager());
         mRecyclerView.scrollToPosition(scrollPosition);
     }
 
@@ -340,7 +356,8 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
      * @param position
      * @param id
      */
-    public void onListItemClick(RecyclerView parent, View child, int position, long id) {}
+    public void onListItemClick(RecyclerView parent, View child, int position, long id) {
+    }
 
     /**
      * Callback when a list view item is clicked and held

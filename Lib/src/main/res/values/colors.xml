@@ -26,7 +26,7 @@
     <color name="white_color_disabled">#7fffffff</color>
     <color name="text_color_clickable">#ff0b61d8</color>
 
-    <color name="bg_light">#ffefefef</color>
+    <color name="bg_light">#fff8f8f8</color>
     <color name="bg_light_selected">#ffdddddd</color>
 
     <!-- button color -->
@@ -55,5 +55,10 @@
 	<!-- actioon counter -->
 	<color name="action_counter_no">@color/tab_text</color>
 	<color name="action_counter_label">@color/primary</color>
+
+    <color name="take_photo_normal">#ff353535</color>
+	<color name="take_photo_pressed">#ff0d0d0d</color>
+
+
 
 </resources>

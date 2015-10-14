@@ -3,7 +3,6 @@ package com.lean56.andplug.image;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +17,12 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
 
 /**
  * TouchImageView
@@ -120,7 +125,7 @@ public class TouchImageView extends ImageView {
     }
 
     @Override
-    public void setOnTouchListener(OnTouchListener l) {
+    public void setOnTouchListener(View.OnTouchListener l) {
         userTouchListener = l;
     }
 
