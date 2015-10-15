@@ -17,6 +17,7 @@ public class AppContext extends BaseApplication {
     private static String TAG = AppContext.class.getSimpleName();
 
     private static AppContext instance;
+
     /**
      * support a method to get a instance for the outside
      */

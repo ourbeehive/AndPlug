@@ -12,8 +12,8 @@ import com.lean56.andplug.app.R;
 import com.lean56.andplug.universalimage.loader.ImageLoadUtils;
 
 /**
- * Splash Activity is the loading Screen
- *
+ * Splash offers
+ * loading screen
  *
  * @author Charles
  */
@@ -42,14 +42,14 @@ public class SplashActivity extends BaseActivity {
         imageLoadUtils.imageLoader.clearMemoryCache();
         // imageLoadUtils.imageLoader.loadImage(mSplashImage, );
 
-        Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash_bg);
+        Animation splashAnim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         splashAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {}
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                checkAccount();
+                //checkAccount();
             }
 
             @Override

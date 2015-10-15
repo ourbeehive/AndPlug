@@ -6,6 +6,12 @@
 		<item name="popupTheme">@style/Base.V21.Theme.AppCompat.Light.Dialog</item>
 	</style>
 
-	<style name="BaseTheme.TranslucentKitKatStatusBar" parent="BaseTheme" />
+	<style name="BaseTheme.TranslucentKitKatStatusBar" parent="BaseTheme"/>
+
+	<style name="BaseTheme.FullScreen" parent="BaseTheme">
+		<item name="windowNoTitle">true</item>
+		<item name="android:windowFullscreen">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
 
 </resources>
