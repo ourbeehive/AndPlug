@@ -2,9 +2,10 @@
 
 ## About
 ![Logo with Title](http://ourbeehive.github.io/AndPlug/logo_with_name.png)
+
 AndPlug(Android Plug) is a complete project based on several common and useful libs like auto-update, location and message push, aimed to build an Android App with these libs quickly.  
 
-## Libs
+## Module Libs
 
 ### App
 App is the demo Android Application for AndPlug, show how to use the module libs and how to setup an App with the modules. [more](https://github.com/ourbeehive/AndPlug/App/blob/master/README_CN.md)
