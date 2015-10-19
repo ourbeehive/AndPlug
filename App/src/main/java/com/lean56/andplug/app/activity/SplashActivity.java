@@ -2,7 +2,6 @@ package com.lean56.andplug.app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -22,7 +21,6 @@ public class SplashActivity extends BaseActivity {
     private final static String TAG = SplashActivity.class.getSimpleName();
 
     // UI references.
-    private View mRootView;
     private ImageView mSplashImage;
     private ImageLoadUtils imageLoadUtils = new ImageLoadUtils();
 
@@ -35,9 +33,6 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mRootView = findViewById(R.id.root_view);
-        mRootView.setBackgroundResource(R.drawable.splash);
-
         mSplashImage = (ImageView) findViewById(R.id.iv_splash);
         imageLoadUtils.imageLoader.clearMemoryCache();
         // imageLoadUtils.imageLoader.loadImage(mSplashImage, );
@@ -45,7 +40,8 @@ public class SplashActivity extends BaseActivity {
         Animation splashAnim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         splashAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {}
+            public void onAnimationStart(Animation animation) {
+            }
 
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -53,7 +49,8 @@ public class SplashActivity extends BaseActivity {
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {}
+            public void onAnimationRepeat(Animation animation) {
+            }
         });
         mSplashImage.startAnimation(splashAnim);
     }

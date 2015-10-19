@@ -1,12 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				style="@style/RootView">
+				style="@style/RootView"
+				android:fitsSystemWindows="false">
 
 	<ImageView
 			android:id="@+id/iv_splash"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:scaleType="centerCrop"
-			android:src="@drawable/splash"/>
+			android:scaleType="fitStart"
+			android:src="@drawable/bg_splash"/>
 
 	<ImageView
 			android:layout_width="wrap_content"

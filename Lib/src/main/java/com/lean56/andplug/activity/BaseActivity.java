@@ -14,9 +14,6 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.lean56.andplug.R;
 import com.lean56.andplug.utils.AppManager;
@@ -34,13 +31,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private final static String TAG = BaseActivity.class.getSimpleName();
 
+    // toolbar and theme attr
+    private Toolbar mToolbar;
     private boolean statusBarTranslucent = false;
+    private boolean navigationTranslucent = false;
     private boolean showHomeAsUp = true;
-
-    protected Toolbar toolbar;
-    protected ImageView toolbarImage;
-    protected TextView toolbarTitle;
-
     private int primaryColor;
     private int primaryDarkColor;
 
@@ -58,8 +53,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
         primaryDarkColor = typedValue.data;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TypedArray windowTranslucentAttribute = theme.obtainStyledAttributes(new int[]{android.R.attr.windowTranslucentStatus});
+            TypedArray windowTranslucentAttribute = theme.obtainStyledAttributes(new int[]{android.R.attr.windowTranslucentStatus, android.R.attr.windowTranslucentNavigation});
             statusBarTranslucent = windowTranslucentAttribute.getBoolean(0, false);
+            navigationTranslucent = windowTranslucentAttribute.getBoolean(1, false);
         }
 
         initActionBar(isShowHomeAsUp());
@@ -76,6 +72,132 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract int getContentView();
 
+    // [+] actionbar
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
+
+    protected void hideToolbar(boolean hidden) {
+        if (null != mToolbar) {
+            if (hidden && mToolbar.isShown()) {
+                mToolbar.setVisibility(View.GONE);
+            } else if (!hidden && !mToolbar.isShown()) {
+                mToolbar.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    /**
+     * initActionBar
+     */
+    protected final void initActionBar(boolean showHomeAsUp) {
+        // set Toolbar as actionbar
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (null != mToolbar) {
+            setSupportActionBar(mToolbar);
+            ActionBar actionBar = getSupportActionBar();
+            if (null != actionBar) {
+                // actionBar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+                actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
+            }
+        }
+
+        // Apply background tinting to the Android system UI when using KitKat translucent modes.
+        // see {https://github.com/jgilfelt/SystemBarTint}
+        if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //setStatusBarTint(darkenColor(primaryColor));
+        }
+    }
+
+    protected boolean isTranslucentStatusBar() {
+        return statusBarTranslucent;
+    }
+
+    protected boolean isShowHomeAsUp() {
+        return showHomeAsUp;
+    }
+
+    // [-] actionbar
+
+    // [+]translucent system bar
+
+    /**
+     * darken color
+     */
+    protected int darkenColor(int color) {
+        if (color == primaryColor) {
+            return primaryDarkColor;
+        } else {
+            float[] hsv = new float[3];
+            Color.colorToHSV(color, hsv);
+            hsv[2] *= 0.8f; // value component
+            return Color.HSVToColor(hsv);
+        }
+    }
+
+    /**
+     * change toolbar color
+     */
+    public void setToolbarColor(int primaryColor, int primaryDarkColor) {
+        // set toolbar color
+        if (null != mToolbar) {
+            mToolbar.setBackgroundColor(primaryColor);
+        }
+
+        // set StatusBar color
+        if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setStatusBarTint(primaryDarkColor);
+        }
+    }
+
+    /**
+     * set the statusBar tint
+     */
+    protected void setStatusBarTint(int primaryDarkColor) {
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintColor(primaryDarkColor);
+    }
+
+    /**
+     * set the navigationBar tint
+     */
+    protected void setNavigationBarTint(int resId) {
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setNavigationBarTintEnabled(true);
+        tintManager.setNavigationBarTintColor(resId);
+    }
+    // [-]translucent system bar
+
+    // [+] Progress Dialog
+    /**
+     * Shows the progress UI and hides the login_bg form.
+     */
+    private MaterialDialog mProgressDialog;
+
+    protected void hiddenProgress() {
+        if (null != mProgressDialog && mProgressDialog.isShowing())
+            mProgressDialog.dismiss();
+    }
+
+    protected void showProgress(int contentResId) {
+        showProgress(getString(contentResId));
+    }
+
+    protected void showProgress(String content) {
+        if (null == mProgressDialog) {
+            mProgressDialog = new MaterialDialog.Builder(this)
+                    .content(content)
+                    .progress(true, 0)
+                    .show();
+        } else {
+            mProgressDialog.setContent(content);
+            mProgressDialog.show();
+        }
+    }
+    // [-] Progress Dialog
+
+    // [+] Options Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -118,203 +240,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String getSingleMenuTitle() {
         return null;
     }
+    // [-] Options Menu
 
-    // [+] actionbar
-    public Toolbar getToolbar() {
-        return toolbar;
-    }
-
-    protected void hideToolbar(boolean hidden) {
-        if (null != toolbar) {
-            if (hidden && toolbar.isShown()) {
-                toolbar.setVisibility(View.GONE);
-            } else if (!hidden && !toolbar.isShown()) {
-                toolbar.setVisibility(View.VISIBLE);
-            }
-        }
-    }
-
-    /**
-     * initActionBar
-     */
-    protected final void initActionBar(boolean showHomeAsUp) {
-        // set Toolbar as actionbar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (null != toolbar) {
-            setSupportActionBar(toolbar);
-            ActionBar actionBar = getSupportActionBar();
-            if (null != actionBar) {
-                // actionBar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-                actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
-            }
-
-            toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-            toolbarImage = (ImageView) toolbar.findViewById(R.id.toolbar_image);
-        }
-
-        // Apply background tinting to the Android system UI when using KitKat translucent modes.
-        // see {https://github.com/jgilfelt/SystemBarTint}
-        if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setStatusBarTint(darkenColor(primaryColor));
-        }
-    }
-
-    protected boolean isTranslucentStatusBar() {
-        return statusBarTranslucent;
-    }
-
-    protected boolean isShowHomeAsUp() {
-        return showHomeAsUp;
-    }
-
-    @Override
-    public void setTitle(CharSequence title) {
-        if (null != toolbarTitle) {
-            toolbarTitle.setText(title);
-        } else {
-            super.setTitle(title);
-        }
-    }
-
-    protected void showToolbarImage(boolean show) {
-        showToolbarImage(show, null);
-    }
-
-    protected void showToolbarImage(boolean show, int titleResId) {
-        showToolbarImage(show, getString(titleResId));
-    }
-
-    protected void showToolbarImage(boolean show, String title) {
-        if (null == toolbarImage || null == toolbarTitle)
-            return;
-
-        if (show) {
-            // out
-            if (toolbarTitle.isShown()) {
-                toolbarTitle.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_to_bottom));
-                toolbarTitle.setVisibility(View.GONE);
-            }
-            // in
-            if (!toolbarImage.isShown()) {
-                toolbarImage.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_from_top));
-                toolbarImage.setVisibility(View.VISIBLE);
-            }
-        } else {
-            // out
-            if (toolbarImage.isShown()) {
-                toolbarImage.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_to_top));
-                toolbarImage.setVisibility(View.GONE);
-            }
-            // in
-            if (!toolbarTitle.isShown()) {
-                if (null != title) {
-                    toolbarTitle.setText(title);
-                }
-                toolbarTitle.setVisibility(View.VISIBLE);
-                toolbarTitle.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_from_bottom));
-            }
-        }
-    }
-
-    /**
-     * init toolbar image
-     * bring to front and set visible
-     */
-    protected void initToolbarImage() {
-        if (null != toolbar) {
-            toolbar.bringToFront();
-        }
-
-        if (null != toolbarImage) {
-            toolbarImage.setVisibility(View.VISIBLE);
-        }
-
-        if (null != toolbarTitle) {
-            toolbarTitle.setVisibility(View.GONE);
-        }
-    }
-
-    // [-] actionbar
-
-    // [+]translucent system bar
-
-    /**
-     * darken color
-     */
-    protected int darkenColor(int color) {
-        if (color == primaryColor) {
-            return primaryDarkColor;
-        } else {
-            float[] hsv = new float[3];
-            Color.colorToHSV(color, hsv);
-            hsv[2] *= 0.8f; // value component
-            return Color.HSVToColor(hsv);
-        }
-    }
-
-    /**
-     * change toolbar color
-     */
-    public void setToolbarColor(int primaryColor, int primaryDarkColor) {
-        // set toolbar color
-        if (null != toolbar) {
-            toolbar.setBackgroundColor(primaryColor);
-        }
-
-        // set StatusBar color
-        if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setStatusBarTint(primaryDarkColor);
-        }
-    }
-
-    /**
-     * set the statusBar tint
-     */
-    protected void setStatusBarTint(int primaryDarkColor) {
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintColor(primaryDarkColor);
-    }
-
-    /**
-     * set the navigationBar tint
-     */
-    protected void setNavigationBarTint(int resId) {
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setNavigationBarTintEnabled(true);
-        tintManager.setNavigationBarTintResource(resId);
-    }
-    // [-]translucent system bar
-
-    // [+] Progress Dialog
-    /**
-     * Shows the progress UI and hides the login_bg form.
-     */
-    private MaterialDialog mProgressDialog;
-
-    protected void hiddenProgress() {
-        if (null != mProgressDialog && mProgressDialog.isShowing())
-            mProgressDialog.dismiss();
-    }
-
-    protected void showProgress(int contentResId) {
-        showProgress(getString(contentResId));
-    }
-
-    protected void showProgress(String content) {
-        if (null == mProgressDialog) {
-            mProgressDialog = new MaterialDialog.Builder(this)
-                    .content(content)
-                    .progress(true, 0)
-                    .show();
-        } else {
-            mProgressDialog.setContent(content);
-            mProgressDialog.show();
-        }
-    }
-    // [-] Progress Dialog
-
-    // [+]get intent extra
+    // [+] Intent extra
 
     /**
      * Get intent extra
@@ -406,7 +334,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected CharSequence[] getCharSequenceArrayExtra(final String name) {
         return getIntent().getCharSequenceArrayExtra(name);
     }
-    // [-]get intent extra
+    // [-] Intent extra
 
     // [+] umeng analytics
     @Override
