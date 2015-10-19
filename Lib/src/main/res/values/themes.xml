@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
 	<style name="BaseTheme" parent="Theme.AppCompat.NoActionBar">
@@ -6,9 +5,9 @@
 		<item name="popupTheme">@style/Base.V21.Theme.AppCompat.Light.Dialog</item>
 	</style>
 
-	<style name="BaseTheme.TranslucentKitKatStatusBar" parent="BaseTheme"/>
+	<style name="BaseTheme.TranslucentStatusBar" parent="BaseTheme"/>
 
-	<style name="BaseTheme.FullScreen" parent="BaseTheme">
+	<style name="BaseTheme.FullScreen" parent="BaseTheme.TranslucentStatusBar">
 		<item name="windowNoTitle">true</item>
 		<item name="android:windowFullscreen">true</item>
 		<item name="android:windowContentOverlay">@null</item>

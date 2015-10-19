@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- theme color -->
@@ -52,13 +51,11 @@
     <color name="list_divider_top">#E2E2E2</color>
     <color name="list_divider_bottom">#FFFFFF</color>
 
-	<!-- actioon counter -->
+	<!-- action counter -->
 	<color name="action_counter_no">@color/tab_text</color>
 	<color name="action_counter_label">@color/primary</color>
 
     <color name="take_photo_normal">#ff353535</color>
 	<color name="take_photo_pressed">#ff0d0d0d</color>
-
-
 
 </resources>

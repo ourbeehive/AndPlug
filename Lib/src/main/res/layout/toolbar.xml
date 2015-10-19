@@ -1,31 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:app="http://schemas.android.com/"
-		android:id="@id/toolbar"
-		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:minHeight="?attr/actionBarSize"
-		android:background="?attr/colorPrimary"
-		app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-		app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-	<TextView
-			android:id="@id/toolbar_title"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textColor="?attr/titleTextColor"
-			android:textSize="@dimen/text_size_l"
-			android:layout_gravity="center"
-			android:singleLine="true"
-			android:ellipsize="end"/>
-
-	<ImageView
-			android:id="@id/toolbar_image"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/logo_text"
-			android:visibility="gone"
-			android:layout_gravity="center"/>
-
-</android.support.v7.widget.Toolbar>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/"
+        android:id="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

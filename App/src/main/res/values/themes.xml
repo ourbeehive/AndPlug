@@ -1,6 +1,6 @@
 <resources>
 
-	<style name="AppBaseTheme" parent="@style/BaseTheme.TranslucentKitKatStatusBar">
+	<style name="AppBaseTheme" parent="@style/BaseTheme.TranslucentStatusBar">
 		<item name="actionBarWidgetTheme">@null</item>
 	</style>
 
