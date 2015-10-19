@@ -12,7 +12,9 @@ buildscript {
     }
 }
 
+// global var define
 ext {
+    // tool version
     compileSdkVersion = 23
     buildToolsVersion = "23.0.1"
 
@@ -32,6 +34,7 @@ allprojects {
     repositories {
         // Private Maven Repository
         // maven { url "http://private_nexus_domain" }
+
         // Public Central Repository
         jcenter()
         mavenCentral()

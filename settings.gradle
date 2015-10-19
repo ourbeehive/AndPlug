@@ -1,8 +1,10 @@
 include ':App', ':Lib', ':UniversalImage', ':DaoGen', ':BaiduLoc', ':BaiduMap', ':GetuiPush', ':ShareSDK', ':RongIM', ':VoiceIflytek', ':UmengUpdate', ':UmengFeedback'
 
-// sample of how to add External Lib in local
-// build with jitpack.io or as below
+// sample of how to add External Lib from local/github
+// build with jitpack.io if the lib in the github but not publish in the jcenter/maven
+// or download to local and import as below
+
 /*
-include 'ExternalLib'
-project(':ExternalLib').projectDir= new File(settingsDir, '..\\ExternalLib')
+include 'ExternalLibName'
+project(':ExternalLibName').projectDir= new File(settingsDir, '..\\ExternalLibFolder')
 */
