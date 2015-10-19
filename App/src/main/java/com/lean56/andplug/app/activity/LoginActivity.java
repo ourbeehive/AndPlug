@@ -4,12 +4,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import com.lean56.andplug.activity.BaseActivity;
+import com.lean56.andplug.app.AppContext;
 import com.lean56.andplug.app.R;
 import com.lean56.andplug.view.ResetEditText;
 
@@ -74,18 +77,16 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-    /**
-     * single option menu selected
-     */
-    protected void singleOptionMenuSelected() {}
+    @Override
+    protected void addMenuItem(Menu menu) {
+        // add menu like this
+        menu.add(Menu.NONE, Menu.FIRST, Menu.NONE, R.string.register).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
 
-    /**
-     * get single menu title, null if do not need a sigle option menu
-     *
-     * @return single menu title
-     */
-    protected String getSingleMenuTitle() {
-        return getString(R.string.register);
+    @Override
+    protected boolean onFirstMenuSelected(MenuItem item) {
+        AppContext.showToast("zhuce");
+        return true;
     }
 
     /**

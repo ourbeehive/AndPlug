@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -93,19 +92,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected final void initActionBar(boolean showHomeAsUp) {
         // set Toolbar as actionbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (null != mToolbar) {
-            setSupportActionBar(mToolbar);
-            ActionBar actionBar = getSupportActionBar();
-            if (null != actionBar) {
-                // actionBar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-                actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
-            }
+        if (null == mToolbar)
+            return;
+
+        setSupportActionBar(mToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (null != actionBar) {
+            actionBar.setDisplayHomeAsUpEnabled(showHomeAsUp);
         }
 
         // Apply background tinting to the Android system UI when using KitKat translucent modes.
         // see {https://github.com/jgilfelt/SystemBarTint}
         if (isTranslucentStatusBar() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //setStatusBarTint(darkenColor(primaryColor));
+            setStatusBarTint(darkenColor(primaryColor));
         }
     }
 
@@ -118,6 +117,48 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     // [-] actionbar
+
+    // [+] Options Menu
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case Menu.FIRST:
+                return onFirstMenuSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        addMenuItem(menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * add signle menu item
+     * @param menu
+     * @return
+     */
+    protected void addMenuItem(Menu menu) {
+        // add menu like this
+        // menu.add(Menu.NONE, Menu.FIRST, Menu.NONE, R.string.register).setIcon(R.drawable.ic_action_add).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    /**
+     * on first menu selected/click event
+     * @param item
+     * @return
+     */
+    protected boolean onFirstMenuSelected(MenuItem item) {
+        return false;
+    }
+
+    // [-] Options Menu
 
     // [+]translucent system bar
 
@@ -196,50 +237,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
     // [-] Progress Dialog
-
-    // [+] Options Menu
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (!TextUtils.isEmpty(getSingleMenuTitle())) {
-            getMenuInflater().inflate(R.menu.single, menu);
-            MenuItem menuItem = menu.findItem(R.id.menu_single);
-            menuItem.setTitle(getSingleMenuTitle());
-            menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    singleOptionMenuSelected();
-                    return false;
-                }
-            });
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    /**
-     * single option menu selected
-     */
-    protected void singleOptionMenuSelected() {}
-
-    /**
-     * get single menu title, null if do not need a sigle option menu
-     *
-     * @return single menu title
-     */
-    protected String getSingleMenuTitle() {
-        return null;
-    }
-    // [-] Options Menu
 
     // [+] Intent extra
 
