@@ -1,15 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				style="@style/RootView"
-				android:fitsSystemWindows="false">
+				style="@style/RootView.NoActionBar">
 
 	<ImageView
-			android:id="@+id/iv_splash"
+			android:id="@+id/iv_splash_bg"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:scaleType="fitStart"
 			android:src="@drawable/bg_splash"/>
 
 	<ImageView
+			android:id="@+id/iv_splash_logo"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentBottom="true"

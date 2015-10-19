@@ -8,6 +8,10 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="RootView.NoActionBar" parent="RootView">
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
     <style name="ResetEditText" parent="@android:style/Widget.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>

@@ -6,11 +6,8 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.app.R;
@@ -29,14 +26,11 @@ public class LoginActivity extends BaseActivity {
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private ImageView mLoginBgImage;
-
     private ResetEditText mUsernameEdit;
     private ResetEditText mPwdEdit;
     private Button mLoginBtn;
     private TextView mForgetPwdText;
     private TextView mRegisterText;
-
 
     @Override
     protected int getContentView() {
@@ -46,11 +40,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // set up the bg anim
-        mLoginBgImage = (ImageView) findViewById(R.id.iv_login_bg);
-        Animation loginBgAnim = AnimationUtils.loadAnimation(this, R.anim.login_bg);
-        mLoginBgImage.startAnimation(loginBgAnim);
 
         // set up the login form.
         mUsernameEdit = (ResetEditText) findViewById(R.id.et_username);
@@ -83,6 +72,20 @@ public class LoginActivity extends BaseActivity {
                 attemptLogin();
             }
         });
+    }
+
+    /**
+     * single option menu selected
+     */
+    protected void singleOptionMenuSelected() {}
+
+    /**
+     * get single menu title, null if do not need a sigle option menu
+     *
+     * @return single menu title
+     */
+    protected String getSingleMenuTitle() {
+        return getString(R.string.register);
     }
 
     /**

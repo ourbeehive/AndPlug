@@ -21,4 +21,7 @@
 	<string name="error_invalid_password">无效的密码</string>
 	<string name="error_field_required">用户名不能为空</string>
 	<string name="error_invalid_username">无效的用户名</string>
+
+	<string name="login_guest">随便逛逛</string>
+	<string name="login_account">注册/登录</string>
 </resources>

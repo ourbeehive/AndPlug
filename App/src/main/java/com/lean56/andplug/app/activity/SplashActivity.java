@@ -21,7 +21,8 @@ public class SplashActivity extends BaseActivity {
     private final static String TAG = SplashActivity.class.getSimpleName();
 
     // UI references.
-    private ImageView mSplashImage;
+    private ImageView mSplashBgImage;
+    private ImageView mSplashLogoImage;
     private ImageLoadUtils imageLoadUtils = new ImageLoadUtils();
 
     @Override
@@ -33,11 +34,18 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mSplashImage = (ImageView) findViewById(R.id.iv_splash);
-        imageLoadUtils.imageLoader.clearMemoryCache();
+        initViews();
+    }
+
+    private void initViews() {
+        mSplashBgImage = (ImageView) findViewById(R.id.iv_splash_bg);
+        mSplashLogoImage = (ImageView) findViewById(R.id.iv_splash_logo);
+
+        // TODO load splash image from network
+        // imageLoadUtils.imageLoader.clearMemoryCache();
         // imageLoadUtils.imageLoader.loadImage(mSplashImage, );
 
-        Animation splashAnim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
+        Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash);
         splashAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -45,21 +53,21 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                //checkAccount();
+                checkAccount();
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        mSplashImage.startAnimation(splashAnim);
+        mSplashBgImage.startAnimation(splashAnim);
     }
 
     /**
      * check if account login_bg and start next activity
      */
     private void checkAccount() {
-        Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginActivity.class;
+        Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginChooseActivity.class;
         Intent intent = new Intent(this, targetCls);
         startActivity(intent);
         finish();

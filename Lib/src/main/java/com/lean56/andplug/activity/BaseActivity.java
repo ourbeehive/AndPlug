@@ -229,8 +229,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * single option menu selected
      */
-    protected void singleOptionMenuSelected() {
-    }
+    protected void singleOptionMenuSelected() {}
 
     /**
      * get single menu title, null if do not need a sigle option menu

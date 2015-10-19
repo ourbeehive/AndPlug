@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/RootView.NoActionBar">
+
+    <GridView
+            android:id="@+id/iv_login_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+        <Button
+                android:id="@+id/btn_login_guest"
+                style="@style/Button.Big.Grey"
+                android:layout_weight="1"
+                android:text="@string/login_guest"/>
+
+        <Button
+                android:id="@+id/btn_login_account"
+                style="@style/Button.Big.Blue"
+                android:layout_weight="1"
+                android:text="@string/login_account"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
