@@ -29,6 +29,10 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
 
+    // add multidex support
+    // https://developer.android.com/tools/building/multidex.html
+    compile "com.android.support:multidex:1.0.0"
+
     // HTTP requester
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     // JSON Processor

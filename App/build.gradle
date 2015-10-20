@@ -10,6 +10,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "0.0.1"
+
+        // Enabling multidex support.
+        multiDexEnabled true
     }
 
     // sign the application
