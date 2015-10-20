@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.app.AppContext;
 import com.lean56.andplug.app.R;
-import com.lean56.andplug.view.ResetEditText;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * A login_bg screen that offers login_bg via username/password.
@@ -29,8 +29,8 @@ public class LoginActivity extends BaseActivity {
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private ResetEditText mUsernameEdit;
-    private ResetEditText mPwdEdit;
+    private MaterialEditText mUsernameEdit;
+    private MaterialEditText mPwdEdit;
     private Button mLoginBtn;
     private TextView mForgetPwdText;
     private TextView mRegisterText;
@@ -45,7 +45,7 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         // set up the login form.
-        mUsernameEdit = (ResetEditText) findViewById(R.id.et_username);
+        mUsernameEdit = (MaterialEditText) findViewById(R.id.et_username);
         mUsernameEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        mPwdEdit = (ResetEditText) findViewById(R.id.et_pwd);
+        mPwdEdit = (MaterialEditText) findViewById(R.id.et_pwd);
         mPwdEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -102,7 +102,7 @@ public class LoginActivity extends BaseActivity {
         String password = mPwdEdit.getText().toString();
 
         boolean cancel = false;
-        ResetEditText focusView = null;
+        MaterialEditText focusView = null;
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
@@ -126,7 +126,6 @@ public class LoginActivity extends BaseActivity {
             // There was an error; don't attempt login_bg and focus the first
             // form field with an error.
             focusView.requestFocus();
-            focusView.shakeAnimation();
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login_bg attempt.

@@ -67,7 +67,7 @@ public class SplashActivity extends BaseActivity {
      * check if account login_bg and start next activity
      */
     private void checkAccount() {
-        Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginChooseActivity.class;
+        Class<?> targetCls = AppContext.getInstance().isAccountLogin() ? HomeActivity.class : LoginActivity.class;
         Intent intent = new Intent(this, targetCls);
         startActivity(intent);
         finish();

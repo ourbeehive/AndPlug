@@ -76,6 +76,10 @@ dependencies {
     compile project(':ShareSDK')
     compile project(':RongIM')
 
+    // widget
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    // db
     compile 'de.greenrobot:greendao:1.3.7'
 
     // add junit test
