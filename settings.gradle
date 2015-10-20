@@ -1,4 +1,15 @@
-include ':App', ':Lib', ':UniversalImage', ':DaoGen', ':BaiduLoc', ':BaiduMap', ':GetuiPush', ':ShareSDK', ':RongIM', ':VoiceIflytek', ':UmengUpdate', ':UmengFeedback'
+include ':App'
+include ':Lib'
+include ':UniversalImage'
+include ':DaoGen'
+include ':BaiduLoc'
+include ':BaiduMap'
+include ':GetuiPush'
+include ':ShareSDK'
+include ':RongIM'
+include ':VoiceIflytek'
+include ':UmengUpdate'
+include ':UmengFeedback'
 
 // sample of how to add External Lib from local/github
 // build with jitpack.io if the lib in the github but not publish in the jcenter/maven

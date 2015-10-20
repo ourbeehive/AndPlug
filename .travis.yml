@@ -37,4 +37,4 @@ before_script:
 
 script:
   # ./gradlew connectedAndroidTest
-  ./gradlew clean assembleRelease
+  ./gradlew build
