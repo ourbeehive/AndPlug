@@ -21,11 +21,10 @@
                 android:layout_above="@id/tv_exception_msg"
                 android:layout_centerHorizontal="true" />
 
-        <Button
+        <com.lean56.andplug.view.Button
                 android:id="@+id/btn_exception_action"
-                style="@style/Button.Big.Grey"
+                style="@style/Button"
                 android:layout_below="@+id/tv_exception_msg"
-                android:layout_width="163dp"
                 android:layout_marginTop="23dp"
                 android:visibility="gone"
                 android:text="点击重试"
