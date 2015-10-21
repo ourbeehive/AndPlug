@@ -1,5 +1,6 @@
 <resources>
 
+    <!-- RootView style. -->
     <style name="RootView">
         <item name="android:id">@id/root_view</item>
         <item name="android:layout_width">match_parent</item>
@@ -10,6 +11,20 @@
 
     <style name="RootView.NoActionBar" parent="RootView">
         <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+    <!-- Button style. -->
+    <style name="Button" parent="@android:style/Widget.Button" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- EditText style. -->
+    <style name="EditText" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
     </style>
 
     <style name="ResetEditText" parent="@android:style/Widget.EditText">
@@ -26,59 +41,6 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
-    </style>
-
-    <!-- FlatButton style. -->
-    <style name="Button" parent="@android:style/Widget.Button" />
-
-    <style name="Button.Small" parent="@style/Button">
-        <item name="android:textSize">@dimen/text_size_s</item>
-        <item name="android:textColor">@color/white_color_selector</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">@dimen/padding_xxs</item>
-        <item name="android:paddingRight">@dimen/padding_xxs</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minWidth">@dimen/button_width_s</item>
-        <item name="android:minHeight">@dimen/button_height_s</item>
-    </style>
-
-    <style name="Button.Big" parent="@style/Button">
-        <item name="android:textSize">@dimen/text_size_s</item>
-        <item name="android:textColor">@color/white_color_selector</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingLeft">@dimen/padding_xl</item>
-        <item name="android:paddingRight">@dimen/padding_xl</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">@dimen/button_height_s</item>
-    </style>
-
-    <style name="Button.Small.Grey" parent="@style/Button.Small">
-        <item name="android:textColor">@color/normal_text_color_selector</item>
-        <item name="android:background">@drawable/btn_style_grey</item>
-    </style>
-
-    <style name="Button.Big.Grey" parent="@style/Button.Big">
-        <item name="android:background">@drawable/btn_style_grey</item>
-        <item name="android:textColor">#ff909090</item>
-    </style>
-
-    <style name="Button.Small.Blue" parent="@style/Button.Small">
-        <item name="android:background">@drawable/btn_style_blue</item>
-    </style>
-
-    <style name="Button.Big.Blue" parent="@style/Button.Big">
-        <item name="android:background">@drawable/btn_style_blue</item>
-    </style>
-
-    <style name="Button.Big.Green" parent="@style/Button.Big">
-        <item name="android:background">@drawable/btn_style_green</item>
-    </style>
-
-    <style name="Button.Big.Red" parent="@style/Button.Big">
-        <item name="android:background">@drawable/btn_style_red</item>
     </style>
 
     <!-- TextAppearance style. -->
@@ -120,17 +82,7 @@
         <item name="android:fadingEdge">none</item>
     </style>
 
-    <style name="EditText" parent="@android:style/Widget.EditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/text_size_s</item>
-        <item name="android:textColor">@color/normal_text_color</item>
-        <item name="android:textColorHint">#ff7d7d7d</item>
-        <item name="android:textCursorDrawable">@null</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:singleLine">true</item>
-    </style>
+
 
     <style name="Text" parent="@android:style/Widget.TextView">
         <item name="android:layout_width">wrap_content</item>

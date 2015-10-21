@@ -43,19 +43,11 @@
     <dimen name="padding_xxxxl">40.0dip</dimen>
     <dimen name="padding_xxxxxl">50.0dip</dimen>
 
-    <!-- button @depracted -->
-    <dimen name="button_height_s">32dp</dimen>
-    <dimen name="button_height_m">48dp</dimen>
-    <dimen name="button_width_s">48dp</dimen>
-    <dimen name="button_width_m">80dp</dimen>
-
-
 
     <!-- corner -->
     <dimen name="corner_s">2dp</dimen>
     <dimen name="corner_m">4dp</dimen>
     <dimen name="corner_btn">@dimen/corner_s</dimen>
-    <dimen name="corner_semi_circle_btn">@dimen/button_height_m</dimen>
 
     <dimen name="row_height_m">48.0dip</dimen>
 
