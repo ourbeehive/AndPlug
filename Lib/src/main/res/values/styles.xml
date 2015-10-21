@@ -28,7 +28,7 @@
         <item name="android:singleLine">true</item>
     </style>
 
-    <!-- Button style. -->
+    <!-- FlatButton style. -->
     <style name="Button" parent="@android:style/Widget.Button" />
 
     <style name="Button.Small" parent="@style/Button">
