@@ -33,7 +33,7 @@ ext {
 allprojects {
     repositories {
         // Private Maven Repository
-        // maven { url "http://private_nexus_domain" }
+        maven { url "http://maven.oschina.net/content/groups/public/" }
 
         // Public Central Repository
         jcenter()
