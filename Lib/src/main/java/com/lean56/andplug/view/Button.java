@@ -1,6 +1,7 @@
 package com.lean56.andplug.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -26,31 +27,40 @@ import com.lean56.andplug.R;
 
 public class Button extends android.widget.Button implements View.OnTouchListener {
 
-    // custom values
-    private boolean isShadowEnabled = false;
-
+    //Custom values
+    private boolean isShadowEnabled = true;
     private int mButtonColor;
     private int mShadowColor;
     private int mShadowHeight;
     private int mCornerRadius;
-    // native values
+    //Native values
     private int mPaddingLeft;
     private int mPaddingRight;
     private int mPaddingTop;
     private int mPaddingBottom;
-    // background drawable
+    //Background drawable
     private Drawable pressedDrawable;
     private Drawable unpressedDrawable;
 
+    boolean isShadowColorDefined = false;
+
+    public Button(Context context) {
+        super(context);
+        init();
+        this.setOnTouchListener(this);
+    }
+
     public Button(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initAttrs(context, attrs);
+        init();
+        parseAttrs(context, attrs);
         this.setOnTouchListener(this);
     }
 
     public Button(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        initAttrs(context, attrs);
+        init();
+        parseAttrs(context, attrs);
         this.setOnTouchListener(this);
     }
 
@@ -86,18 +96,39 @@ public class Button extends android.widget.Button implements View.OnTouchListene
         return false;
     }
 
-    private void initAttrs(Context context, AttributeSet attrs) {
-        // load from custom attributes
-        TypedArray btnTypedArray = context.obtainStyledAttributes(attrs, R.styleable.Button);
-        if (btnTypedArray == null) return;
-        isShadowEnabled = btnTypedArray.getBoolean(R.styleable.Button_btn_shadowEnabled, true);
-        mButtonColor = btnTypedArray.getColor(R.styleable.Button_btn_buttonColor, R.color.button_color);
-        mShadowColor = btnTypedArray.getColor(R.styleable.Button_btn_shadowColor, R.color.button_shadow_color);
-        mShadowHeight = btnTypedArray.getDimensionPixelSize(R.styleable.Button_btn_shadowEnabled, R.dimen.button_shadow_height);
-        mCornerRadius = btnTypedArray.getDimensionPixelSize(R.styleable.Button_btn_shadowEnabled, R.dimen.button_conner_radius);
-        btnTypedArray.recycle();
+    private void init() {
+        // Init default values
+        isShadowEnabled = true;
+        Resources resources = getResources();
+        if (resources == null) return;
+        mButtonColor = resources.getColor(R.color.button_color);
+        mShadowColor = resources.getColor(R.color.button_shadow_color);
+        mShadowHeight = resources.getDimensionPixelSize(R.dimen.button_shadow_height);
+        mCornerRadius = resources.getDimensionPixelSize(R.dimen.button_conner_radius);
+    }
 
-        // get paddingLeft, paddingRight
+    private void parseAttrs(Context context, AttributeSet attrs) {
+        //Load from custom attributes
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Button);
+        if (typedArray == null) return;
+        for (int i = 0; i < typedArray.getIndexCount(); i++) {
+            int attr = typedArray.getIndex(i);
+            if (attr == R.styleable.Button_btn_shadowEnabled) {
+                isShadowEnabled = typedArray.getBoolean(attr, true); //Default is true
+            } else if (attr == R.styleable.Button_btn_buttonColor) {
+                mButtonColor = typedArray.getColor(attr, R.color.button_color);
+            } else if (attr == R.styleable.Button_btn_shadowColor) {
+                mShadowColor = typedArray.getColor(attr, R.color.button_shadow_color);
+                isShadowColorDefined = true;
+            } else if (attr == R.styleable.Button_btn_shadowHeight) {
+                mShadowHeight = typedArray.getDimensionPixelSize(attr, R.dimen.button_shadow_height);
+            } else if (attr == R.styleable.Button_btn_cornerRadius) {
+                mCornerRadius = typedArray.getDimensionPixelSize(attr, R.dimen.button_conner_radius);
+            }
+        }
+        typedArray.recycle();
+
+        //Get paddingLeft, paddingRight
         int[] attrsArray = new int[]{
                 android.R.attr.paddingLeft,  // 0
                 android.R.attr.paddingRight, // 1
@@ -120,17 +151,13 @@ public class Button extends android.widget.Button implements View.OnTouchListene
         ta1.recycle();
     }
 
-    private boolean isShadowColorDefined() {
-        return mShadowColor != getResources().getColor(R.color.button_shadow_color);
-    }
-
     public void refresh() {
         int alpha = Color.alpha(mButtonColor);
         float[] hsv = new float[3];
         Color.colorToHSV(mButtonColor, hsv);
         hsv[2] *= 0.8f; // value component
         //if shadow color was not defined, generate shadow color = 80% brightness
-        if (!isShadowColorDefined()) {
+        if (!isShadowColorDefined) {
             mShadowColor = Color.HSVToColor(alpha, hsv);
         }
         //Create pressed background and unpressed background drawables
@@ -208,6 +235,7 @@ public class Button extends android.widget.Button implements View.OnTouchListene
 
     public void setShadowColor(int shadowColor) {
         this.mShadowColor = shadowColor;
+        isShadowColorDefined = true;
         refresh();
     }
 
@@ -235,7 +263,7 @@ public class Button extends android.widget.Button implements View.OnTouchListene
         refresh();
     }
 
-    // Getter
+    //Getter
     public boolean isShadowEnabled() {
         return isShadowEnabled;
     }

@@ -11,10 +11,6 @@ android {
         versionName "1.0.0"
     }
 
-    compileOptions {
-        sourceCompatibility rootProject.ext.sourceCompatibility
-        targetCompatibility rootProject.ext.targetCompatibility
-    }
     buildTypes {
         release {
             minifyEnabled false
@@ -31,7 +27,7 @@ dependencies {
 
     // add multidex support
     // https://developer.android.com/tools/building/multidex.html
-    compile "com.android.support:multidex:1.0.0"
+    // compile "com.android.support:multidex:1.0.0"
 
     // HTTP requester
     compile 'com.squareup.okhttp:okhttp:2.5.0'
@@ -45,6 +41,9 @@ dependencies {
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
     // Analytics Umeng
     compile 'com.umeng.analytics:analytics:5.6.1'
+
+    // widget
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
     // material dialogs
     compile 'com.afollestad:material-dialogs:0.7.9.1'
 }

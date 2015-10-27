@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -46,14 +45,11 @@ public class BaseApplication extends Application {
         calcDisplayMetrics();
     }
 
-    /**
-     * add multidex support
-     * @param base
-     */
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(this);
+        // add multidex support
+        // MultiDex.install(this);
     }
 
     public static synchronized BaseApplication context() {
