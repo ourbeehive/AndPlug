@@ -40,7 +40,7 @@ VoiceIflytek is the lib support tts provider powered by [Iflytek](http://www.xfy
 
 ## License
 
-    Copyright (C) 2015 LEAN56.com
+    Copyright (C) 2015 OurBeehive(http://ourbeehive.github.io/)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

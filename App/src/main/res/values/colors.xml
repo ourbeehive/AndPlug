@@ -1,9 +1,11 @@
 <resources>
 
-    <!-- theme color -->
-    <color name="primary">#ffff5722</color>
-    <color name="primary_dark">#ffca451a</color>
-    <color name="accent">@android:color/white</color>
+    <!-- override base material palette theme -->
+    <!-- http://www.materialpalette.com/deep-orange/deep-orange -->
+    <color name="dark_primary">#E64A19</color>
+    <color name="primary">#FF5722</color>
+    <color name="light_primary">#FFCCBC</color>
+    <color name="accent">#FF5722</color>
 
     <color name="bg_wechat_tab_pressed">#6633B5E5</color>
 
