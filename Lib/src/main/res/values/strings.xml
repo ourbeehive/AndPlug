@@ -15,6 +15,9 @@
     <string name="register">注册</string>
     <string name="pwd">密码</string>
     <string name="account_username">用户名/邮箱/手机号</string>
+    <string name="error_invalid_password">无效的密码</string>
+    <string name="error_field_required">用户名不能为空</string>
+    <string name="error_invalid_username">无效的用户名</string>
 
     <string name="unknown_error">未知错误</string>
     <string name="msg_exit_back_tips">再按一次退出应用</string>
