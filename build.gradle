@@ -34,7 +34,8 @@ allprojects {
     repositories {
         // Private Maven Repository
         // maven { url "http://maven.oschina.net/content/groups/public/" }
-
+		maven { url "https://jitpack.io" }
+		
         // Public Central Repository
         jcenter()
         mavenCentral()
