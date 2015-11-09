@@ -16,7 +16,8 @@
     <string name="pwd">密码</string>
     <string name="account_username">用户名/邮箱/手机号</string>
     <string name="error_invalid_password">无效的密码</string>
-    <string name="error_field_required">用户名不能为空</string>
+    <string name="error_field_required">该字段不能为空</string>
+    <string name="error_field_formatter">该字段格式不正确</string>
     <string name="error_invalid_username">无效的用户名</string>
 
     <string name="unknown_error">未知错误</string>
@@ -24,6 +25,7 @@
     <string name="title_exit_dlg">退出提示:</string>
     <string name="msg_exit_dlg">您确定退出应用吗？</string>
 
+    <string name="msg_login_ing">登录中&#8230;</string>
     <string name="msg_wait">应用处理中,请稍等...</string>
     <string name="network_unavailable">网络连接不可用</string>
     <string name="tips_network_unavailable">您的设备未启动移动网络或无线局域网\n前往设置检查网络连接?</string>

@@ -12,7 +12,7 @@ public class ResponseJson implements Serializable {
 
     private boolean code;
     private int status;
-    private String message;
+    private String msg;
     private String name;
     private String data;
     private ResponsePage pages;
@@ -20,10 +20,10 @@ public class ResponseJson implements Serializable {
     public ResponseJson() {
     }
 
-    public ResponseJson(boolean code, int status, String message, String name, String data, ResponsePage pages) {
+    public ResponseJson(boolean code, int status, String msg, String name, String data, ResponsePage pages) {
         this.code = code;
         this.status = status;
-        this.message = message;
+        this.msg = msg;
         this.name = name;
         this.data = data;
         this.pages = pages;
@@ -45,12 +45,12 @@ public class ResponseJson implements Serializable {
         this.status = status;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public String getName() {
@@ -69,6 +69,7 @@ public class ResponseJson implements Serializable {
         this.data = data;
     }
 
+    // [+] page
     public ResponsePage getPages() {
         return pages;
     }
@@ -80,4 +81,27 @@ public class ResponseJson implements Serializable {
     public boolean hasNextPage() {
         return this.pages != null && this.pages.hasNextPage();
     }
+    // [-] page
+
+    // [+] status
+    public boolean statusInfo() {
+        return status < 200;
+    }
+
+    public boolean statusSuccess() {
+        return status >= 200 && status < 300;
+    }
+
+    public boolean statusRedirect() {
+        return status >= 300 && status < 400;
+    }
+
+    public boolean statusClientError() {
+        return status >= 400 && status < 500;
+    }
+
+    public boolean statusServerError() {
+        return status >= 500;
+    }
+    // [-] status
 }
