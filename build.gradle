@@ -27,7 +27,7 @@ ext {
     targetCompatibility = JavaVersion.VERSION_1_7
 
     // support version
-    supportVersion = "23.1.1"
+    supportVersion = "23.1."
 }
 
 allprojects {
