@@ -10,6 +10,7 @@
 
     <!-- based on xhdpi -->
     <!-- text size -->
+    <!-- deplaceted -->
     <dimen name="text_size_xxxxs">6.0sp</dimen>
     <dimen name="text_size_xxxs">8.0sp</dimen>
     <dimen name="text_size_xxs">10.0sp</dimen>
@@ -18,6 +19,14 @@
     <dimen name="text_size_m">16.0sp</dimen>
     <dimen name="text_size_l">18.0sp</dimen>
     <dimen name="text_size_xl">20.0sp</dimen>
+
+    <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+
+
+
 
     <!-- margin -->
     <dimen name="margin_xxs">2.0dip</dimen>

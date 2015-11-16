@@ -21,7 +21,6 @@
     <color name="button_color">@color/primary</color>
     <color name="button_shadow_color">@color/dark_primary</color>
 
-
     <!-- tab widget -->
     <color name="tab_bg">#fffcfcfc</color>
     <color name="tab_text_selected">@color/primary</color>
@@ -51,6 +50,5 @@
 
     <color name="take_photo_normal">#ff353535</color>
 	<color name="take_photo_pressed">#ff0d0d0d</color>
-
 
 </resources>
