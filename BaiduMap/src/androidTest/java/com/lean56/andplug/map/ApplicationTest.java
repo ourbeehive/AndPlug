@@ -1,4 +1,4 @@
-package com.lean56.andplug.baidumap;
+package com.lean56.andplug.map;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

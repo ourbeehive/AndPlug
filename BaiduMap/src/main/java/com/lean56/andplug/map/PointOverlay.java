@@ -1,11 +1,4 @@
-package com.lean56.andplug.baidumap;
-
-import android.os.Bundle;
-import com.baidu.mapapi.map.*;
-import com.baidu.mapapi.overlayutil.OverlayManager;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.lean56.andplug.map;
 
 /**
  * Point Overlay
@@ -13,9 +6,9 @@ import java.util.List;
  *
  * @author Charles(zhangchaoxu@gmail.com)
  */
-public class PointOverlay extends OverlayManager {
+public class PointOverlay /*extends OverlayManager*/ {
 
-    private PointResult pointResult = null;
+    /*private PointResult pointResult = null;
 
     public final static String BUNDLE_KEY_POINT_INFO = "BUNDLE_KEY_POINT_INFO";
 
@@ -61,5 +54,5 @@ public class PointOverlay extends OverlayManager {
     @Override
     public boolean onMarkerClick(Marker marker) {
         return false;
-    }
+    }*/
 }

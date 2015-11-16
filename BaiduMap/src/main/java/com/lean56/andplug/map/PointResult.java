@@ -1,4 +1,4 @@
-package com.lean56.andplug.baidumap;
+package com.lean56.andplug.map;
 
 import com.baidu.mapapi.search.core.SearchResult;
 

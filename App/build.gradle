@@ -70,7 +70,7 @@ dependencies {
     compile project(':UmengFeedback')
     compile project(':UmengUpdate')
     compile project(':GetuiPush')
-    compile project(':BaiduLoc')
+    //compile project(':BaiduLoc')
     compile project(':BaiduMap')
     compile project(':VoiceIflytek')
     compile project(':ShareSDK')

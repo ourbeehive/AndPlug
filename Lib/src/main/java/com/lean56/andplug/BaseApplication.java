@@ -1,6 +1,7 @@
 package com.lean56.andplug;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Base Application
@@ -58,6 +60,17 @@ public class BaseApplication extends Application {
 
     public static Resources resources() {
         return _resource;
+    }
+
+    protected String getProcessName() {
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> appList = activityManager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo info : appList) {
+            if (info.pid == android.os.Process.myPid()) {
+                return info.processName;
+            }
+        }
+        return "";
     }
 
     private void calcDisplayMetrics() {
