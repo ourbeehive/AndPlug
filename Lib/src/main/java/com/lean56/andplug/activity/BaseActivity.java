@@ -41,6 +41,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        beforeContentView();
+
         setContentView(getContentView());
         Log.d(TAG, getClass().getSimpleName() + ".onCreate...");
 
@@ -70,6 +72,13 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return layout resource id
      */
     protected abstract int getContentView();
+
+    /**
+     * init before content view
+     */
+    protected void beforeContentView() {
+        // empty
+    }
 
     // [+] actionbar
     public Toolbar getToolbar() {
