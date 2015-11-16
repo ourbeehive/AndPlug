@@ -140,7 +140,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * add signle menu item
+     * add single menu item
      * @param menu
      * @return
      */
