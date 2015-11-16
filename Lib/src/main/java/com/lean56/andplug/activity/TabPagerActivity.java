@@ -178,6 +178,13 @@ public abstract class TabPagerActivity<V extends PagerAdapter & FragmentProvider
         }
     }
 
+    /**
+     * Configure tabs and pager
+     */
+    public void switchToTab(int position) {
+        host.setCurrentTab(position);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
