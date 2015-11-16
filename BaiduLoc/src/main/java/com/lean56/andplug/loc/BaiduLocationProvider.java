@@ -1,4 +1,4 @@
-package com.lean56.andplug.baiduloc;
+package com.lean56.andplug.loc;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,14 +10,16 @@ import com.baidu.location.LocationClientOption;
 
 /**
  * Location Provider
+ * <p/>
+ * see {http://developer.baidu.com/map/index.php?title=android-locsdk/guide/v5-0}
  *
- * @author Charles(zhangchaoxu@gmail.com)
+ * @author charles
  */
-public class LocationProvider {
-    private final static String TAG = LocationProvider.class.getSimpleName();
+public class BaiduLocationProvider {
+
+    private final static String TAG = BaiduLocationProvider.class.getSimpleName();
 
     private LocationClient locationClient;
-    private boolean intervalLoc;
 
     public LocationClient getLocationClient() {
         return locationClient;
@@ -27,19 +29,13 @@ public class LocationProvider {
         this.locationClient = locationClient;
     }
 
-    public LocationProvider(Context context, boolean intervalLoc) {
+    public BaiduLocationProvider(Context context) {
         locationClient = new LocationClient(context.getApplicationContext());
-        LocationClientOption option = new LocationClientOption();
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//设置定位模式
-        option.setCoorType("bd09ll");//返回的定位结果是百度经纬度,默认值gcj02
-        option.setIsNeedAddress(true);//返回的定位结果需要包含地址信息
-        //option.setAddrType("all");
-        if (intervalLoc) {
-            option.setScanSpan(10000);//10秒周期定位
-        }
-        this.intervalLoc = intervalLoc;
-        option.setLocationNotify(false);
-        option.setNeedDeviceDirect(true);//返回的定位结果需要包含手机机头的方向
+        locationClient.setLocOption(BaiduLocationClientUtils.getBriefClientOption());
+    }
+
+    public BaiduLocationProvider(Context context, LocationClientOption option) {
+        locationClient = new LocationClient(context.getApplicationContext());
         locationClient.setLocOption(option);
     }
 
@@ -67,7 +63,7 @@ public class LocationProvider {
                     city = city.replaceFirst("市.*$", "");
                 }
 
-                if (!intervalLoc) {
+                if (isOneTimeLoc()) {
                     locationClient.unRegisterLocationListener(this);
                     locationClient.stop();
                 }
@@ -82,6 +78,17 @@ public class LocationProvider {
         if (code == 6) {
             locationClient.requestOfflineLocation();
         }
+    }
+
+    /**
+     * is one/multi time loc
+     * ScanSpan
+     * 当不设此项，或者所设的整数值小于1000（ms）时，采用一次定位模式。
+     *
+     * @return
+     */
+    private boolean isOneTimeLoc() {
+        return getLocationClient().getLocOption().getScanSpan() < 1000;
     }
 
     public interface LocationResultListener {

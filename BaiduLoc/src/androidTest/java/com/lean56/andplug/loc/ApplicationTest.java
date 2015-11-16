@@ -1,4 +1,4 @@
-package com.lean56.andplug.baiduloc;
+package com.lean56.andplug.loc;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
