@@ -2,15 +2,12 @@
 		  package="com.lean56.andplug.umengupdate">
 
 	<uses-permission android:name="android.permission.INTERNET"/>
-
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 	<application>
-
 		<!-- umeng download service -->
-		<service android:name="com.umeng.update.net.DownloadingService"
-				 android:process=":DownloadingService"/>
+		<service android:name="com.umeng.update.net.DownloadingService" android:process=":DownloadingService"/>
 	</application>
 
 </manifest>
