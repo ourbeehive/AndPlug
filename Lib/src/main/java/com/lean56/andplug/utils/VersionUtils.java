@@ -1,4 +1,4 @@
-package com.lean56.andplug.umengupdate;
+package com.lean56.andplug.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
