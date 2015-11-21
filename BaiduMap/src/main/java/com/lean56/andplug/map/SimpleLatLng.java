@@ -3,19 +3,20 @@ package com.lean56.andplug.map;
 import java.io.Serializable;
 
 /**
- * LatLng
- * see {com.baidu.mapapi.model.LatLng}
+ * SimpleLatLng
+ * see {com.baidu.mapapi.model.SimpleLatLng}
+ * to fix BaiduLatLng can not Serializable issue
  *
- * @author Charles(zhangchaoxu@gmail.com)
+ * @author Charles
  */
-public class LatLng implements Serializable {
+public class SimpleLatLng implements Serializable {
 
     private double latitude;
     private double longitude;
 
-    public LatLng() {}
+    public SimpleLatLng() {}
 
-    public LatLng(double lat, double longi) {
+    public SimpleLatLng(double lat, double longi) {
         this.latitude = lat;
         this.longitude = longi;
     }
@@ -36,6 +37,10 @@ public class LatLng implements Serializable {
         this.longitude = longitude;
     }
 
+    /**
+     * transfer to baidu latlng
+     * @return
+     */
     public com.baidu.mapapi.model.LatLng toBaiduLatLng() {
         return new com.baidu.mapapi.model.LatLng(latitude, longitude);
     }

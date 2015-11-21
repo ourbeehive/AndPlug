@@ -11,7 +11,7 @@ public class LatLngUtils {
         if (null == lat || null == lng)
             return false;
 
-        return isChinaLoc(new LatLng(lat, lng));
+        return isChinaLoc(new SimpleLatLng(lat, lng));
     }
 
     /**
@@ -23,7 +23,7 @@ public class LatLngUtils {
      * @param latLng
      * @return
      */
-    public static boolean isChinaLoc(LatLng latLng) {
+    public static boolean isChinaLoc(SimpleLatLng latLng) {
         return latLng.getLongitude() > 73 && latLng.getLongitude() < 135 && latLng.getLatitude() > 3 && latLng.getLatitude() < 54;
     }
 }

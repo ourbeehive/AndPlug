@@ -28,10 +28,10 @@ import static com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
  */
 public abstract class OverlayManager implements OnMarkerClickListener, OnPolylineClickListener {
 
-    BaiduMap mBaiduMap = null;
+    public BaiduMap mBaiduMap = null;
     private List<OverlayOptions> mOverlayOptionList = null;
 
-    List<Overlay> mOverlayList = null;
+    public List<Overlay> mOverlayList = null;
 
     /**
      * 通过一个BaiduMap 对象构造

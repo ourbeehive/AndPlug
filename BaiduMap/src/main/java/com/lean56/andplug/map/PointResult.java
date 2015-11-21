@@ -1,7 +1,5 @@
 package com.lean56.andplug.map;
 
-import com.baidu.mapapi.search.core.SearchResult;
-
 import java.util.List;
 
 /**
@@ -9,9 +7,9 @@ import java.util.List;
  *
  * see {com.baidu.mapapi.search.poi.PoiResult}
  *
- * @author Charles(zhangchaoxu@gmail.com)
+ * @author Charles
  */
-public class PointResult extends SearchResult {
+public class PointResult {
 
     private List<PointInfo> points;
 
@@ -19,10 +17,6 @@ public class PointResult extends SearchResult {
 
     public PointResult(List<PointInfo> points) {
         this.points = points;
-    }
-
-    PointResult(ERRORNO var1) {
-        super(var1);
     }
 
     public List<PointInfo> getPoints() {

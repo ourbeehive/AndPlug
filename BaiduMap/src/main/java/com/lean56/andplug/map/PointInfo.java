@@ -15,9 +15,18 @@ public class PointInfo implements Serializable {
     private String address;
     private String phone;
     private POINTTYPE type;
-    private LatLng location;
+    private SimpleLatLng location;
 
     public PointInfo() {}
+
+    public PointInfo(long id, String name, String address, String phone, POINTTYPE type, SimpleLatLng location) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.type = type;
+        this.location = location;
+    }
 
     public long getId() {
         return id;
@@ -59,11 +68,11 @@ public class PointInfo implements Serializable {
         this.type = type;
     }
 
-    public LatLng getLocation() {
+    public SimpleLatLng getLocation() {
         return location;
     }
 
-    public void setLocation(LatLng location) {
+    public void setLocation(SimpleLatLng location) {
         this.location = location;
     }
 
