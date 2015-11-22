@@ -52,4 +52,7 @@
     <string name="picked_image_null">获取已选择图片失败</string>
     <string name="load_fail_retry">加载失败，点击重新加载</string>
 
+    <string name="pick_photo_camera">拍照</string>
+    <string name="pick_photo_album">从相册选择</string>
+
 </resources>

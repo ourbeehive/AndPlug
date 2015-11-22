@@ -1,0 +1,8 @@
+<resources>
+
+    <string-array name="pick_photo">
+        <item>@string/pick_photo_camera</item>
+        <item>@string/pick_photo_album</item>
+    </string-array>
+
+</resources>

@@ -44,7 +44,7 @@ dependencies {
     // edit text
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     // material dialogs
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.0@aar') {
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
         transitive = true
     }
 }
