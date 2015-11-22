@@ -29,13 +29,13 @@
               android:singleLine="true"
               tools:text="ROW_TITLE"
               android:textColor="@color/normal_text_color"
-              android:textSize="@dimen/text_size_l"/>
+              android:textSize="@dimen/text_size_medium"/>
 
     <CheckBox
             android:id="@id/row_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxHeight="36dp"
+            android:maxHeight="24dp"
             android:layout_toLeftOf="@id/row_arrow"
             android:layout_toStartOf="@id/row_arrow"
             android:layout_alignParentRight="true"
@@ -55,7 +55,7 @@
             android:layout_centerVertical="true"
             android:ellipsize="end"
             android:singleLine="true"
-            android:textSize="@dimen/text_size_s"
+            android:textSize="@dimen/text_size_small"
             android:textColor="@color/normal_text_color_disabled"
             tools:text="ROW_SUBTITLE"/>
 
