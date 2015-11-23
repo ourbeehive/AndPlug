@@ -36,6 +36,10 @@ public abstract class OkHttpCallback implements com.squareup.okhttp.Callback {
         });
     }
 
+    /**
+     * TODO 500也进到这里
+     * @param response
+     */
     @Override
     public void onResponse(final Response response) {
         handlePreResponse(response);

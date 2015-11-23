@@ -2,7 +2,7 @@ package com.lean56.andplug.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import com.lean56.andplug.R;
 import com.lean56.andplug.adapter.BaseRecyclerAdapter;
 import com.lean56.andplug.adapter.DividerItemDecoration;
+import com.lean56.andplug.network.OkHttpCallback;
 import com.lean56.andplug.utils.ItemClickSupport;
 import com.lean56.andplug.view.ExceptionView;
 
@@ -26,10 +27,10 @@ import java.util.List;
  *
  * @param <E>
  */
-public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>> {
+public abstract class RefreshRecyclerFragment<E> extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     /**
-     * List items provided to {@link #onLoadFinished(Loader, List)}
+     * List items
      */
     protected List<E> items = new ArrayList<>();
 
@@ -70,6 +71,8 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initArgument();
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         setRecyclerViewLayoutManager();
         mRecyclerView.addItemDecoration(getItemDecoration());
@@ -94,6 +97,10 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         exceptionView = (ExceptionView) view.findViewById(R.id.view_exception);
 
         configureList(getActivity(), getListView());
+
+        // init and send network
+        initHttpCallback();
+        sendHttpRequest();
     }
 
     /**
@@ -113,17 +120,13 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         return new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST);
     }
 
-    /**
-     * Detach from list view.
-     */
-    @Override
-    public void onDestroyView() {
-        listShown = false;
-        progressBar = null;
-        mRecyclerView = null;
-        exceptionView = null;
-        super.onDestroyView();
-    }
+    protected OkHttpCallback mOkHttpCallback;
+
+    protected abstract void sendHttpRequest();
+
+    protected abstract void initHttpCallback();
+
+    protected void initArgument() {}
 
     @Override
     public void onResume() {
@@ -141,7 +144,7 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         listView.setAdapter(createAdapter());
     }
 
-    public void onLoadFinished(Loader<List<E>> loader, List<E> items) {
+    /*public void onLoadFinished(Loader<List<E>> loader, List<E> items) {
         super.onLoadFinished(loader, items);
 
         Exception exception = getException(loader);
@@ -153,6 +156,12 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
 
         this.items = items;
         getListAdapter().setItems(items); //getWrappedAdapter().setItems(items.toArray());
+        showList();
+    }*/
+
+    protected void onResponseSuccess(List<E> items) {
+        this.items = items;
+        getListAdapter().replaceAll(this.items);
         showList();
     }
 
@@ -182,13 +191,13 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
         setListShown(true, isResumed());
     }
 
-    /**
-     * Refresh the list with the progress bar showing
-     */
-    protected void refreshWithProgress() {
-        items.clear();
-        setListShown(false);
-        refresh();
+    public void refresh() {
+        sendHttpRequest();
+    }
+
+    @Override
+    public void onRefresh() {
+        sendHttpRequest();
     }
 
     /**
@@ -370,6 +379,18 @@ public abstract class RefreshRecyclerFragment<E> extends RefreshFragment<List<E>
      */
     public boolean onListItemLongClick(RecyclerView parent, View child, int position, long id) {
         return false;
+    }
+
+    /**
+     * Detach from list view.
+     */
+    @Override
+    public void onDestroyView() {
+        listShown = false;
+        progressBar = null;
+        mRecyclerView = null;
+        exceptionView = null;
+        super.onDestroyView();
     }
 }
 
