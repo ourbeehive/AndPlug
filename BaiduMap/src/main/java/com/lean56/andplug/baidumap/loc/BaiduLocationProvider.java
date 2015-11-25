@@ -1,4 +1,4 @@
-package com.lean56.andplug.map.loc;
+package com.lean56.andplug.baidumap.loc;
 
 import android.content.Context;
 import android.text.TextUtils;

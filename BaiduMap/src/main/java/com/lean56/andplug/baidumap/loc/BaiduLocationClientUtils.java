@@ -1,4 +1,4 @@
-package com.lean56.andplug.map.loc;
+package com.lean56.andplug.baidumap.loc;
 
 import com.baidu.location.LocationClientOption;
 

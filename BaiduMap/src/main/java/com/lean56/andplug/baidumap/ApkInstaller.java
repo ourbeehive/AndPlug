@@ -1,4 +1,4 @@
-package com.lean56.andplug.map;
+package com.lean56.andplug.baidumap;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
