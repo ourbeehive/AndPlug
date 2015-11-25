@@ -28,8 +28,6 @@ dependencies {
     compile 'com.lean56.andplug:BaiduMap:1.0.0@aar'
 }
 ```
-
-
 ### GetuiPush
 GetuiPush is the lib support message push provider powered by [Getui](http://www.getui.com/). [more](https://github.com/ourbeehive/AndPlug/Getui/blob/master/README.md)
 
@@ -41,10 +39,9 @@ UmengUpdate is the lib support app auto update provider powered by [Umeng Update
 
 ```gradle
 dependencies {
-    compile 'com.lean56.andplug:UmengUpdate:1.0.0@aar'
+    compile 'com.lean56.andplug:UmengUpdate:1.0.1@aar'
 }
 ```
-
 ### UniversalImage
 UniversalImage is the lib support image cache network load and image post. [more](https://github.com/ourbeehive/AndPlug/UniversalImage/blob/master/README.md)
 
