@@ -1,5 +1,7 @@
 package com.lean56.andplug.map;
 
+import com.baidu.mapapi.model.LatLng;
+
 /**
  * LatLngUtils
  *
@@ -7,11 +9,8 @@ package com.lean56.andplug.map;
  */
 public class LatLngUtils {
 
-    public static boolean isChinaLoc(Double lat, Double lng) {
-        if (null == lat || null == lng)
-            return false;
-
-        return isChinaLoc(new SimpleLatLng(lat, lng));
+    public static boolean isChinaLoc(double lat, double lng) {
+        return isChinaLoc(new LatLng(lat, lng));
     }
 
     /**
@@ -23,7 +22,7 @@ public class LatLngUtils {
      * @param latLng
      * @return
      */
-    public static boolean isChinaLoc(SimpleLatLng latLng) {
-        return latLng.getLongitude() > 73 && latLng.getLongitude() < 135 && latLng.getLatitude() > 3 && latLng.getLatitude() < 54;
+    public static boolean isChinaLoc(LatLng latLng) {
+        return latLng.longitude > 73 && latLng.longitude< 135 && latLng.latitude > 3 && latLng.latitude < 54;
     }
 }

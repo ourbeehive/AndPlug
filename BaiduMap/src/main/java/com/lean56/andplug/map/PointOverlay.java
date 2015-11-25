@@ -1,8 +1,6 @@
 package com.lean56.andplug.map;
 
 import android.os.Bundle;
-import android.widget.Button;
-import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.map.*;
 import com.baidu.mapapi.overlayutil.OverlayManager;
 
@@ -17,106 +15,94 @@ import java.util.List;
  */
 public class PointOverlay extends OverlayManager {
 
-    private PointResult mPointResult = null;
+    private List<PointInfo> mPoints = new ArrayList<>();
 
     /**
-     * 构造函数
+     * Default Constructor
      *
-     * @param baiduMap 该 PoiOverlay 引用的 BaiduMap 对象
+     * @param baiduMap refer BaiduMap
      */
     public PointOverlay(BaiduMap baiduMap) {
         super(baiduMap);
     }
 
+
     /**
-     * 设置POI数据
+     * set point data
      *
-     * @param pointResult 设置POI数据
+     * @param points points data
      */
-    public void setData(PointResult pointResult) {
-        this.mPointResult = pointResult;
+    public void setPoints(ArrayList<PointInfo> points) {
+        if (null != points) {
+            this.mPoints = points;
+        }
     }
 
     /**
-     * 获取该 PointOverlay 的 poi数据
+     * get the points on the overlay
      */
-    public PointResult getPointResult() {
-        return mPointResult;
+    public List<PointInfo> getPoints() {
+        return this.mPoints;
     }
 
     @Override
     public List<OverlayOptions> getOverlayOptions() {
         // check empty
-        if (null == mPointResult) {
-            return null;
-        }
-        List<PointInfo> pois = mPointResult.getPoints();
-        if (null == pois || pois.size() == 0) {
+        if (null == mPoints || mPoints.size() == 0) {
             return null;
         }
 
         // fill list
         List<OverlayOptions> markerList = new ArrayList<>();
+        for (int i = 0; i < mPoints.size(); i++) {
+            PointInfo pointInfo = mPoints.get(i);
+            if (pointInfo.getLatLng() != null) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("index", i);
 
-        for (int i = 0; i < pois.size(); i++) {
-            PointInfo pointInfo = pois.get(i);
-            if (pointInfo.getLocation() != null) {
-                markerList.add(genMarkerOptions(i, pointInfo));
+                markerList.add(new MarkerOptions().icon(genBitmapDescriptor(i, pointInfo)).extraInfo(bundle).position(pointInfo.getLatLng()));
             }
         }
         return markerList;
     }
 
-    protected MarkerOptions genMarkerOptions(int index, PointInfo pointInfo) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("index", index);
-
-        BitmapDescriptor bitmapDescriptor;
-        // support 1 - 19
-        if (pointInfo.getId() > 0 && pointInfo.getId() < 20) {
-            bitmapDescriptor = BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark" + String.valueOf(pointInfo.getId()) + ".png");
-        } else {
-            bitmapDescriptor = BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark.png");
-        }
-        return new MarkerOptions().icon(bitmapDescriptor).extraInfo(bundle).position(pointInfo.getLocation().toBaiduLatLng());
+    /**
+     * override the method change the ui of marker
+     *
+     * @param index the index of point
+     *
+     * @param pointInfo the point info
+     * @return the BitmapDescriptor
+     */
+    protected BitmapDescriptor genBitmapDescriptor(int index, PointInfo pointInfo) {
+        return BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark.png");
     }
 
     /**
-     * 覆写此方法以改变默认点击行为
+     * override the method to do click action
      *
-     * @param index 被点击的poi在
-     *              {@link PointResult#getPoints()} 中的索引
-     * @return
+     * @param index the index of point
+     *              {@link PointResult#getPoints()}
+     * @return the click result
      */
     public boolean onPointClick(int index) {
-        if (null == mPointResult || null == mPointResult.getPoints() || null == mPointResult.getPoints().get(index)) {
-            return false;
-        }
-        if (null == mBaiduMap) {
-            return false;
-        }
-        PointInfo pointInfo = mPointResult.getPoints().get(index);
-
-        //创建InfoWindow展示的view
-        Button button = new Button(BMapManager.getContext());
-        button.setBackgroundResource(android.R.drawable.alert_dark_frame);
-        //定义用于显示该InfoWindow的坐标点
-        //创建InfoWindow , 传入 view， 地理坐标， y 轴偏移量
-        InfoWindow mInfoWindow = new InfoWindow(button, pointInfo.getLocation().toBaiduLatLng(), -47);
-        //显示InfoWindow
-        mBaiduMap.showInfoWindow(mInfoWindow);
         return false;
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        if (!mOverlayList.contains(marker)) {
+        if (!mOverlayList.contains(marker) || null == mBaiduMap) {
             return false;
         }
-        if (marker.getExtraInfo() != null) {
-            return onPointClick(marker.getExtraInfo().getInt("index"));
+        if (marker.getExtraInfo() == null) {
+            return false;
         }
-        return false;
+        int index = marker.getExtraInfo().getInt("index");
+        if (null == mPoints || index >= mPoints.size()) {
+            return false;
+        } else {
+            return onPointClick(index);
+        }
     }
 
     @Override

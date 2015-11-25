@@ -1,31 +1,37 @@
 package com.lean56.andplug.map;
 
-import java.io.Serializable;
+import com.baidu.mapapi.model.LatLng;
 
 /**
  * PointInfo
  * see {com.baidu.mapapi.search.core.PoiInfo}
  *
- * @author Charles(zhangchaoxu@gmail.com)
+ * @author Charles
  */
-public class PointInfo implements Serializable {
+public class PointInfo {
 
     private long id;
+    private int type;
     private String name;
     private String address;
     private String phone;
-    private POINTTYPE type;
-    private SimpleLatLng location;
+    private LatLng latLng;
+    private Object extInfo;
 
     public PointInfo() {}
 
-    public PointInfo(long id, String name, String address, String phone, POINTTYPE type, SimpleLatLng location) {
+    public PointInfo(LatLng latLng) {
+        this.latLng = latLng;
+    }
+
+    public PointInfo(long id, int type, String name, String address, String phone, LatLng latLng, Object extInfo) {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.type = type;
-        this.location = location;
+        this.latLng = latLng;
+        this.extInfo = extInfo;
     }
 
     public long getId() {
@@ -34,6 +40,14 @@ public class PointInfo implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -60,64 +74,19 @@ public class PointInfo implements Serializable {
         this.phone = phone;
     }
 
-    public POINTTYPE getType() {
-        return type;
+    public LatLng getLatLng() {
+        return latLng;
     }
 
-    public void setType(POINTTYPE type) {
-        this.type = type;
+    public void setLatLng(LatLng latLng) {
+        this.latLng = latLng;
     }
 
-    public SimpleLatLng getLocation() {
-        return location;
+    public Object getExtInfo() {
+        return extInfo;
     }
 
-    public void setLocation(SimpleLatLng location) {
-        this.location = location;
-    }
-
-    /**
-     * point type
-     */
-    public static enum POINTTYPE {
-
-        /*STORE(1, R.drawable.ic_marker_store), WAREHOUSE(2, R.drawable.ic_marker_warehouse), VEHICLE(3, R.drawable.ic_marker_vehicle);
-
-        private int key;
-        private int resId;
-
-        private POINTTYPE(int key, int resId) {
-            this.key = key;
-            this.resId = resId;
-        }
-
-        public static POINTTYPE getTypeByKey(int key) {
-            for (POINTTYPE type : POINTTYPE.values()) {
-                if (type.getKey() == key) {
-                    return type;
-                }
-            }
-            return null;
-        }
-
-        private POINTTYPE(int key) {
-            this.key = key;
-        }
-
-        public int getKey() {
-            return key;
-        }
-
-        public void setKey(int key) {
-            this.key = key;
-        }
-
-        public int getResId() {
-            return resId;
-        }
-
-        public void setResId(int resId) {
-            this.resId = resId;
-        }*/
+    public void setExtInfo(Object extInfo) {
+        this.extInfo = extInfo;
     }
 }

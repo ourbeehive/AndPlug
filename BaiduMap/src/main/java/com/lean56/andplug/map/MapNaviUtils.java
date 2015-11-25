@@ -3,6 +3,7 @@ package com.lean56.andplug.map;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import com.baidu.mapapi.model.LatLng;
 
 /**
  * MapNaviUtils
@@ -47,5 +48,12 @@ public class MapNaviUtils {
         }
 
         context.startActivity(intent);
+    }
+
+    /**
+     * go to map marker
+     */
+    public static void naviToMarker(Context context, LatLng latLng, String title, String content) {
+        naviToMarker(context, latLng.longitude, latLng.latitude, title, content);
     }
 }
