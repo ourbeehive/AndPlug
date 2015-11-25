@@ -46,8 +46,7 @@ public class AppManager {
      * get the current Activity(the last push to stack)
      */
     synchronized public Activity currentActivity() {
-        Activity activity = activityStack.lastElement();
-        return activity;
+        return activityStack.lastElement();
     }
 
     /**
