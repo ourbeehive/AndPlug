@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-/*apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'*/
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 version = "1.0.0"
 
 android {
@@ -32,7 +32,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
 }
-/*
+
 def siteUrl = 'https://github.com/ourbeehive/AndPlug'
 def gitUrl = 'https://github.com/ourbeehive/AndPlug.git'
 // group name do not need match package name
@@ -77,6 +77,9 @@ task sourcesJar(type: Jar) {
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options {
+        encoding = 'UTF-8'
+    }
 }
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
@@ -100,4 +103,4 @@ bintray {
         licenses = ["Apache-2.0"]
         publish = true
     }
-}*/
+}

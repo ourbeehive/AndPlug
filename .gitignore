@@ -63,3 +63,5 @@ tmp/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+.m2

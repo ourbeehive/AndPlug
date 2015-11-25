@@ -23,6 +23,13 @@ BaiduLoc is the lib support location provider powered by [Baidu locsdk](http://d
 ### BaiduMap
 BaiduMap is the lib support map provider powered by [Baidu map sdk](http://developer.baidu.com/map/index.php?title=androidsdk). [more](https://github.com/ourbeehive/AndPlug/BaiduMap/blob/master/README.md)
 
+```gradle
+dependencies {
+    compile 'com.lean56.andplug:BaiduMap:1.0.0@aar'
+}
+```
+
+
 ### GetuiPush
 GetuiPush is the lib support message push provider powered by [Getui](http://www.getui.com/). [more](https://github.com/ourbeehive/AndPlug/Getui/blob/master/README.md)
 
@@ -32,11 +39,25 @@ UmengFeedback is the lib support user feedback provider powered by [Umeng Feedba
 ### UmengUpdate
 UmengUpdate is the lib support app auto update provider powered by [Umeng Update](http://www.umeng.com/component_update). [more](https://github.com/ourbeehive/AndPlug/UmengUpdate/blob/master/README.md)
 
+```gradle
+dependencies {
+    compile 'com.lean56.andplug:UmengUpdate:1.0.0@aar'
+}
+```
+
 ### UniversalImage
 UniversalImage is the lib support image cache network load and image post. [more](https://github.com/ourbeehive/AndPlug/UniversalImage/blob/master/README.md)
 
 ### VoiceIflytek
 VoiceIflytek is the lib support tts provider powered by [Iflytek](http://www.xfyun.cn/). [more](https://github.com/ourbeehive/AndPlug/VoiceIflytek/blob/master/README.md)
+
+## How to Publish
+
+### Publish to maven and jcente
+*  add local.properties with bintray.user = yourusername and bintray.apikey = yourapikey under root folder
+*  edit module gradle build file add publish setting 
+*  run `gradlew bintrayUpload` for global project upload or `gradlew :ModuleName:bintrayUpload` for subModule publish
+*  the jar/doc will be publish in maven, and add to jcenter if you want
 
 ## License
 
