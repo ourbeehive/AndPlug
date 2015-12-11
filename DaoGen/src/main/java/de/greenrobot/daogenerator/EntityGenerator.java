@@ -61,7 +61,7 @@ public class EntityGenerator {
         File outDirFile = toFileForceExists(outDir);
 
         schema.init2ndPass();
-        schema.init3ndPass();
+        //schema.init3ndPass();
 
         System.out.println("Processing schema version " + schema.getVersion() + "...");
 
