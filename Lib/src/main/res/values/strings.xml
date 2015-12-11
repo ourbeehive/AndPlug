@@ -41,10 +41,12 @@
     <string name="photo_pick">图片选择</string>
 
     <string name="socket_timeout_exception">服务器连接超时,请检查网络后重试</string>
+    <string name="network_exception">网络访问异常,请检查网络后重试</string>
     <string name="unknown_exception">发生未知错误</string>
-    <string name="network_exception">网络访问异常</string>
-    <string name="json_exception">数据格式化发生错误</string>
+    <string name="json_exception">数据格式错误</string>
+    <string name="class_cast_exception">数据类型转换错误</string>
     <string name="io_exception">数据读写错误</string>
+    <string name="null_point_exception">空指针异常</string>
     <string name="camera_permission_exception">调用摄像头拒绝,请在设置中允许</string>
     <string name="camera_exception">摄像头读取失败</string>
     <string name="photo_crop_exception">图片剪裁失败</string>
