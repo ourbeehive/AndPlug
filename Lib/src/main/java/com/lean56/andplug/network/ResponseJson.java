@@ -10,31 +10,21 @@ import java.io.Serializable;
  */
 public class ResponseJson implements Serializable {
 
-    private boolean code;
     private int status;
     private String msg;
-    private String name;
     private String data;
-    private ResponsePage pages;
+    private boolean page;
+    private ResponsePage pageInfo;
 
     public ResponseJson() {
     }
 
-    public ResponseJson(boolean code, int status, String msg, String name, String data, ResponsePage pages) {
-        this.code = code;
+    public ResponseJson(int status, String msg, String data, boolean page, ResponsePage pageInfo) {
         this.status = status;
         this.msg = msg;
-        this.name = name;
         this.data = data;
-        this.pages = pages;
-    }
-
-    public boolean getCode() {
-        return code;
-    }
-
-    public void setCode(boolean code) {
-        this.code = code;
+        this.page = page;
+        this.pageInfo = pageInfo;
     }
 
     public int getStatus() {
@@ -53,14 +43,6 @@ public class ResponseJson implements Serializable {
         this.msg = msg;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getData() {
         return data;
     }
@@ -69,17 +51,25 @@ public class ResponseJson implements Serializable {
         this.data = data;
     }
 
+    public boolean isPage() {
+        return page;
+    }
+
+    public void setPage(boolean page) {
+        this.page = page;
+    }
+
+    public ResponsePage getPageInfo() {
+        return pageInfo;
+    }
+
+    public void setPageInfo(ResponsePage pageInfo) {
+        this.pageInfo = pageInfo;
+    }
+
     // [+] page
-    public ResponsePage getPages() {
-        return pages;
-    }
-
-    public void setPages(ResponsePage pages) {
-        this.pages = pages;
-    }
-
     public boolean hasNextPage() {
-        return this.pages != null && this.pages.hasNextPage();
+        return this.page &&this.pageInfo != null && this.pageInfo.hasNextPage();
     }
     // [-] page
 
@@ -94,6 +84,10 @@ public class ResponseJson implements Serializable {
 
     public boolean statusRedirect() {
         return status >= 300 && status < 400;
+    }
+
+    public boolean statusAuthFailure() {
+        return status == 404;
     }
 
     public boolean statusClientError() {
