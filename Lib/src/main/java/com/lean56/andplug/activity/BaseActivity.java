@@ -1,5 +1,6 @@
 package com.lean56.andplug.activity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -246,6 +247,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
     // [-] Progress Dialog
+
+    // [+] start activity
+
+    protected void goActivity(Intent intent) {
+        goActivity(false, intent);
+    }
+
+    protected void goActivity(boolean isFinish, Intent intent) {
+        startActivity(intent);
+        if (isFinish) {
+            finish();
+        }
+    }
+    // [-] start activity
 
     // [+] Intent extra
 
