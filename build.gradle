@@ -13,6 +13,10 @@ buildscript {
     }
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
 // global var define
 ext {
     // tool version
