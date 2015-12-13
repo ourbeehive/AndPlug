@@ -9,6 +9,33 @@ import com.baidu.mapapi.model.LatLng;
  */
 public class LatLngUtils {
 
+    /**
+     * gen LatLng with string value lat and lng
+     * @param lat
+     * @param lng
+     * @return
+     */
+    public static LatLng genLatlng(String lat, String lng) {
+        try {
+            return new LatLng(Double.valueOf(lat), Double.valueOf(lng));
+        } catch (NumberFormatException | NullPointerException e) {
+            return null;
+        }
+    }
+
+    /**
+     * gen LatLng with double value lat and lng
+     * @param lat
+     * @param lng
+     * @return
+     */
+    public static LatLng genLatlng(Double lat, Double lng) {
+        if (null == lat || 0d == lat || null == lng || 0d == lng)
+            return null;
+        else
+            return new LatLng(lat, lng);
+    }
+
     public static boolean isChinaLoc(double lat, double lng) {
         return isChinaLoc(new LatLng(lat, lng));
     }
@@ -23,6 +50,6 @@ public class LatLngUtils {
      * @return
      */
     public static boolean isChinaLoc(LatLng latLng) {
-        return latLng.longitude > 73 && latLng.longitude< 135 && latLng.latitude > 3 && latLng.latitude < 54;
+        return latLng.longitude > 73 && latLng.longitude < 135 && latLng.latitude > 3 && latLng.latitude < 54;
     }
 }
