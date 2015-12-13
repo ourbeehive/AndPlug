@@ -6,10 +6,10 @@ mainClassName = "com.lean56.andplug.daogen.AppDaoGen"
 
 sourceSets {
     main {
-        java {
+        /*java {
             srcDir 'src'
             srcDir 'src-gen'
-        }
+        }*/
         resources {
             srcDir 'src-template'
         }

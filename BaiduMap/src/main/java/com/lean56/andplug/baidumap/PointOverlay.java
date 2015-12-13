@@ -82,7 +82,6 @@ public class PointOverlay extends OverlayManager {
      * override the method to do click action
      *
      * @param index the index of point
-     *              {@link PointResult#getPoints()}
      * @return the click result
      */
     public boolean onPointClick(int index) {

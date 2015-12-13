@@ -25,7 +25,7 @@ BaiduMap is the lib support map provider powered by [Baidu map sdk](http://devel
 
 ```gradle
 dependencies {
-    compile 'com.lean56.andplug:BaiduMap:1.0.0@aar'
+    compile 'com.lean56.andplug:BaiduMap:1.0.2@aar'
 }
 ```
 ### GetuiPush
