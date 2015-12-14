@@ -96,6 +96,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    public void setSubTitle(String subtitle) {
+        if (null != mToolbar) {
+            mToolbar.setSubtitle(subtitle);
+        }
+    }
+
+    public void setSubTitle(int resId) {
+        setSubTitle(getString(resId));
+    }
+
     /**
      * initActionBar
      */

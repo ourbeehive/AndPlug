@@ -1,8 +1,7 @@
 package com.lean56.andplug.fragment;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.os.Bundle;
+import android.view.*;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -12,7 +11,7 @@ import com.umeng.analytics.MobclickAgent;
  *
  * @author Charles
  */
-public class BaseFragment extends android.support.v4.app.Fragment {
+public abstract class BaseFragment extends android.support.v4.app.Fragment {
 
     /**
      * Is this fragment usable from the UI-thread
@@ -22,6 +21,20 @@ public class BaseFragment extends android.support.v4.app.Fragment {
     protected boolean isUsable() {
         return getActivity() != null;
     }
+
+    /**
+     * Get content view to be used when {@link #onCreate(Bundle)} is called
+     *
+     * @return layout resource id
+     */
+    protected abstract int getContentView();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(getContentView(), container, false);
+    }
+
+
 
     // [+] Options Menu
     @Override

@@ -87,7 +87,7 @@ public class ResponseJson implements Serializable {
     }
 
     public boolean statusAuthFailure() {
-        return status == 404;
+        return status == 401;
     }
 
     public boolean statusClientError() {
