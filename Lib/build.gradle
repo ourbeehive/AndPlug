@@ -24,6 +24,7 @@ dependencies {
     // see {http://stackoverflow.com/questions/30477364/android-edittext-onclick-listener-defined-in-layout-fails-with-obscure-exception}
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+    compile "com.android.support:cardview-v7:$rootProject.ext.supportVersion"
 
     // add multidex support
     // https://developer.android.com/tools/building/multidex.html

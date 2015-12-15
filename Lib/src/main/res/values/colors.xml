@@ -40,7 +40,7 @@
 
     <color name="white_pressed">#ffd5d5d5</color>
 
-    <!-- list divider -->
+    <!-- list divider_h -->
     <color name="list_divider_top">#E2E2E2</color>
     <color name="list_divider_bottom">#FFFFFF</color>
 
