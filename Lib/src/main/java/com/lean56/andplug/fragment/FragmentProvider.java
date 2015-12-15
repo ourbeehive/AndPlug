@@ -1,7 +1,5 @@
 package com.lean56.andplug.fragment;
 
-import android.support.v4.app.Fragment;
-
 /**
  * Provides a fragment
  */
@@ -12,5 +10,5 @@ public interface FragmentProvider {
      *
      * @return fragment
      */
-    Fragment getSelected();
+    BaseFragment getSelected();
 }

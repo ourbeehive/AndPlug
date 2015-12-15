@@ -2,6 +2,7 @@ package com.lean56.andplug.fragment;
 
 import android.os.Bundle;
 import android.view.*;
+import com.lean56.andplug.activity.BaseActivity;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -34,7 +35,29 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
         return inflater.inflate(getContentView(), container, false);
     }
 
+    // [+] title
+    private String mTitle;
 
+    public void setTitle(String title) {
+        this.mTitle = title;
+        getActivity().setTitle(title);
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    private String mSubTitle;
+
+    public void setSubTitle(String subTitle) {
+        this.mSubTitle = subTitle;
+        ((BaseActivity)getActivity()).setSubTitle(subTitle);
+    }
+
+    public String getSubTitle() {
+        return mSubTitle;
+    }
+    // [-] title
 
     // [+] Options Menu
     @Override

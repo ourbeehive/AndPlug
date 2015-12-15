@@ -3,6 +3,7 @@ package com.lean56.andplug.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
+import com.lean56.andplug.fragment.BaseFragment;
 import com.lean56.andplug.fragment.FragmentProvider;
 
 import java.lang.ref.WeakReference;
@@ -18,7 +19,7 @@ public abstract class FragmentPagerAdapter extends android.support.v4.app.Fragme
 
     private final FragmentActivity activity;
 
-    private Fragment selected;
+    private BaseFragment selected;
 
     /**
      * @param activity
@@ -39,7 +40,7 @@ public abstract class FragmentPagerAdapter extends android.support.v4.app.Fragme
     }
 
     @Override
-    public Fragment getSelected() {
+    public BaseFragment getSelected() {
         return selected;
     }
 
@@ -48,9 +49,9 @@ public abstract class FragmentPagerAdapter extends android.support.v4.app.Fragme
         super.setPrimaryItem(container, position, object);
 
         boolean changed = false;
-        if (object instanceof Fragment) {
+        if (object instanceof BaseFragment) {
             changed = object != selected;
-            selected = (Fragment) object;
+            selected = ( BaseFragment) object;
         } else {
             changed = object != null;
             selected = null;

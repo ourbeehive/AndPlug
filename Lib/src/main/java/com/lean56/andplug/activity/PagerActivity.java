@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.lean56.andplug.fragment.BaseFragment;
 import com.lean56.andplug.fragment.FragmentProvider;
 
 /**
@@ -27,7 +28,7 @@ public abstract class PagerActivity extends BaseActivity implements OnPageChange
      *
      * @return fragment
      */
-    protected Fragment getFragment() {
+    protected BaseFragment getFragment() {
         FragmentProvider provider = getProvider();
         if (provider != null)
             return provider.getSelected();
