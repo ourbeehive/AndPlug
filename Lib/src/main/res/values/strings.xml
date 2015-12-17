@@ -10,6 +10,8 @@
     <string name="settings">设置</string>
     <string name="about">关于</string>
     <string name="empty"></string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
 
     <!-- account -->
     <string name="forget_pwd">忘记密码?</string>

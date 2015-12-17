@@ -106,10 +106,23 @@ public class ListRow extends RelativeLayout {
         }
     }
 
+    public void setTitle(int titleRes) {
+        if (null != row_title) {
+            row_title.setText(titleRes);
+        }
+    }
+
     public void setSubtitle(String subtitle) {
         if (null != row_subtitle) {
             row_subtitle.setVisibility(View.VISIBLE);
             row_subtitle.setText(subtitle);
+        }
+    }
+
+    public void setSubtitle(int subtitleRes) {
+        if (null != row_subtitle) {
+            row_subtitle.setVisibility(View.VISIBLE);
+            row_subtitle.setText(subtitleRes);
         }
     }
 
