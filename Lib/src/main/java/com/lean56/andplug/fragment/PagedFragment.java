@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
 import com.lean56.andplug.R;
 import com.lean56.andplug.adapter.LoadMoreAdapter;
@@ -205,25 +204,6 @@ public abstract class PagedFragment<E> extends BaseFragment implements SwipeRefr
         sendHttpRequest();
     }
     // [-] LoadMoreListener
-
-    private PagedFragment<E> show(View view) {
-        view.setVisibility(View.VISIBLE);
-        return this;
-    }
-
-    private PagedFragment<E> hide(View view) {
-        view.setVisibility(View.GONE);
-        return this;
-    }
-
-    private PagedFragment<E> fadeIn(View view, boolean animate) {
-        if (view != null)
-            if (animate)
-                view.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
-            else
-                view.clearAnimation();
-        return this;
-    }
 
     @Override
     public void onDestroyView() {

@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.lean56.andplug.R;
@@ -247,25 +246,6 @@ public abstract class RefreshRecyclerFragment<E> extends BaseFragment implements
     protected RefreshRecyclerFragment<E> setListAdapter(final RecyclerView.Adapter adapter) {
         if (mRecyclerView != null)
             mRecyclerView.setAdapter(adapter);
-        return this;
-    }
-
-    private RefreshRecyclerFragment<E> fadeIn(final View view, final boolean animate) {
-        if (view != null)
-            if (animate)
-                view.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
-            else
-                view.clearAnimation();
-        return this;
-    }
-
-    private RefreshRecyclerFragment<E> show(final View view) {
-        view.setVisibility(View.VISIBLE);
-        return this;
-    }
-
-    private RefreshRecyclerFragment<E> hide(final View view) {
-        view.setVisibility(View.GONE);
         return this;
     }
 

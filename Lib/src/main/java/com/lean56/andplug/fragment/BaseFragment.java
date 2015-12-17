@@ -2,6 +2,7 @@ package com.lean56.andplug.fragment;
 
 import android.os.Bundle;
 import android.view.*;
+import android.view.animation.AnimationUtils;
 import com.lean56.andplug.activity.BaseActivity;
 import com.umeng.analytics.MobclickAgent;
 
@@ -116,5 +117,35 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
         MobclickAgent.onPageEnd(getClass().getSimpleName());
     }
     // [-] umeng analytics
+
+    // [+] view utils
+    public BaseFragment fadeIn(View view, boolean animate) {
+        if (view != null)
+            if (animate)
+                view.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+            else
+                view.clearAnimation();
+        return this;
+    }
+
+    public BaseFragment fadeOut(View view, boolean animate) {
+        if (view != null)
+            if (animate)
+                view.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out));
+            else
+                view.clearAnimation();
+        return this;
+    }
+
+    public BaseFragment show(View view) {
+        view.setVisibility(View.VISIBLE);
+        return this;
+    }
+
+    public BaseFragment hide(View view) {
+        view.setVisibility(View.GONE);
+        return this;
+    }
+    // [-] view utils
 
 }
