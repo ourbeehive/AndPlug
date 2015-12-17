@@ -14,9 +14,9 @@ public class PhoneType {
     /**
      * is the CPU of Mobile device is x86
      */
-    public static boolean isX86() {
+    public static boolean isX86or64() {
         String arch = System.getProperty("os.arch").toLowerCase();
-        return arch.equals("i686") || arch.equals("x86");
+        return arch.equals("i686") || arch.equals("x86") || arch.equals("aarch64");
     }
 
     /**
@@ -39,11 +39,4 @@ public class PhoneType {
         return Build.MANUFACTURER.equalsIgnoreCase("Xiaomi");
     }
 
-    /**
-     * TODO
-     * is MIUI OS
-     */
-    public static boolean isMIUI() {
-        return false;
-    }
 }

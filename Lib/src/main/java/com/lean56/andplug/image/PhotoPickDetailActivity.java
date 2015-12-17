@@ -16,7 +16,7 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 import com.lean56.andplug.R;
 import com.lean56.andplug.activity.BaseActivity;
-import com.lean56.andplug.image.pick.ImageInfo;
+import com.lean56.andplug.image.entity.ImageInfo;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.lean56.andplug.image.pick;
+package com.lean56.andplug.image.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +12,7 @@ import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
 import com.lean56.andplug.image.BasePhotoPickActivity;
 import com.lean56.andplug.image.ImageLoadUtils;
+import com.lean56.andplug.image.entity.ImageInfo;
 
 /**
  * GridPhotoAdapter

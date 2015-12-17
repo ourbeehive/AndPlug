@@ -20,9 +20,9 @@ import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
 import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.common.ResultCodes;
-import com.lean56.andplug.image.pick.AllPhotoAdapter;
-import com.lean56.andplug.image.pick.GridPhotoAdapter;
-import com.lean56.andplug.image.pick.ImageInfo;
+import com.lean56.andplug.image.adapter.AllPhotoAdapter;
+import com.lean56.andplug.image.adapter.GridPhotoAdapter;
+import com.lean56.andplug.image.entity.ImageInfo;
 
 import java.util.ArrayList;
 

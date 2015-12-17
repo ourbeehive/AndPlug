@@ -1,4 +1,4 @@
-package com.lean56.andplug.image.pick;
+package com.lean56.andplug.image.entity;
 
 /**
  * ImageInfoExtra

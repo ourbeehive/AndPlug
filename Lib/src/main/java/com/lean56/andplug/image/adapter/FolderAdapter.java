@@ -1,4 +1,4 @@
-package com.lean56.andplug.image.pick;
+package com.lean56.andplug.image.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.lean56.andplug.R;
 import com.lean56.andplug.image.ImageLoadUtils;
+import com.lean56.andplug.image.entity.ImageInfo;
+import com.lean56.andplug.image.entity.ImageInfoExtra;
 
 import java.util.ArrayList;
 

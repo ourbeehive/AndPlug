@@ -16,8 +16,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.*;
 import com.lean56.andplug.R;
 import com.lean56.andplug.common.ResultCodes;
-import com.lean56.andplug.image.pick.*;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.lean56.andplug.image.entity.ImageInfo;
+import com.lean56.andplug.image.entity.ImageInfoExtra;
+import com.lean56.andplug.image.adapter.*;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
