@@ -140,7 +140,7 @@ public abstract class OkHttpCallback implements com.squareup.okhttp.Callback {
      * @param e
      */
     protected void handleRequestFailure(Request request, IOException e) {
-        Log.e(request.tag().toString(), e.getMessage());
+        Log.e(request.tag().toString(), "IOException:" + e.getMessage());
 
         if (e instanceof SocketTimeoutException) {
             BaseApplication.showToast(mActivity.getString(R.string.socket_timeout_exception));
