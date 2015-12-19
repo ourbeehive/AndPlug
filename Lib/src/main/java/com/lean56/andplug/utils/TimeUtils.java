@@ -17,12 +17,14 @@ import static android.text.format.DateUtils.*;
  */
 public class TimeUtils {
 
+    private final static String DEFAULT_SDF = "MM月dd日";
+
     public static CharSequence formatString(String dateStr) {
-        return formatString(dateStr, "yyyy年MM月dd日");
+        return formatString(dateStr, DEFAULT_SDF);
     }
 
     public static CharSequence formatDate(Date date) {
-        return formatDate(date, "yyyy年MM月dd日");
+        return formatDate(date, DEFAULT_SDF);
     }
 
     public static CharSequence formatString(String dateStr, String sdfStr) {
