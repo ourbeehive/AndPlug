@@ -148,6 +148,21 @@ public class CameraPhotoUtils {
         return cropImageWithRect(bitmap, rectF, checkRotate,degree);
     }
 
+    /**
+     * is the file uri image
+     */
+    public static boolean isImageUri(String uri) {
+        uri = uri.toLowerCase();
+        return uri.endsWith(".png") || uri.endsWith(".jpg") || uri.endsWith(".jpeg") || uri.endsWith(".bmp") || uri.endsWith(".gif");
+    }
+
+    /**
+     * is the file gif
+     */
+    public static boolean isGif(String uri) {
+        return uri.toLowerCase().endsWith(".gif");
+    }
+
     @SuppressLint("NewApi")
     public static String getPath(final Context context, final Uri uri) {
 

@@ -36,6 +36,19 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment {
         return inflater.inflate(getContentView(), container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initArgument();
+    }
+
+    /**
+     * init argument
+     */
+    protected void initArgument() {
+        // blank
+    }
+
     // [+] title
     private String mTitle;
 
