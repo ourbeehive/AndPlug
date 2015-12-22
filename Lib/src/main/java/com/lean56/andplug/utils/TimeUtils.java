@@ -23,6 +23,10 @@ public class TimeUtils {
         return formatString(dateStr, DEFAULT_SDF);
     }
 
+    public static CharSequence formatLong(long millis) {
+        return formatDate(new Date(millis), DEFAULT_SDF);
+    }
+
     public static CharSequence formatDate(Date date) {
         return formatDate(date, DEFAULT_SDF);
     }
