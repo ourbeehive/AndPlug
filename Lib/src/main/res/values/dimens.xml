@@ -25,8 +25,8 @@
     <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_large">22sp</dimen>
 
-
-
+    <dimen name="tab_height">54dp</dimen>
+    <dimen name="tab_icon_size">26dp</dimen>
 
     <!-- margin -->
     <dimen name="margin_xxs">2.0dip</dimen>

@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  style="@style/RootView">
+              style="@style/RootView">
 
-	<include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar"/>
 
-	<TabHost android:id="@android:id/tabhost"
-			 android:layout_width="match_parent"
-			 android:layout_height="match_parent">
+    <TabHost android:id="@android:id/tabhost"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-		<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-			<FrameLayout
-					android:id="@android:id/tabcontent"
-					android:layout_width="match_parent"
-					android:layout_height="0dp"
-					android:layout_weight="1"
-					android:visibility="gone"/>
+            <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"/>
 
-			<com.lean56.andplug.view.ViewPager
-					android:id="@id/vp_pages"
-					android:layout_width="match_parent"
-					android:layout_height="0dp"
-					android:layout_weight="1"/>
+            <com.lean56.andplug.view.ViewPager
+                    android:id="@id/vp_pages"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
 
-			<View
-					android:layout_width="match_parent"
-					android:layout_height="1dp"
-					android:background="@color/tab_bg_top"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/tab_bg_top"/>
 
-			<TabWidget
-					android:id="@android:id/tabs"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:dividerPadding="0dp"
-					android:showDividers="none"/>
+            <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tab_height"
+                    android:dividerPadding="0dp"
+                    android:showDividers="none"/>
 
-		</LinearLayout>
+        </LinearLayout>
 
-	</TabHost>
+    </TabHost>
 
 </LinearLayout>
