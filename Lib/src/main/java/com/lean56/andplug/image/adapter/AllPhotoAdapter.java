@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
-import com.lean56.andplug.image.BasePhotoPickActivity;
+import com.lean56.andplug.image.PhotoPickActivity;
 
 /**
  * All Photo Adapter
@@ -16,7 +16,7 @@ import com.lean56.andplug.image.BasePhotoPickActivity;
  */
 public class AllPhotoAdapter extends GridPhotoAdapter {
 
-    public AllPhotoAdapter(Context context, Cursor c, boolean autoRequery, BasePhotoPickActivity activity) {
+    public AllPhotoAdapter(Context context, Cursor c, boolean autoRequery, PhotoPickActivity activity) {
         super(context, c, autoRequery, activity);
     }
 

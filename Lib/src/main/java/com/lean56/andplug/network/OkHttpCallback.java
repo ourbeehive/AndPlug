@@ -60,8 +60,6 @@ public abstract class OkHttpCallback implements com.squareup.okhttp.Callback {
             @Override
             public void run() {
                 onComplete(response.request(), true);
-                // pre-handle response
-                preHandleResponse(response);
             }
         });
 
@@ -100,10 +98,6 @@ public abstract class OkHttpCallback implements com.squareup.okhttp.Callback {
      * @param request
      */
     protected void onComplete(Request request, boolean response) {
-        // blank
-    }
-
-    protected void preHandleResponse(Response response) {
         // blank
     }
 

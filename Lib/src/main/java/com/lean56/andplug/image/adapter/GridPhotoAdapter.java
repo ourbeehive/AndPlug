@@ -10,8 +10,8 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
-import com.lean56.andplug.image.BasePhotoPickActivity;
 import com.lean56.andplug.image.ImageLoadUtils;
+import com.lean56.andplug.image.PhotoPickActivity;
 import com.lean56.andplug.image.entity.ImageInfo;
 
 /**
@@ -23,10 +23,10 @@ public class GridPhotoAdapter extends CursorAdapter {
 
     final int itemHeight, itemWidth;
     LayoutInflater mInflater;
-    BasePhotoPickActivity mActivity;
+    PhotoPickActivity mActivity;
     ImageLoadUtils mImageLoadUtils;
 
-    public GridPhotoAdapter(Context context, Cursor c, boolean autoRequery, BasePhotoPickActivity activity) {
+    public GridPhotoAdapter(Context context, Cursor c, boolean autoRequery, PhotoPickActivity activity) {
         super(context, c, autoRequery);
         mInflater = LayoutInflater.from(context);
         mActivity = activity;
@@ -48,7 +48,7 @@ public class GridPhotoAdapter extends CursorAdapter {
         holder.icon = (ImageView) convertView.findViewById(R.id.icon);
         holder.iconFore = (ImageView) convertView.findViewById(R.id.iconFore);
         holder.check = (CheckBox) convertView.findViewById(R.id.check);
-        BasePhotoPickActivity.GridViewCheckTag checkTag = new BasePhotoPickActivity.GridViewCheckTag(holder.iconFore, holder.check);
+        PhotoPickActivity.GridViewCheckTag checkTag = new PhotoPickActivity.GridViewCheckTag(holder.iconFore, holder.check);
         holder.check.setTag(checkTag);
         holder.check.setOnClickListener(mClickItem);
         convertView.setTag(holder);
@@ -69,7 +69,7 @@ public class GridPhotoAdapter extends CursorAdapter {
         String path = ImageInfo.pathAddPrefix(cursor.getString(1));
         mImageLoadUtils.loadPostImage(path, holder.icon);
 
-        ((BasePhotoPickActivity.GridViewCheckTag) holder.check.getTag()).path = path;
+        ((PhotoPickActivity.GridViewCheckTag) holder.check.getTag()).path = path;
         boolean picked = mActivity.isPicked(path);
         holder.check.setChecked(picked);
         holder.iconFore.setVisibility(picked ? View.VISIBLE : View.INVISIBLE);

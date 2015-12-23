@@ -250,6 +250,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             mProgressDialog = new MaterialDialog.Builder(this)
                     .content(content)
                     .progress(true, 0)
+                    .cancelable(false)
                     .show();
         } else {
             mProgressDialog.setContent(content);

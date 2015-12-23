@@ -1,6 +1,8 @@
 package com.lean56.andplug.image;
 
 import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.ActivityNotFoundException;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -14,11 +16,15 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
+import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
+import com.lean56.andplug.activity.BaseActivity;
 import com.lean56.andplug.common.ResultCodes;
+import com.lean56.andplug.image.adapter.AllPhotoAdapter;
+import com.lean56.andplug.image.adapter.FolderAdapter;
+import com.lean56.andplug.image.adapter.GridPhotoAdapter;
 import com.lean56.andplug.image.entity.ImageInfo;
 import com.lean56.andplug.image.entity.ImageInfoExtra;
-import com.lean56.andplug.image.adapter.*;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -29,7 +35,7 @@ import java.util.LinkedHashMap;
  *
  * @author Charles
  */
-public class PhotoPickActivity extends BasePhotoPickActivity {
+public class PhotoPickActivity extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final static String TAG = PhotoPickActivity.class.getSimpleName();
 
@@ -45,6 +51,7 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
     private int mMaxPick = 1;
 
     int mFolderId = 0;
+
     /**
      * if selected the first one
      */
@@ -66,7 +73,8 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
     GridView.OnItemClickListener mPhotoItemClick = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(PhotoPickActivity.this, PhotoPickDetailActivity.class);
+            return;
+           /* Intent intent = new Intent(PhotoPickActivity.this, PhotoPickDetailActivity.class);
 
             intent.putExtra(PhotoPickDetailActivity.PICK_DATA, mPickData);
             intent.putExtra(PhotoPickDetailActivity.EXTRA_MAX, mMaxPick);
@@ -79,7 +87,7 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
                 folderParam = mFolderAdapter.getSelect();
             }
             intent.putExtra(PhotoPickDetailActivity.FOLDER_NAME, folderParam);
-            startActivityForResult(intent, ResultCodes.PHOTO_PICK_SELECTED);
+            startActivityForResult(intent, ResultCodes.PHOTO_PICK_SELECTED);*/
         }
     };
 
@@ -143,7 +151,7 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
         mPreviewText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handlePreview(v);
+                //handlePreview(v);
             }
         });
 
@@ -200,7 +208,7 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
         getLoaderManager().initLoader(0, null, this);
     }
 
-    // [-] LoaderManager.LoaderCallbacks
+    // [+] LoaderManager.LoaderCallbacks
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String where = "";
@@ -319,10 +327,17 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
      * external call
      */
     public void camera() {
+        if(!mPickData.isEmpty()){
+            mPickData.remove(0);
+        }
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         fileUri = CameraPhotoUtils.getOutputMediaFileUri();
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-        startActivityForResult(intent, ResultCodes.PHOTO_PICK_CAMERA);
+        try {
+            startActivityForResult(intent, ResultCodes.PHOTO_PICK_CAMERA);
+        } catch (ActivityNotFoundException e) {
+            BaseApplication.showToast(R.string.camera_exception);
+        }
     }
 
     // [+] OptionsMenu
@@ -421,6 +436,17 @@ public class PhotoPickActivity extends BasePhotoPickActivity {
 
         String formatPreview = "预览(%d/%d)";
         mPreviewText.setText(String.format(formatPreview, mPickData.size(), mMaxPick));
+    }
+
+    public static class GridViewCheckTag {
+        public View iconFore;
+        public CheckBox check;
+        public String path = "";
+
+        public GridViewCheckTag(View iconFore, CheckBox check) {
+            this.iconFore = iconFore;
+            this.check = check;
+        }
     }
 
 }
