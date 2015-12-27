@@ -1,12 +1,12 @@
 package com.lean56.andplug.common;
 
 /**
- * Result codes
+ * Request Codes
  * 0001-0fff will be reserved
  *
  * @author Charles
  */
-public interface ResultCodes {
+public interface RequestCodes {
 
     int PHOTO_PICK = 0x0001;
 

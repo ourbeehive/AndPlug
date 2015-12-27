@@ -19,7 +19,7 @@ import android.widget.*;
 import com.lean56.andplug.BaseApplication;
 import com.lean56.andplug.R;
 import com.lean56.andplug.activity.BaseActivity;
-import com.lean56.andplug.common.ResultCodes;
+import com.lean56.andplug.common.RequestCodes;
 import com.lean56.andplug.image.adapter.AllPhotoAdapter;
 import com.lean56.andplug.image.adapter.FolderAdapter;
 import com.lean56.andplug.image.adapter.GridPhotoAdapter;
@@ -87,7 +87,7 @@ public class PhotoPickActivity extends BaseActivity implements LoaderManager.Loa
                 folderParam = mFolderAdapter.getSelect();
             }
             intent.putExtra(PhotoPickDetailActivity.FOLDER_NAME, folderParam);
-            startActivityForResult(intent, ResultCodes.PHOTO_PICK_SELECTED);*/
+            startActivityForResult(intent, RequestCodes.PHOTO_PICK_SELECTED);*/
         }
     };
 
@@ -264,7 +264,7 @@ public class PhotoPickActivity extends BaseActivity implements LoaderManager.Loa
         intent.putExtra(PhotoPickDetailActivity.PICK_DATA, mPickData);
         intent.putExtra(PhotoPickDetailActivity.ALL_DATA, mPickData);
         intent.putExtra(PhotoPickDetailActivity.EXTRA_MAX, mMaxPick);
-        startActivityForResult(intent, ResultCodes.PHOTO_PICK_SELECTED);
+        startActivityForResult(intent, RequestCodes.PHOTO_PICK_SELECTED);
     }
 
     /**
@@ -334,7 +334,7 @@ public class PhotoPickActivity extends BaseActivity implements LoaderManager.Loa
         fileUri = CameraPhotoUtils.getOutputMediaFileUri();
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         try {
-            startActivityForResult(intent, ResultCodes.PHOTO_PICK_CAMERA);
+            startActivityForResult(intent, RequestCodes.PHOTO_PICK_CAMERA);
         } catch (ActivityNotFoundException e) {
             BaseApplication.showToast(R.string.camera_exception);
         }
@@ -391,13 +391,13 @@ public class PhotoPickActivity extends BaseActivity implements LoaderManager.Loa
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == ResultCodes.PHOTO_PICK_SELECTED) {
+            if (requestCode == RequestCodes.PHOTO_PICK_SELECTED) {
                 mPickData = (ArrayList<ImageInfo>) data.getSerializableExtra("data");
                 mPhotoAdapter.notifyDataSetChanged();
                 if (data.getBooleanExtra("send", false)) {
                     send();
                 }
-            } else if (requestCode == ResultCodes.PHOTO_PICK_CAMERA) {
+            } else if (requestCode == RequestCodes.PHOTO_PICK_CAMERA) {
                 mPickData.add(new ImageInfo(fileUri.toString()));
                 send();
             }
