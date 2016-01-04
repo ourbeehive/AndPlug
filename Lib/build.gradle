@@ -31,7 +31,7 @@ dependencies {
     // compile "com.android.support:multidex:1.0.0"
 
     // HTTP requester
-    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.1'
     // JSON Processor
     compile 'com.alibaba:fastjson:1.1.46.android'
     // Universal Image Loader
