@@ -24,8 +24,8 @@ ext {
     targetSdkVersion = 23
 
     // compileOptions
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
 
     // support version
     supportVersion = "23.2.1"
