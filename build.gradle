@@ -13,10 +13,6 @@ buildscript {
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.11'
-}
-
 // global var define
 ext {
     // tool version
@@ -28,11 +24,11 @@ ext {
     targetSdkVersion = 23
 
     // compileOptions
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 
     // support version
-    supportVersion = "23.2.0"
+    supportVersion = "23.2.1"
 }
 
 allprojects {
